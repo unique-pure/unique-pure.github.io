@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-04T10:56:33.037Z</updated>
+  <updated>2022-03-04T01:53:19.578Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://unique-pure.github.io/2022/03/04/dijkstra/"/>
-    <id>http://unique-pure.github.io/2022/03/04/dijkstra/</id>
-    <published>2022-03-04T10:54:13.140Z</published>
-    <updated>2022-03-04T10:56:33.037Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;dijkstra算法详解（迪杰斯特拉算法）-简单易懂&quot;&gt;&lt;a href=&quot;#dijkstra算法详解（迪杰斯特拉算法）-简单易懂&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-    <category term="dijkstra algorithm" scheme="http://unique-pure.github.io/tags/dijkstra-algorithm/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -57,6 +34,52 @@
     
     
     
+    
+  </entry>
+  
+  <entry>
+    <title>Dijkstra算法详解</title>
+    <link href="http://unique-pure.github.io/2020/07/29/dijkstra/"/>
+    <id>http://unique-pure.github.io/2020/07/29/dijkstra/</id>
+    <published>2020-07-28T16:00:00.000Z</published>
+    <updated>2022-03-04T11:01:56.839Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;dijkstra算法详解（迪杰斯特拉算法）-简单易懂&quot;&gt;&lt;a href=&quot;#dijkstra算法详解（迪杰斯特拉算法）-简单易懂&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="dijkstra algorithm" scheme="http://unique-pure.github.io/tags/dijkstra-algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Prim算法详解</title>
+    <link href="http://unique-pure.github.io/2020/07/29/prim/"/>
+    <id>http://unique-pure.github.io/2020/07/29/prim/</id>
+    <published>2020-07-28T16:00:00.000Z</published>
+    <updated>2022-03-04T11:01:58.729Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Prim算法&quot;&gt;&lt;a href=&quot;#Prim算法&quot; class=&quot;headerlink&quot; title=&quot;Prim算法&quot;&gt;&lt;/a&gt;Prim算法&lt;/h1&gt;&lt;h2 id=&quot;一、最小生成树（Minimum-Spanning-Tree-MST）&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="dijkstra algorithm" scheme="http://unique-pure.github.io/tags/dijkstra-algorithm/"/>
     
   </entry>
   
