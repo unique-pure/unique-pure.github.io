@@ -5,7 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Hello World, pursuit&#39;s blog">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="description" content="dijkstra算法详解（迪杰斯特拉算法）~~简单易懂PS：此算法不能用于求负权图，要求所有边的权重都为非负值。
+
+一、简介（百度百科）
+迪杰斯特拉算法(Dijkstra)是由荷兰计算机科学家狄克斯特拉于1959 年提出的，因此又叫狄克斯特">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -431,9 +434,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/dijkstra-algorithm/">
+                                <span class="chip bg-color">dijkstra algorithm</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -459,14 +466,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -489,19 +496,102 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="dijkstra算法详解（迪杰斯特拉算法）-简单易懂"><a href="#dijkstra算法详解（迪杰斯特拉算法）-简单易懂" class="headerlink" title="dijkstra算法详解（迪杰斯特拉算法）~~简单易懂"></a>dijkstra算法详解（迪杰斯特拉算法）~~简单易懂</h1><p><strong>PS：此算法不能用于求负权图，要求所有边的权重都为非负值。</strong></p>
+<hr>
+<h2 id="一、简介（百度百科）"><a href="#一、简介（百度百科）" class="headerlink" title="一、简介（百度百科）"></a>一、简介（百度百科）</h2><blockquote>
+<p>迪杰斯特拉算法(Dijkstra)是由荷兰计算机科学家狄克斯特拉于1959 年提出的，因此又叫狄克斯特拉算法。这是从一个顶点到其余各顶点的最短路径算法，解决的是有权图中最短路径问题。<strong>迪杰斯特拉算法主要特点是从起始点开始，采用贪心算法的策略，每次遍历到始点距离最近且未访问过的顶点的邻接节点，直到扩展到终点为止</strong>。</p>
+</blockquote>
+<hr>
+<h2 id="二、算法思想与原理"><a href="#二、算法思想与原理" class="headerlink" title="二、算法思想与原理"></a>二、算法思想与原理</h2><blockquote>
+<p>dijkstra算法思想是基于贪心算法思想的。<strong>所谓贪心算法即始终保持当前迭代解为当前最优解。</strong>意思就是在已知的条件下或是当前拥有的全部条件下保证最优解，若在此后的迭代中由于加入了新的条件使得产生了更优解则替代此前的最优解。通过不断的迭代不断保证每次迭代的结果都是当前<strong>最优解</strong>，那么当迭代到最后一轮时得到的就会是<strong>全局最优解</strong>。 由于下一轮迭代会参考上一轮的最优解，因此<strong>每一轮的迭代的工作量基本一致</strong>，降低了整体工作的复杂性。</p>
+</blockquote>
+<p>在最短路径的问题中，局部最优解即<strong>当前的最短路径</strong>或者说是在==当前的已知条件下==起点到其余各点的最短距离。关键就在于已知条件，这也是Dijkstra算法最精妙的地方。我们来解释一下。</p>
+<p>对于Dijkstra算法，我们假设初始集合（也就是初始条件）不存在任何顶点的，即所有顶点之间是不存在任何路径的，即我们认为所有顶点之间的距离都是无穷大。那么开始加入新的条件，因为我们已知源点距源点距离最小，所以加入进去，并加入它的边，<strong>在该条件下，更新该源点到其余顶点的最短距离，选出没有加入到已知集合的距源点距离最小的点，此点最短距离也被确定了（因为其他路径都比这条路径大，无法通过其他路径间接到达这个顶点使得路径更小），然后加入该点与其余还未加入已知条件顶点的边，并以该点迭代刷新最短距离</strong>。再重复以上操作，直至所有顶点都加入已知条件集合。</p>
+<hr>
+<h2 id="三、具体步骤"><a href="#三、具体步骤" class="headerlink" title="三、具体步骤"></a>三、具体步骤</h2><ol>
+<li>选择起点start与终点end；</li>
+<li>所有点除起点外加入未知集合，并将起点加入已知集合，即至标志位为真，意为已确定该点到源点的最短路径；</li>
+<li>初始化计算，更新起点与其他各点的耗费dis(start,n);</li>
+<li>在未知集合中，选择dis(start,n)中值最小的点x，将x加入已知集合。</li>
+<li><strong>对于剩余顶点中，计算dis(start,n)&gt;dis(start,x)+dis(x,n)<br>若真则dis(start,n)=dis(start,x)+dis(x,n)，此时start与n点路径经过x点。循环直至goal点加入已知列表，取得dis(start,goal)即为最短距离。</strong></li>
+</ol>
+<hr>
+<h2 id="四、动态展示"><a href="#四、动态展示" class="headerlink" title="四、动态展示"></a>四、动态展示</h2><p><img src="https://img-blog.csdnimg.cn/20210322130709747.gif#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="五、一般代码实现（以邻接矩阵为例）"><a href="#五、一般代码实现（以邻接矩阵为例）" class="headerlink" title="五、一般代码实现（以邻接矩阵为例）"></a>五、一般代码实现（以邻接矩阵为例）</h2><ol>
+<li>基本数据</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> inf<span class="token operator">=</span><span class="token number">0x3f3f3f3f</span><span class="token punctuation">;</span> <span class="token comment">//代表无穷大。</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> maxn<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span><span class="token comment">//最大顶点数</span>
+<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span><span class="token comment">//n个顶点，m条边。</span>
+<span class="token keyword">bool</span> visited<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//判断是否确定到源点的最终最短距离。</span>
+<span class="token keyword">int</span> graph<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//带权图</span>
+<span class="token keyword">int</span> dis<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//顶点到源点的最短距离。</span>
+<span class="token keyword">int</span> start<span class="token punctuation">,</span>goal<span class="token punctuation">;</span><span class="token comment">//起点与目标点。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="2">
+<li>初始化</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token function">memset</span><span class="token punctuation">(</span>visited<span class="token punctuation">,</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>visited<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		dis<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//初始化dis数组。</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="3">
+<li>dijkstra算法核心</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">dijkstra</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token comment">//源点为源点start。</span>
+	<span class="token keyword">int</span> minn<span class="token punctuation">;</span><span class="token comment">//记录每趟最短路径中最小的路径值。 </span>
+	<span class="token keyword">int</span> pos<span class="token punctuation">;</span><span class="token comment">//记录得到的minn所对应的下标。</span>
+	<span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//调用初始化函数。</span>
+	visited<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token comment">//将n个顶点依次加入判断。</span>
+		minn<span class="token operator">=</span>inf<span class="token punctuation">;</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span>dis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>minn<span class="token punctuation">)</span><span class="token punctuation">{</span>
+				minn<span class="token operator">=</span>dis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+				pos<span class="token operator">=</span>j<span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token comment">//经过这趟for循环后我们找到的就是我们想要的点，可以确定这点到源点的最终最短距离了。</span>
+		visited<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//我们将此点并入已知集合。</span>
+		<span class="token comment">//接下来就是更新dis数组了，也就是当前最短距离，这都是针对还没有并入已知集合的点。</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&amp;&amp;</span>dis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&gt;</span>dis<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token operator">+</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
+				dis<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>dis<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token operator">+</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">//退出循环后，所有的点都已并入已知集合中，得到的dis数组也就是最终最短距离了。</span>
+	cout<span class="token operator">&lt;&lt;</span>dis<span class="token punctuation">[</span>goal<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//输出目标点到源点的最短路径长度。</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="4">
+<li>主函数与头文件等</li>
+</ol>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span></span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>cin<span class="token operator">&gt;&gt;</span>n<span class="token operator">&gt;&gt;</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
+		<span class="token function">memset</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span>inf<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> u<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">;</span>
+		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>m<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+			cin<span class="token operator">&gt;&gt;</span>u<span class="token operator">&gt;&gt;</span>v<span class="token operator">&gt;&gt;</span>w<span class="token punctuation">;</span>
+<span class="token comment">//			graph[u][v]=w;//有向图</span>
+			graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>w<span class="token punctuation">;</span><span class="token comment">//无向图</span>
+		<span class="token punctuation">}</span>
+		cin<span class="token operator">&gt;&gt;</span>start<span class="token operator">&gt;&gt;</span>goal<span class="token punctuation">;</span><span class="token comment">//输入起点与终点。</span>
+		<span class="token function">dijkstra</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="六、拓展"><a href="#六、拓展" class="headerlink" title="六、拓展"></a>六、拓展</h2><p>如果你学会了dijkstra，那恭喜你成功突破了一关。但是，没有优化的dijkstra算法时间复杂度为$O(n^2)$，如果顶点很多边很少呢等等卡邻接矩阵的题，那么建议你还是要学一下dijkstra的优化版了。详情点击：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hzf0701/article/details/107674290?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163080838116780269879915%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=163080838116780269879915&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-107674290.pc_v2_rank_blog_default&amp;utm_term=dijkstra&amp;spm=1018.2226.3001.4450">Dijkstra算法优化~~你一定可以看懂的四种进阶优化</a></p>
 
                 
             </div>
@@ -528,7 +618,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://unique-pure.github.io/2022/03/04/hello-world/">http://unique-pure.github.io/2022/03/04/hello-world/</a>
+                    <a href="http://unique-pure.github.io/2022/03/04/dijkstra/">http://unique-pure.github.io/2022/03/04/dijkstra/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -565,7 +655,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/dijkstra-algorithm/">
+                                    <span class="chip bg-color">dijkstra algorithm</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -737,9 +831,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/03/04/dijkstra/">
                     <div class="card-image">
@@ -757,9 +852,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-04
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -768,6 +863,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -783,7 +879,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2022/03/04/hello-world/">
@@ -813,7 +909,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
