@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-04T01:53:19.578Z</updated>
+  <updated>2022-03-04T11:13:17.120Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -17,32 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://unique-pure.github.io/2022/03/04/hello-world/"/>
-    <id>http://unique-pure.github.io/2022/03/04/hello-world/</id>
-    <published>2022-03-04T01:53:19.577Z</published>
-    <updated>2022-03-04T01:53:19.578Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Dijkstra算法详解</title>
     <link href="http://unique-pure.github.io/2020/07/29/dijkstra/"/>
     <id>http://unique-pure.github.io/2020/07/29/dijkstra/</id>
     <published>2020-07-28T16:00:00.000Z</published>
-    <updated>2022-03-04T11:01:56.839Z</updated>
+    <updated>2022-03-04T11:13:17.120Z</updated>
     
     
       
@@ -56,7 +35,7 @@
     
     
     
-    <category term="dijkstra algorithm" scheme="http://unique-pure.github.io/tags/dijkstra-algorithm/"/>
+    <category term="Dijkstra algorithm" scheme="http://unique-pure.github.io/tags/Dijkstra-algorithm/"/>
     
   </entry>
   
@@ -65,7 +44,7 @@
     <link href="http://unique-pure.github.io/2020/07/29/prim/"/>
     <id>http://unique-pure.github.io/2020/07/29/prim/</id>
     <published>2020-07-28T16:00:00.000Z</published>
-    <updated>2022-03-04T11:09:32.117Z</updated>
+    <updated>2022-03-04T11:30:22.339Z</updated>
     
     
       
@@ -79,7 +58,7 @@
     
     
     
-    <category term="dijkstra algorithm" scheme="http://unique-pure.github.io/tags/dijkstra-algorithm/"/>
+    <category term="Prim algorithm" scheme="http://unique-pure.github.io/tags/Prim-algorithm/"/>
     
   </entry>
   
