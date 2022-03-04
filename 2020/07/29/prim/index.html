@@ -846,33 +846,33 @@
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
 
-    
-        <link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-<script src="https://www.wenjunjiang.win/js/gitment.js"></script>
-
-<div class="gitment-card card" data-aos="fade-up">
+<div class="card gitalk-card" data-aos="fade-up">
     <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
         <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
         <span>评论</span>
     </div>
-    <div id="gitment-content" class="card-content"></div>
+    <div id="gitalk-container" class="card-content"></div>
 </div>
 
-<script src="/libs/gitment/gitment.js"></script>
+<script src="/libs/gitalk/gitalk.min.js"></script>
 <script>
-var gitment = new Gitment({
-    id: 'Wed Jul 29 2020 00:00:00 GMT+0800',
-    owner: 'unique-pure',
-    repo: 'commentRes',
-    oauth: {
-        client_id: '9df5ccb0d1f027d3397a',
-        client_secret: 'c60a421119897ee3bccdbcb962f327f798fa1b70'
-    }
-});
+    let gitalk = new Gitalk({
+        clientID: '9df5ccb0d1f027d3397a',
+        clientSecret: 'c60a421119897ee3bccdbcb962f327f798fa1b70',
+        repo: 'commentRes',
+        owner: 'unique-pure',
+        admin: "unique-pure",
+        id: '2020-07-29T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
 
-gitment.render('gitment-content');
+    gitalk.render('gitalk-container');
 </script>
+
+    
 
     
 
