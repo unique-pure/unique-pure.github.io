@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="第三章作业、shell语法创建好作业后，先进入文件夹&#x2F;home&#x2F;acs&#x2F;homework&#x2F;lesson_3&#x2F;，然后：(0) 进入homework_0文件夹，编写自动完成lesson_1作业的脚本helper.sh。要求：    [1] 当前目录下仅包含helper.sh    [2] helper.sh具有可执行权限    [3] 在任意路径依次执">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pursuit blog">
+<meta property="og:url" content="http://example.com/2022/03/04/AcwingLinux%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%AC%AC%E4%B8%89%E7%AB%A0%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="pursuit blog">
+<meta property="og:description" content="第三章作业、shell语法创建好作业后，先进入文件夹&#x2F;home&#x2F;acs&#x2F;homework&#x2F;lesson_3&#x2F;，然后：(0) 进入homework_0文件夹，编写自动完成lesson_1作业的脚本helper.sh。要求：    [1] 当前目录下仅包含helper.sh    [2] helper.sh具有可执行权限    [3] 在任意路径依次执">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-04T06:04:10.840Z">
+<meta property="article:modified_time" content="2022-01-23T09:21:49.808Z">
+<meta property="article:author" content="贺志飞">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/03/04/AcwingLinux%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%AC%AC%E4%B8%89%E7%AB%A0%E4%BD%9C%E4%B8%9A/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | pursuit blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">pursuit blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/04/AcwingLinux%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%AC%AC%E4%B8%89%E7%AB%A0%E4%BD%9C%E4%B8%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="贺志飞">
+      <meta itemprop="description" content="这是我的个人blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="pursuit blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-03-04 14:04:10" itemprop="dateCreated datePublished" datetime="2022-03-04T14:04:10+08:00">2022-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-23 17:21:49" itemprop="dateModified" datetime="2022-01-23T17:21:49+08:00">2022-01-23</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="第三章作业、shell语法"><a href="#第三章作业、shell语法" class="headerlink" title="第三章作业、shell语法"></a>第三章作业、shell语法</h1><p>创建好作业后，先进入文件夹&#x2F;home&#x2F;acs&#x2F;homework&#x2F;lesson_3&#x2F;，然后：<br>(0) 进入homework_0文件夹，编写自动完成lesson_1作业的脚本helper.sh。要求：<br>    [1] 当前目录下仅包含helper.sh<br>    [2] helper.sh具有可执行权限<br>    [3] 在任意路径依次执行下列命令后，lesson_1的作业可以得到满分：<br>        1) homework 1 create<br>        2) &#x2F;home&#x2F;acs&#x2F;homework&#x2F;lesson_3&#x2F;homework_0&#x2F;helper.sh</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># </span><span class="language-bash">*************homework0****************</span>                                      </span><br><span class="line">dir0=/home/acs/homework/lesson_1/homework_0                                   </span><br><span class="line">for i in dir_a dir_b dir_c                                                    </span><br><span class="line">do                                                                            </span><br><span class="line">    mkdir $&#123;dir0&#125;/$i                                                          </span><br><span class="line">done                                                                          </span><br><span class="line">                                                                              </span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework1****************</span>                                      </span><br><span class="line">dir1=/home/acs/homework/lesson_1/homework_1                                   </span><br><span class="line">for i in a.txt b.txt c.txt                                                    </span><br><span class="line">do                                                                            </span><br><span class="line">    cp $&#123;dir1&#125;/$&#123;i&#125; $&#123;dir1&#125;/$&#123;i&#125;.bak                                          </span><br><span class="line">done                                                                          </span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework2****************</span>                                      </span><br><span class="line">dir2=/home/acs/homework/lesson_1/homework_2                                   </span><br><span class="line">for i in a b c                                                                </span><br><span class="line">do                                                                            </span><br><span class="line">    mv $&#123;dir2&#125;/$&#123;i&#125;.txt $&#123;dir2&#125;/$&#123;i&#125;_new.txt                                  </span><br><span class="line">done                                                                          </span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework3****************</span>                                      </span><br><span class="line">dir3=/home/acs/homework/lesson_1/homework_3                                   </span><br><span class="line">for i in a.txt b.txt c.txt                                                    </span><br><span class="line">do                                                                            </span><br><span class="line">    mv $&#123;dir3&#125;/dir_a/$&#123;i&#125; $&#123;dir3&#125;/dir_b/                                      </span><br><span class="line">done                                                                          </span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework4****************</span>  </span><br><span class="line">dir4=/home/acs/homework/lesson_1/homework_4</span><br><span class="line">for i in a.txt b.txt c.txt</span><br><span class="line">do</span><br><span class="line">    rm -r $&#123;dir4&#125;/$&#123;i&#125;</span><br><span class="line">done</span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework5****************</span></span><br><span class="line">dir5=/home/acs/homework/lesson_1/homework_5</span><br><span class="line">for i in dir_a dir_b dir_c</span><br><span class="line">do</span><br><span class="line">    rm -r $&#123;dir5&#125;/$&#123;i&#125;</span><br><span class="line">done</span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework6****************</span></span><br><span class="line">dir6=/home/acs/homework/lesson_1/homework_6</span><br><span class="line">mv $&#123;dir6&#125;/task.txt &quot;$&#123;dir6&#125;/done.txt&quot; #由于done为关键字，所以需要加双引号</span><br><span class="line">mkdir $&#123;dir6&#125;/dir_a </span><br><span class="line">mv &quot;$&#123;dir6&#125;/done.txt&quot; $&#123;dir6&#125;/dir_a/</span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework7****************</span></span><br><span class="line">dir7=/home/acs/homework/lesson_1/homework_7</span><br><span class="line">for ((i=0; i&lt;3; ++ i))</span><br><span class="line">do</span><br><span class="line">   mkdir $&#123;dir7&#125;/dir_$&#123;i&#125;</span><br><span class="line">    for j in a b c </span><br><span class="line">    do</span><br><span class="line">        cp $&#123;dir7&#125;/$&#123;j&#125;.txt $&#123;dir7&#125;/dir_$&#123;i&#125;/$&#123;j&#125;$&#123;i&#125;.txt</span><br><span class="line">    done</span><br><span class="line">done</span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework8*****************</span></span><br><span class="line">dir8=/home/acs/homework/lesson_1/homework_8</span><br><span class="line">rm $&#123;dir8&#125;/dir_a/a.txt</span><br><span class="line">mv $&#123;dir8&#125;/dir_b/b.txt $&#123;dir8&#125;/dir_b/b_new.txt</span><br><span class="line">cp $&#123;dir8&#125;/dir_c/c.txt $&#123;dir8&#125;/dir_c/c.txt.bak</span><br><span class="line"><span class="meta"># </span><span class="language-bash">*************homework9*****************</span></span><br><span class="line">dir9=/home/acs/homework/lesson_1/homework_9</span><br><span class="line">rm -rf $&#123;dir9&#125;/*.txt</span><br></pre></td></tr></table></figure>
+
+<p>(1) 进入homework_1文件夹，编写脚本check_file.sh。要求：<br>    [1] 当前目录下仅包含check_file.sh。<br>    [2] check_file.sh具有可执行权限。<br>    [3] check_file.sh接收一个传入参数。格式为 .&#x2F;check_file.sh file<br>    [4] 判断传递参数，分别在标准输出中输出如下内容（不包括双引号）：<br>        1) 如果传入参数个数不是1，则输出一行：”arguments not valid”，然后退出，退出状态等于1。<br>                2) 如果file文件不存在，则输出一行：”not exist”，然后退出，退出状态等于2。<br>                3) 如果file文件存在，则输出分别进行如下5个判断，然后退出，退出状态等于0。<br>            1] 如果file为普通文件，则输出一行：”regular file”<br>            2] 如果file为目录（文件夹），则输出一行：”directory”<br>            3] 如果file具有可读权限，则输出一行：”readable”<br>            4] 如果file具有可写权限，则输出一行：”writable”<br>            5] 如果file具有可执行权限，则输出一行：”executable”</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">! /bin/bash</span></span><br><span class="line">if [ $# -ne 1 ]</span><br><span class="line">then</span><br><span class="line">    echo arguments not valid</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line">if [ ! -e &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    echo not exist</span><br><span class="line">    exit 2</span><br><span class="line">elif [ -f &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    echo regular file</span><br><span class="line">elif [ -d &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    echo directory</span><br><span class="line">elif [ -r &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    echo readable</span><br><span class="line">elif [ -w &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    echo writable</span><br><span class="line">elif [ -x &quot;$1&quot; ]</span><br><span class="line">then</span><br><span class="line">    echo executable</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<p>(2) 进入homework_2文件夹，编写脚本main.sh。要求：<br>    [1] 当前目录下仅包含main.sh<br>    [2] main.sh具有可执行权限<br>    [3] 该文件从stdin(标准输入)中读取一个整数n<br>    [4] 在stdout(标准输出)输出斐波那契数列的第n项。即：a[0] &#x3D; 1, a[1] &#x3D; 1, a[i] &#x3D; a[i - 1] + a[i - 2], 求a[n]。<br>    [5] 数据保证 0 &lt;&#x3D; n &lt;&#x3D; 20，脚本不需要判断n的合法性。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">acs@34e1c8f9aa26:~/homework/lesson_3/homework_2$ cat main.sh</span><br><span class="line"><span class="meta">#</span><span class="language-bash">! /bin/bash</span></span><br><span class="line"></span><br><span class="line">read n</span><br><span class="line">a[0]=1</span><br><span class="line">a[1]=1</span><br><span class="line">for ((i=2; i&lt;=n; ++ i))</span><br><span class="line">do</span><br><span class="line">    x=$(expr $&#123;i&#125; - 1)</span><br><span class="line">    y=$(expr $&#123;i&#125; - 2)</span><br><span class="line">    a[$&#123;i&#125;]=$(expr $&#123;a[$&#123;x&#125;]&#125; + $&#123;a[$&#123;y&#125;]&#125;)</span><br><span class="line">done</span><br><span class="line">echo $&#123;a[$&#123;n&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p>(3) 进入homework_3文件夹，编写脚本main.sh。要求：<br>    [1] 当前目录下仅包含main.sh<br>    [2] main.sh具有可执行权限<br>    [3] 该文件从stdin(标准输入)中读取两行整数n和m<br>    [4] 在stdout(标准输出)中输出1~n的按字典序从小到大的顺序数第m个全排列，输出一行，用空格隔开所有数，行末可以有多余空格。<br>    [5] 数据保证 1 &lt;&#x3D; n &lt;&#x3D; 10, 1 &lt;&#x3D; m &lt;&#x3D; min(100, n!)，脚本不需要判断数据的合法性。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">! /bin/bash</span>                                                                  </span><br><span class="line">read n                                                                        </span><br><span class="line">read m                                                                        </span><br><span class="line">for (( i=0; i&lt;=n; ++i ))                                                      </span><br><span class="line">do                                                                            </span><br><span class="line">    vis[$i]=0                                                                 </span><br><span class="line">done                                                                          </span><br><span class="line">dfs()&#123;                                                                        </span><br><span class="line">    if [ $1 -eq $n ] # 说明已经填好了n个数                                    </span><br><span class="line">    then                                                                      </span><br><span class="line">        m=`expr $m - 1` # 减少方案数</span><br><span class="line">        if [ $m -eq 0 ]</span><br><span class="line">        then</span><br><span class="line">            echo $&#123;path[@]&#125; # 输出路径</span><br><span class="line">            return 0</span><br><span class="line">        fi</span><br><span class="line">        return 1</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    local j=0 # 定义局部变量</span><br><span class="line">    for (( j=1; j&lt;=n; ++j ))</span><br><span class="line">    do</span><br><span class="line">        if [ $&#123;vis[$j]&#125; -eq 0 ] # 说明该数值还没有被使用过</span><br><span class="line">        then</span><br><span class="line">            path[$1]=$j</span><br><span class="line">            vis[$j]=1</span><br><span class="line">            if dfs `expr $1 + 1` # 传入参数</span><br><span class="line">            then</span><br><span class="line">                return 0</span><br><span class="line">            fi</span><br><span class="line">            </span><br><span class="line">            vis[$j]=0</span><br><span class="line">        fi</span><br><span class="line">    done</span><br><span class="line">    return 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dfs 0</span><br></pre></td></tr></table></figure>
+
+<p>(4) 进入homework_4文件夹，编写脚本main.sh。要求：<br>    [1] 当前目录下仅包含main.sh<br>    [2] main.sh具有可执行权限<br>    [3] main.sh接收两个传入参数。格式为 .&#x2F;main.sh input_file output_file<br>    [4] 从input_file中读取一个正整数n，然后将前n个正整数的平方和写入output_file中<br>    [5] 数据保证 1 &lt;&#x3D; n &lt;&#x3D; 100，脚本不需要判断所有数据的合法性。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">! /bin/bash</span></span><br><span class="line">read n &lt; $1</span><br><span class="line">res=0</span><br><span class="line">for (( i=1; i&lt;=n; ++i ))</span><br><span class="line">do</span><br><span class="line">    sqr=`expr $i \* $i`</span><br><span class="line">    res=`expr $res + $sqr`</span><br><span class="line">done</span><br><span class="line">echo $res &gt; $2</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/04/AcwingLinux%E5%9F%BA%E7%A1%80%E8%AF%BE%E7%AC%AC%E4%BA%8C%E7%AB%A0%E4%BD%9C%E4%B8%9A/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/04/%E7%AC%AC%E4%BA%8C%E7%AB%A0%E3%80%81tmux%E5%92%8Cvim/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%E4%BD%9C%E4%B8%9A%E3%80%81shell%E8%AF%AD%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">第三章作业、shell语法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">贺志飞</p>
+  <div class="site-description" itemprop="description">这是我的个人blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">贺志飞</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
