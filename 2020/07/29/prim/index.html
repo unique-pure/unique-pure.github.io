@@ -494,7 +494,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><h2 id="一、最小生成树（Minimum-Spanning-Tree-MST）"><a href="#一、最小生成树（Minimum-Spanning-Tree-MST）" class="headerlink" title="一、最小生成树（Minimum Spanning Tree,MST）"></a>一、最小生成树（Minimum Spanning Tree,MST）</h2><p>在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，<strong>若存在 $T$ 为 $E$ 的子集且为无循环图，使得 $w(T)$ 最小，则此 $T$ 为 $G$ 的最小生成树</strong>，因为$T$是由图$G$产生的。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020081109252713.png" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-QXLE9kV6-1597109054856)(C:\Users\剑殇\AppData\Roaming\Typora\typora-user-images\image-20200802101000918.png)]"></p>
+<p><img src="https://img-blog.csdnimg.cn/2020081109252713.png" alt="img"></p>
 <p>最小生成树其实是最小权重生成树的简称。我们称求取该生成树的问题成为最小生成树问题。==一个连通图可能有多个生成树。当图中的边具有权值时，总会有一个生成树的边的权值之和小于或者等于其它生成树的边的权值之和==。广义上而言，对于非连通无向图来说，它的每一连通分量同样有最小生成树，它们的并被称为<strong>最小生成森林</strong>。以有线电视电缆的架设为例，若只能沿着街道布线，则以街道为边，而路口为顶点，其中必然有一最小生成树能使布线成本最低。</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi9kL2QyL01pbmltdW1fc3Bhbm5pbmdfdHJlZS5zdmcvMzAwcHgtTWluaW11bV9zcGFubmluZ190cmVlLnN2Zy5wbmc?x-oss-process=image/format,png" alt="img"></p>
 <p>如图，这个是一个平面图，图中黑色线描述的就是最小生成树，它的权值之和小于其他的生成树。</p>
@@ -1104,13 +1104,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 
