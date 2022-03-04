@@ -30,9 +30,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="pursuit's blog" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="pursuit's blog" type="application/atom+xml">
 </head>
 
 
@@ -236,7 +236,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/unique-pure" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -293,7 +293,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/unique-pure" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -388,108 +388,38 @@
             </div>
             <!--valine评论弹幕-->
             
-                <p>
-                    <b>畅所欲言</b><br>
-                    <b>在这里可以留下你的足迹，欢迎在下方留言，欢迎交换友链</b><br>
-                    <b>友链信息</b><br>
-                    <b>博客名称: pursuit's blog</b><br>
-                    <b>博客网址: http://unique-pure.github.io</b><br>
-                    <b>博客头像: http://unique-pure.github.io/medias/logo.png</b><br>
-                    <b>博客介绍: 犹豫就会败北</b><br>
-                </p>
-                <div class="container">
-                    <section id="custom" class="bb-section">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <form class="form-inline">
-                                    <div class="form-group">
-                                        文字：<input class="form-control" name="info" type="text" placeholder="hello, world"/>
-                                    </div>
-                                    <div class="form-group">
-                                        链接：<input class="form-control" name="href" type="text" placeholder="https://github.com/blinkfox/hexo-theme-matery"/>
-                                    </div>
-                                    <div class="form-group">
-                                        速度：<input  class="form-control"  name="speed" type="text" placeholder="5~20" value="16" />
-                                    </div>
-                                </form>
-                                <div class="form-group">
-                                    <button id="send"  class="btn" onclick="run()">留言</button>
-                                    <button id="clear" class="btn " onclick="clear_barrage()"> 清除</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                <script type="text/javascript">
-                    AV.init({
-                        appId: 'g0wOaEXFIHriyzhdvJjDD0qQ-9Nh9j0Va',
-                        appKey: 'jAMslm3BzVO7dIvPeVszAHfS'
-                    });
-
-                    $(function() {
-                        do_barrager();
-                        async function do_barrager() {
-                            let lists = [];
-                            //查询弹幕
-                            const query = new AV.Query('barrager');
-                            const barrager = await query.find().then((barrager) => {
-                                lists = barrager;
-                            })
-                            let length = lists.length;
-                            let index = 0;
-                            const timer = setInterval(() => {
-                                if (index === length) {
-                                    clearInterval(timer);
-                                    do_barrager()
-                                } else {
-                                    let obj = lists[index]
-                                    let jsonObject = eval('(' + JSON.stringify(obj) + ')');
-                                    $('body').barrager({
-                                        'img': '/medias/barrager/' + Math.floor(Math.random() * 3) + ".png",
-                                        'href': jsonObject.href,
-                                        'info': jsonObject.info,
-                                        'speed': jsonObject.speed
-                                    });
-                                    index++;
-                                }
-                            }, 500)
-                        }
-                    });
-
-                    //发送弹幕
-                    function  run(){
-                        let info = $('input[name=info]').val();
-                        (info === '' ) ?  info='hello world' : info=info;
-                        let href = $('input[name=href]').val();
-                        (href === '' ) ?  href='https://github.com/blinkfox/hexo-theme-matery' : href=href;
-                        let speed = parseInt($('input[name=speed]').val());
-                        if(speed > 20 || speed < 5)
-                            speed = Math.floor(Math.random() * 10) + 5;
-                        const Barrager = AV.Object.extend('barrager');
-                        const barrager = new Barrager();
-                        barrager.set('href', href);
-                        barrager.set('info', info);
-                        barrager.set('speed', speed);
-                        barrager.save().then((todo) => {
-                            $(" input[ name='info' ] ").val("")
-                            $(" input[ name='href' ] ").val("")
-                            $(" input[ name='speed' ] ").val("")
-                        });
-                    }
-
-                    function  clear_barrage()
-                    {
-                        $.fn.barrager.removeAll();
-                    }
-
-                </script>
-            
         </div>
 
         <!--其他评论card-->
         <div class="card">
             
+
+            
+                <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Fri Mar 04 2022 17:36:49 GMT+0800',
+    owner: 'unique-pure',
+    repo: 'https://github.com/unique-pure/commentRes',
+    oauth: {
+        client_id: '9df5ccb0d1f027d3397a',
+        client_secret: 'c60a421119897ee3bccdbcb962f327f798fa1b70'
+    }
+});
+
+gitment.render('gitment-content');
+</script>
 
             
 
