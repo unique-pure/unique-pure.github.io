@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-05T01:18:17.430Z</updated>
+  <updated>2022-03-05T01:31:52.378Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>位运算详解</title>
+    <title>位运算的奇淫技巧</title>
     <link href="http://unique-pure.github.io/2021/05/28/wei-yun-suan/"/>
     <id>http://unique-pure.github.io/2021/05/28/wei-yun-suan/</id>
     <published>2021-05-28T05:12:04.000Z</published>
-    <updated>2022-03-05T01:18:17.430Z</updated>
+    <updated>2022-03-05T01:31:52.378Z</updated>
     
     
       
@@ -42,18 +42,45 @@
   </entry>
   
   <entry>
+    <title>Kruskal算法详解</title>
+    <link href="http://unique-pure.github.io/2020/08/11/kruskal/"/>
+    <id>http://unique-pure.github.io/2020/08/11/kruskal/</id>
+    <published>2020-08-10T16:00:00.000Z</published>
+    <updated>2022-03-05T01:33:03.059Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Kruskal算法&quot;&gt;&lt;a href=&quot;#Kruskal算法&quot; class=&quot;headerlink&quot; title=&quot;Kruskal算法&quot;&gt;&lt;/a&gt;Kruskal算法&lt;/h1&gt;&lt;h2 id=&quot;1、简介&quot;&gt;&lt;a href=&quot;#1、简介&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="最小生成树" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    
+    <category term="Kruskal" scheme="http://unique-pure.github.io/tags/Kruskal/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Dijkstra算法详解</title>
     <link href="http://unique-pure.github.io/2020/07/29/dijkstra/"/>
     <id>http://unique-pure.github.io/2020/07/29/dijkstra/</id>
     <published>2020-07-29T08:15:34.000Z</published>
-    <updated>2022-03-05T01:17:54.588Z</updated>
+    <updated>2022-03-05T01:26:45.052Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;dijkstra算法详解（迪杰斯特拉算法）-简单易懂&quot;&gt;&lt;a href=&quot;#dijkstra算法详解（迪杰斯特拉算法）-简单易懂&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;dijkstra算法详解&quot;&gt;&lt;a href=&quot;#dijkstra算法详解&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -73,7 +100,7 @@
     <link href="http://unique-pure.github.io/2020/07/29/prim/"/>
     <id>http://unique-pure.github.io/2020/07/29/prim/</id>
     <published>2020-07-29T03:34:35.000Z</published>
-    <updated>2022-03-05T01:18:26.373Z</updated>
+    <updated>2022-03-05T01:33:08.048Z</updated>
     
     
       
@@ -92,6 +119,33 @@
     <category term="Prim" scheme="http://unique-pure.github.io/tags/Prim/"/>
     
     <category term="最小生成树" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Floyd算法详解</title>
+    <link href="http://unique-pure.github.io/2020/07/27/floyd/"/>
+    <id>http://unique-pure.github.io/2020/07/27/floyd/</id>
+    <published>2020-07-26T16:00:00.000Z</published>
+    <updated>2022-03-05T01:33:49.114Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Floyd算法（邻接矩阵与邻接表实现）&quot;&gt;&lt;a href=&quot;#Floyd算法（邻接矩阵与邻接表实现）&quot; class=&quot;headerlink&quot; title=&quot;Floyd算法（邻接矩阵与邻接表实现）&quot;&gt;&lt;/a&gt;Floyd算法（邻接矩阵与邻接表实现）&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="最短路" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    
+    <category term="Floyd" scheme="http://unique-pure.github.io/tags/Floyd/"/>
     
   </entry>
   

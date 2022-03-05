@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Dijkstra算法详解, pursuit&#39;s blog">
-    <meta name="description" content="dijkstra算法详解（迪杰斯特拉算法）~~简单易懂PS：此算法不能用于求负权图，要求所有边的权重都为非负值。
+    <meta name="description" content="dijkstra算法详解PS：此算法不能用于求负权图，要求所有边的权重都为非负值。
 
 1 简介（百度百科）
-迪杰斯特拉算法(Dijkstra)是由荷兰计算机科学家狄克斯特拉于1959 年提出的，因此又叫狄克斯特">
+迪杰斯特拉算法(Dijkstra)是由荷兰计算机科学家狄克斯特拉于1959 年提出的，因此又叫狄克斯特拉算法。这是从一个顶点到其余各">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -492,7 +492,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.4k
                 </div>
                 
 
@@ -522,7 +522,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="dijkstra算法详解（迪杰斯特拉算法）-简单易懂"><a href="#dijkstra算法详解（迪杰斯特拉算法）-简单易懂" class="headerlink" title="dijkstra算法详解（迪杰斯特拉算法）~~简单易懂"></a>dijkstra算法详解（迪杰斯特拉算法）~~简单易懂</h1><p><strong>PS：此算法不能用于求负权图，要求所有边的权重都为非负值。</strong></p>
+                <h1 id="dijkstra算法详解"><a href="#dijkstra算法详解" class="headerlink" title="dijkstra算法详解"></a>dijkstra算法详解</h1><p><strong>PS：此算法不能用于求负权图，要求所有边的权重都为非负值。</strong></p>
 <hr>
 <h2 id="1-简介（百度百科）"><a href="#1-简介（百度百科）" class="headerlink" title="1 简介（百度百科）"></a>1 简介（百度百科）</h2><blockquote>
 <p>迪杰斯特拉算法(Dijkstra)是由荷兰计算机科学家狄克斯特拉于1959 年提出的，因此又叫狄克斯特拉算法。这是从一个顶点到其余各顶点的最短路径算法，解决的是有权图中最短路径问题。<strong>迪杰斯特拉算法主要特点是从起始点开始，采用贪心算法的策略，每次遍历到始点距离最近且未访问过的顶点的邻接节点，直到扩展到终点为止</strong>。</p>
@@ -542,7 +542,7 @@
 <li><strong>对于剩余顶点中，计算$dis(start,n)&gt;dis(start,x)+dis(x,n)$<br>若真则$dis(start,n)=dis(start,x)+dis(x,n)$，此时start与n点路径经过x点。循环直至goal点加入已知列表，取得$dis(start,goal)$即为最短距离。</strong></li>
 </ol>
 <hr>
-<h2 id="4-动态展示"><a href="#4-动态展示" class="headerlink" title="4 动态展示"></a>4 动态展示</h2><p><img src="https://img-blog.csdnimg.cn/20210322130709747.gif#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="4-动态展示"><a href="#4-动态展示" class="headerlink" title="4 动态展示"></a>4 动态展示</h2><p><img src="https://img-blog.csdnimg.cn/20210322130709747.gif#pic_center"></p>
 <h2 id="5-一般代码实现（以邻接矩阵为例）"><a href="#5-一般代码实现（以邻接矩阵为例）" class="headerlink" title="5 一般代码实现（以邻接矩阵为例）"></a>5 一般代码实现（以邻接矩阵为例）</h2><h3 id="5-1-基本数据"><a href="#5-1-基本数据" class="headerlink" title="5.1 基本数据"></a>5.1 基本数据</h3><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> inf<span class="token operator">=</span><span class="token number">0x3f3f3f3f</span><span class="token punctuation">;</span> <span class="token comment">//代表无穷大。</span>
 <span class="token keyword">const</span> <span class="token keyword">int</span> maxn<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span><span class="token comment">//最大顶点数</span>
 <span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span><span class="token comment">//n个顶点，m条边。</span>
@@ -880,13 +880,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/28/wei-yun-suan/">
+                <a href="/2020/08/11/kruskal/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="位运算详解">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Kruskal算法详解">
                         
-                        <span class="card-title">位运算详解</span>
+                        <span class="card-title">Kruskal算法详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -897,7 +897,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-11
                         </span>
                         <span class="publish-author">
                             
@@ -914,8 +914,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                        <span class="chip bg-color">位运算</span>
+                    <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+                        <span class="chip bg-color">最小生成树</span>
+                    </a>
+                    
+                    <a href="/tags/Kruskal/">
+                        <span class="chip bg-color">Kruskal</span>
                     </a>
                     
                 </div>
@@ -1203,7 +1207,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">6.2k</span>
+                        class="white-color">8.9k</span>
             
             
             

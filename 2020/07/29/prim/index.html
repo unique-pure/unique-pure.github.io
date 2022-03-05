@@ -520,9 +520,9 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><h2 id="1-最小生成树（Minimum-Spanning-Tree-MST）"><a href="#1-最小生成树（Minimum-Spanning-Tree-MST）" class="headerlink" title="1 最小生成树（Minimum Spanning Tree,MST）"></a>1 最小生成树（Minimum Spanning Tree,MST）</h2><p>在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，<strong>若存在 $T$ 为 $E$ 的子集且为无循环图，使得 $w(T)$ 最小，则此 $T$ 为 $G$ 的最小生成树</strong>，因为$T$是由图$G$产生的。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020081109252713.png" alt="img"></p>
+<p><img src="https://img-blog.csdnimg.cn/2020081109252713.png"></p>
 <p>最小生成树其实是最小权重生成树的简称。我们称求取该生成树的问题成为最小生成树问题。==一个连通图可能有多个生成树。当图中的边具有权值时，总会有一个生成树的边的权值之和小于或者等于其它生成树的边的权值之和==。广义上而言，对于非连通无向图来说，它的每一连通分量同样有最小生成树，它们的并被称为<strong>最小生成森林</strong>。以有线电视电缆的架设为例，若只能沿着街道布线，则以街道为边，而路口为顶点，其中必然有一最小生成树能使布线成本最低。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi9kL2QyL01pbmltdW1fc3Bhbm5pbmdfdHJlZS5zdmcvMzAwcHgtTWluaW11bV9zcGFubmluZ190cmVlLnN2Zy5wbmc?x-oss-process=image/format,png" alt="img"></p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi9kL2QyL01pbmltdW1fc3Bhbm5pbmdfdHJlZS5zdmcvMzAwcHgtTWluaW11bV9zcGFubmluZ190cmVlLnN2Zy5wbmc?x-oss-process=image/format,png"></p>
 <p>如图，这个是一个平面图，图中黑色线描述的就是最小生成树，它的权值之和小于其他的生成树。</p>
 <p>那么，我们如何来求最小生成树呢，由最小生成树的定义我们可以知道构建最小生成树是可以利用贪心算法去实现的，我们接下来介绍的两种算法也都是利用贪心算法去求得$MST$的。<strong>因为贪心算法的策略就是在每一步尽可能多的选择中选择最优的，在当前看是最好的选择</strong>，这种策略虽然一般不能在全局中寻找到最优解，但是对于最小生成树问题来说，它的确可以找到一颗权重最小的树。</p>
 <h2 id="2-Prim算法"><a href="#2-Prim算法" class="headerlink" title="2 Prim算法"></a>2 Prim算法</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><p>普里姆算法（Prim’s algorithm），图论中的一种算法，可在加权连通图里搜索最小生成树。意即由此算法搜索到的边子集所构成的树中，不但包括了连通图里的所有顶点，且其所有边的权值之和亦为最小。该算法于1930年由捷克数学家沃伊捷赫·亚尔尼克发现；并在1957年由美国计算机科学家罗伯特·普里姆独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。（来源于维基百科）</p>
@@ -531,15 +531,9 @@
 <p>​    ②  在所有$u∈U,v∈(V-U)$的边$(u,v)∈E$找到一条权值最小的边$(u_0,v_0)$并入集合$TE$，同时$v_0$并入集合$U$。</p>
 <p>​    ③  重复②步骤，知道$U=V$为止。</p>
 <p>此时$TE$中必有$n-1$条边，则$T=(V,TE)$即为我们求得的$N$的最小生成树。</p>
-<h3 id="2-3-算法示例图"><a href="#2-3-算法示例图" class="headerlink" title="2.3 算法示例图"></a>2.3 算法示例图</h3><p><img src="https://img-blog.csdnimg.cn/20210322125136390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="2-3-算法示例图"><a href="#2-3-算法示例图" class="headerlink" title="2.3 算法示例图"></a>2.3 算法示例图</h3><p><img src="https://img-blog.csdnimg.cn/20210322125136390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70#pic_center"></p>
 <h3 id="2-4-算法实现"><a href="#2-4-算法实现" class="headerlink" title="2.4 算法实现"></a>2.4 算法实现</h3><p>我们如果对Dijkstra算法很熟悉的话，Prim算法也很好实现了，它们都是利用了一样的思路，但却不相同。==我们用利用$lowcost$数组来表示到集合中最近的距离，用$closest$数组来表示最小生成树的边。怎么来表示呢？我们用顶点来形容边，也就是说我们要求的就是$closet$数组。其中$closest[i]$表示的值就是与$i$顶点相邻边的顶点序号==。具体看代码（附带打印最小生成树代码）。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">/*
-*邮箱：unique_powerhouse@qq.com
-*blog:https://me.csdn.net/hzf0701
-*注：文章若有任何问题请私信我或评论区留言，谢谢支持。
-*
-*/</span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span>	<span class="token comment">//POJ不支持</span></span>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span>	<span class="token comment">//POJ不支持</span></span>
 
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">rep</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量，a为初始值，n为界限值，递增</span></span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">per</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&gt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量， a为初始值，n为界限值，递减。</span></span>
@@ -626,7 +620,7 @@
 <span class="token punctuation">}</span>
 
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-5-算法分析"><a href="#2-5-算法分析" class="headerlink" title="2.5 算法分析"></a>2.5 算法分析</h3><p>对于此算法，我们图中有$n$个顶点，则第一个进行初始化的循环语句的频度为$n$,第二个循环语句的频度为$n$，==但其中第二个循环中有两个内循环：第一个是在$lowcost$中求最小值，其频度为$n$，第二个是重新选择具有最小权值的边，频度为$n$==，由此我们可知Prim算法的时间复杂度为$O(n^2)$，与图中的边数无关，故十分适合于稠密图。</p>
 <h3 id="2-6-测试"><a href="#2-6-测试" class="headerlink" title="2.6 测试"></a>2.6 测试</h3><p>我们用示例来测试：</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">7</span> <span class="token number">11</span>
@@ -641,7 +635,8 @@
 <span class="token number">5</span> <span class="token number">6</span> <span class="token number">8</span>
 <span class="token number">5</span> <span class="token number">7</span> <span class="token number">9</span>
 <span class="token number">3</span> <span class="token number">5</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>测试结果如图：<br><img src="https://img-blog.csdnimg.cn/20200811095845614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>测试结果如图：</p>
+<p><img src="https://img-blog.csdnimg.cn/20200811095845614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70"></p>
 
                 
             </div>
@@ -966,16 +961,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/29/prim/">
+                <a href="/2020/07/27/floyd/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Prim算法详解">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Floyd算法详解">
                         
-                        <span class="card-title">Prim算法详解</span>
+                        <span class="card-title">Floyd算法详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -986,7 +981,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
                             </span>
                         <span class="publish-author">
                             
@@ -1000,16 +995,15 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Prim/">
-                        <span class="chip bg-color">Prim</span>
+                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+                        <span class="chip bg-color">最短路</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                        <span class="chip bg-color">最小生成树</span>
+                    <a href="/tags/Floyd/">
+                        <span class="chip bg-color">Floyd</span>
                     </a>
                     
                 </div>
@@ -1244,7 +1238,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">6.2k</span>
+                        class="white-color">8.9k</span>
             
             
             
