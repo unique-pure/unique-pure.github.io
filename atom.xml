@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-05T01:55:56.524Z</updated>
+  <updated>2022-03-05T12:20:31.134Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Django学习笔记一初始Django</title>
+    <link href="http://unique-pure.github.io/2022/03/05/django-ru-men/"/>
+    <id>http://unique-pure.github.io/2022/03/05/django-ru-men/</id>
+    <published>2022-03-04T16:00:00.000Z</published>
+    <updated>2022-03-05T12:20:31.134Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-Django简介&quot;&gt;&lt;a href=&quot;#1-Django简介&quot; class=&quot;headerlink&quot; title=&quot;1 Django简介&quot;&gt;&lt;/a&gt;1 Django简介&lt;/h1&gt;&lt;h2 id=&quot;1-1-基本介绍&quot;&gt;&lt;a href=&quot;#1-1-基本介绍&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="http://unique-pure.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="Django" scheme="http://unique-pure.github.io/tags/Django/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker入门</title>

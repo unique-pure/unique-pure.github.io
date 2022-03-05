@@ -4,9 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="位运算的奇淫技巧, pursuit&#39;s blog">
-    <meta name="description" content="位运算详解1 位运算概述我们知道，计算机中的数在内存中都是以二进制形式进行存储的 ，而位运算就是直接对整数在内存中的二进制位进行操作，因此其执行效率非常高，在程序中尽量使用位运算进行操作，这会大大提高程序的性能。
-那么，涉及位运算的运算符如">
+    <meta name="keywords" content="Django学习笔记一初始Django, pursuit&#39;s blog">
+    <meta name="description" content="1 Django简介1.1 基本介绍Django 是一个由 Python 编写的一个开放源代码的 Web 应用框架。开发者使用Django，只要很少的代码，就可以轻松完成一个网站所需要的大部分内容，并进一步开发出全功能的 Web 服务 。D">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>位运算的奇淫技巧 | pursuit&#39;s blog</title>
+    <title>Django学习笔记一初始Django | pursuit&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -326,12 +325,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">位运算的奇淫技巧</h1>
+                    <h1 class="description center-align post-title">Django学习笔记一初始Django</h1>
                 </div>
             </div>
         </div>
@@ -447,8 +446,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                                <span class="chip bg-color">位运算</span>
+                            <a href="/tags/Django/">
+                                <span class="chip bg-color">Django</span>
                             </a>
                         
                     </div>
@@ -459,8 +458,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
                             </a>
                         
                     </div>
@@ -472,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-28
+                    2022-03-05
                 </div>
                 
 
@@ -486,14 +485,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    5 分
                 </div>
                 
 
@@ -516,414 +515,127 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="位运算详解"><a href="#位运算详解" class="headerlink" title="位运算详解"></a>位运算详解</h1><h2 id="1-位运算概述"><a href="#1-位运算概述" class="headerlink" title="1 位运算概述"></a>1 位运算概述</h2><p>我们知道，计算机中的数在内存中都是以二进制形式进行存储的 ，而位运算就是直接对整数在内存中的二进制位进行操作，因此其执行效率非常高，在程序中尽量使用位运算进行操作，这会大大提高程序的性能。</p>
-<p>那么，涉及位运算的运算符如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th align="center">符号</th>
-<th align="center">描述</th>
-<th align="center">运算规则</th>
-<th align="center">实例（以四位二进制数为例）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">&amp;</td>
-<td align="center">与</td>
-<td align="center">两个位都为1时，结果才为1。</td>
-<td align="center">$0001&amp;0001=1,0001&amp;0000=0,0000&amp;0000=0000$</td>
-</tr>
-<tr>
-<td align="center">|</td>
-<td align="center">或</td>
-<td align="center">两个位都为0时，结果才为0。</td>
-<td align="center">0001|0001=0001,0001|0000=0001,0000|0000=0000</td>
-</tr>
-<tr>
-<td align="center">^</td>
-<td align="center">异或</td>
-<td align="center">两个位相同为0，相异为1。</td>
-<td align="center">$0001 \wedge0001=0000,0001\wedge0000=1,0000\wedge 0000=0$</td>
-</tr>
-<tr>
-<td align="center">~</td>
-<td align="center">取反</td>
-<td align="center">0变1，1变0。</td>
-<td align="center">$\sim0=1,\sim 1 = 0$</td>
-</tr>
-<tr>
-<td align="center">&lt;&lt;</td>
-<td align="center">左移</td>
-<td align="center">各二进位全部左移若干位，高位丢弃，低位补0。</td>
-<td align="center">$0001&lt;&lt;k=0100，k=2$，$k$是左移的位数，这里$k=2$</td>
-</tr>
-<tr>
-<td align="center">&gt;&gt;</td>
-<td align="center">右移</td>
-<td align="center">各二进位全部右移若干位，对无符号数，高位补0，有符号数，右移补$1$。</td>
-<td align="center">$0100&gt;&gt;k=0001，k=2$，$k$是右移的位数，这里$k=2$</td>
-</tr>
-</tbody></table>
-<p>看完，你可能会觉得挺简单的，但位运算的难点并不在这，而在于其性质、高级操作和它的应用。、</p>
-<h2 id="2-位运算的性质"><a href="#2-位运算的性质" class="headerlink" title="2 位运算的性质"></a>2 位运算的性质</h2><h3 id="2-1-运算符的优先级"><a href="#2-1-运算符的优先级" class="headerlink" title="2.1 运算符的优先级"></a>2.1 运算符的优先级</h3><p>优先级需要弄清楚，如果不太清楚可以加小括号确保是想要的运算顺序，这里只是相对优先级，即只是和一些常用的算术运算符做比较。</p>
-<table>
-<thead>
-<tr>
-<th align="center">优先级</th>
-<th align="center">运算符</th>
-<th align="center">结合方向</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">1</td>
-<td align="center">$-（符号运算符）,\sim（取反运算符）， ++（自增），–（自减）$</td>
-<td align="center">从右到左</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center">$*（乘）,/（除）,%（取余）$</td>
-<td align="center">从左到右</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center">$+（加）,-（减）$</td>
-<td align="center">从左到右</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center">$&lt;&lt;（左移），&gt;&gt;（右移）$</td>
-<td align="center">从左到右</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center">$&gt;（大于）,&lt;(小于),&gt;=(大于等于),&lt;=(小于等于)$</td>
-<td align="center">从左到右</td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center">$==(等于),!=（不等于）$</td>
-<td align="center">从左到右</td>
-</tr>
-<tr>
-<td align="center">7</td>
-<td align="center">$&amp;（按位与）$</td>
-<td align="center">从左到右</td>
-</tr>
-<tr>
-<td align="center">8</td>
-<td align="center">$\wedge (按位异或)$</td>
-<td align="center">从左到右</td>
-</tr>
-<tr>
-<td align="center">9</td>
-<td align="center">|(按位或)</td>
-<td align="center">从左到右</td>
-</tr>
-</tbody></table>
-<h3 id="2-2-位运算符的运算律"><a href="#2-2-位运算符的运算律" class="headerlink" title="2.2 位运算符的运算律"></a>2.2 位运算符的运算律</h3><table>
-<thead>
-<tr>
-<th align="center">公式名称</th>
-<th align="center">运算规则</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">交换律</td>
-<td align="center">A&amp;B=B&amp;A ,A&amp;B=B&amp;A,A$\wedge$ B=B$\wedge$ A</td>
-</tr>
-<tr>
-<td align="center">结合律（注意结合律只能在同符号下进行）</td>
-<td align="center">$(A&amp;B)&amp;C=A&amp;(B&amp;C)$$(A</td>
-</tr>
-<tr>
-<td align="center">等幂律</td>
-<td align="center">$A&amp;A=A$，A|A=A</td>
-</tr>
-<tr>
-<td align="center">零律</td>
-<td align="center">A|1=1，A&amp;0=0</td>
-</tr>
-<tr>
-<td align="center">互补律（注意，这不同于逻辑运算）</td>
-<td align="center">$A&amp;\sim A=0$,A|$\sim A=-1$</td>
-</tr>
-<tr>
-<td align="center">同一律</td>
-<td align="center">A|0=A，A$\wedge 0 =A$</td>
-</tr>
-</tbody></table>
-<p>以上仅为已证明的运算律（可能存在遗漏），其余的博主均认为是不符合不成立的，注意：千万不要将逻辑运算的运算律或者其他的运算律与这混为一谈。</p>
-<h2 id="3-位运算高级操作"><a href="#3-位运算高级操作" class="headerlink" title="3 位运算高级操作"></a>3 位运算高级操作</h2><p>如下表，请读者认真阅读理解，在阅读的过程中可以对示例进行运算。</p>
-<table>
-<thead>
-<tr>
-<th align="center">功能</th>
-<th align="center">示例</th>
-<th align="center">位运算</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">去掉最后一位</td>
-<td align="center">$0100-&gt;0010$</td>
-<td align="center">$x&gt;&gt;1$</td>
-</tr>
-<tr>
-<td align="center">在最后加一个$0$</td>
-<td align="center">$0100-&gt;1000$</td>
-<td align="center">$x&lt;&lt;1$</td>
-</tr>
-<tr>
-<td align="center">在最后加一个1</td>
-<td align="center">$0100-&gt;1001$</td>
-<td align="center">$x&lt;&lt;1+1$</td>
-</tr>
-<tr>
-<td align="center">将最后一位变为$1$</td>
-<td align="center">$0100-&gt;0101$</td>
-<td align="center">x|1</td>
-</tr>
-<tr>
-<td align="center">将最后一位变为$0$</td>
-<td align="center">$0101-&gt;0100$，这里实际上就是先确保最低位变为$1$，再减去$1$。</td>
-<td align="center">x|1-1</td>
-</tr>
-<tr>
-<td align="center">最后一位取反</td>
-<td align="center">$0100-&gt;0101$ ，利用异或性质，其中除最后一位其余不变。</td>
-<td align="center">$x\wedge1$</td>
-</tr>
-<tr>
-<td align="center">把右数的第$k$位变为$1$</td>
-<td align="center">$0001-&gt;1001,k=4$</td>
-<td align="center">x|(1&lt;&lt;(k-1))</td>
-</tr>
-<tr>
-<td align="center">把右数的第$k$位变为$0$</td>
-<td align="center">$1001-&gt;0001,k=4$，这个操作实际上就是先得到了$1000$，然后取反得到$0111$，最后利用按位与的性质其余位不变，最高位为$0$</td>
-<td align="center">$x&amp;\sim(1&lt;&lt;(k-1))$</td>
-</tr>
-<tr>
-<td align="center">把右数的第$k$位取反</td>
-<td align="center">$1000-&gt;0000,k=4$，利用异或性质</td>
-<td align="center">$x\wedge (1&lt;&lt;(k-1))$</td>
-</tr>
-</tbody></table>
-<p>由于表长限制，这里接下表继续：</p>
-<table>
-<thead>
-<tr>
-<th align="center">功能</th>
-<th align="center">示例</th>
-<th align="center">位运算</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">取末$k$位</td>
-<td align="center">$1011-&gt;0011,k=2$</td>
-<td align="center">$x&amp;(1&lt;&lt;k-1)$</td>
-</tr>
-<tr>
-<td align="center">取右数的第$k$位</td>
-<td align="center">$1011-&gt;0001,k=4$，右移$k-1$位则是去掉了最后的$k-1$位，我们利用按位与即可将其提取出来</td>
-<td align="center">$x&gt;&gt;(k-1)&amp;1$</td>
-</tr>
-<tr>
-<td align="center">把末$k$位全变为$1$</td>
-<td align="center">$1000-&gt;1111,k=3$</td>
-<td align="center">x|(1&lt;&lt;k-1)</td>
-</tr>
-<tr>
-<td align="center">把末$k$位取反</td>
-<td align="center">$0101-&gt;1010,k=4$</td>
-<td align="center">$x\wedge (1&lt;&lt;k-1)$</td>
-</tr>
-<tr>
-<td align="center">把右边连续的$1$变为$0$</td>
-<td align="center">$0111-&gt;0000$ ，注意是右起连续的$1$</td>
-<td align="center">$x&amp;(x+1)$</td>
-</tr>
-<tr>
-<td align="center">把右起的第一个$0$变为$1$</td>
-<td align="center">$0011-&gt;0111$</td>
-<td align="center">x|(x+1)</td>
-</tr>
-<tr>
-<td align="center">把右起连续的$0$变为$1$</td>
-<td align="center">$1000-&gt;1111$，注意是右起连续的$0$</td>
-<td align="center">x|(x-1)</td>
-</tr>
-<tr>
-<td align="center">取右边连续的$1$</td>
-<td align="center">$1011-&gt;0011$</td>
-<td align="center">$(x\wedge (x+1))&gt;&gt;1$</td>
-</tr>
-<tr>
-<td align="center">去掉右起的第一个$1$的左边</td>
-<td align="center">$1101-&gt;0001$</td>
-<td align="center">$x&amp;(x\wedge (x-1))$</td>
-</tr>
-</tbody></table>
-<p>当然，这里只是一些常用的，并不是全部，位运算的神奇远不止于此。</p>
-<h2 id="4-负数的位运算"><a href="#4-负数的位运算" class="headerlink" title="4 负数的位运算"></a>4 负数的位运算</h2><p>首先，我们要知道，在计算机中，运算是使用的二进制补码，而正数的补码是它本身，负数的补码则是符号位不变，其余按位取反，最后再$+1$得到的，例如：</p>
-<p>$15$,原码:$00001111\space$补码:$00001111$</p>
-<p>$-15$,原码:$10001111\space$补码:$11110001$</p>
-<p>那么对于负数的位运算而言，它们的操作都是建立在补码上的，得到的运算结果是补码，最后将补码结果转化成一个普通的十进制数结果。但需要注意的是，符号位是需要参与运算的，而在左移右移操作中，负数右移补$1$，左移右边补$0$。例如对于$-15$，其补码为$11110001,$右移一位$(-15&gt;&gt;1)$得到的是$11111000$，即$-8$，其他的同理。</p>
-<p>这里我们介绍几个特殊的性质：</p>
+                <h1 id="1-Django简介"><a href="#1-Django简介" class="headerlink" title="1 Django简介"></a>1 Django简介</h1><h2 id="1-1-基本介绍"><a href="#1-1-基本介绍" class="headerlink" title="1.1 基本介绍"></a>1.1 基本介绍</h2><p>Django 是一个由 Python 编写的一个开放源代码的 Web 应用框架。开发者使用Django，只要很少的代码，就可以轻松完成一个网站所需要的大部分内容，并进一步开发出全功能的 Web 服务 。Django 本身基于 MVC 模型，即 Model（模型）+ View（视图）+ Controller（控制器）设计模式，MVC 模式使后续对程序的修改和扩展简化，并且使程序某一部分的重复利用成为可能。</p>
+<p>MVC 优势：</p>
 <ul>
-<li><p><strong>快速判断是否为$-1$</strong></p>
-<p>在链式前向星中，我们初始化$head$数组为$-1$，最后判断是否遍历完$u$的所有边时，即判断$i$是否为$-1$，我们直接用$\sim i$即可。原因就在于$-1$的补码是$11111111$，按位取反就变为$00000000$，这实际上就是$0$。</p>
-</li>
-<li><p><strong>取最低位的$1$，lowbit函数</strong></p>
-<p>也就是$x&amp;(-x)$，这在树状数组中起着巨大作用，这里指路一篇树状数组讲解$blog$:<a target="_blank" rel="noopener" href="https://blog.csdn.net/hzf0701/article/details/116208699?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162212420516780264027190%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=162212420516780264027190&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-1-116208699.nonecase&amp;utm_term=%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84&amp;spm=1018.2226.3001.4450">点这里</a>，我们来证明一下，这里取$x=15$，对于$15&amp;(-15)$，我们知道，在补码上进行运算得到的是$00000001$，需要注意二元运算的符号位我们需要进行运算。</p>
-</li>
+<li>低耦合</li>
+<li>开发快捷</li>
+<li>部署方便</li>
+<li>可重用性高</li>
+<li>维护成本低</li>
+<li>…</li>
 </ul>
-<h2 id="5-位运算的一些应用"><a href="#5-位运算的一些应用" class="headerlink" title="5 位运算的一些应用"></a>5 位运算的一些应用</h2><ul>
-<li><p><strong>位运算实现乘除法</strong></p>
-<blockquote>
-<p>将$x$左移一位实现$\times 2$，将$x$右移一位实现$\div2$。</p>
-<p>$a&lt;&lt;1 \equiv a*2$</p>
-<p>$a &gt;&gt;1 \equiv a/2$</p>
-</blockquote>
-</li>
-<li><p><strong>位运算交换两整数</strong></p>
-</li>
-</ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-     a <span class="token operator">^=</span> b<span class="token punctuation">;</span>
-     b <span class="token operator">^=</span> a<span class="token punctuation">;</span>
-     a <span class="token operator">^=</span> b<span class="token punctuation">;</span>
- <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  这效率非常高，我们来剖析其原理，对于$a=a\wedge b$，则$b = b\wedge(a\wedge b)$，根据交换律以及异或性质，得$b=b\wedge b\wedge a=0\wedge a=a$，同理$a=(a\wedge b)\wedge a=0\wedge b=b$。这样就实现了交换操作。</p>
+<p>Python 加 Django 是快速开发、设计、部署网站的最佳组合。</p>
+<h2 id="1-2-开发框架模型"><a href="#1-2-开发框架模型" class="headerlink" title="1.2 开发框架模型"></a>1.2 开发框架模型</h2><h3 id="1-2-1-简介"><a href="#1-2-1-简介" class="headerlink" title="1.2.1 简介"></a>1.2.1 简介</h3><p>目前的开发框架模型可以按是否前后端分离来划分。其中各自特点如下：</p>
+<p>前后端不分离特点：</p>
 <ul>
-<li><p><strong>位运算判断奇偶数</strong></p>
-<blockquote>
-<p>我们知道，在二进制中，最低位决定了是奇数还是偶数，所以我们可以提取出最低位的值，即与$1$相与即可实现目的，为$0$则是偶数，为$1$则是奇数。</p>
-</blockquote>
-</li>
-<li><p><strong>位运算改变正负性和求绝对值</strong></p>
+<li>后端需控制数据的展示</li>
+<li>前后端不分家，耦合严重</li>
+<li>返回的是HTML页面，适应性、拓展性差<ul>
+<li>只能用于浏览器，其它终端不匹配</li>
+</ul>
 </li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">change</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">~</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>  对于正数而言，补码就是原码，所以按位取反再$+1$则得到对应真值负数的补码，而对于负数，其补码进行按位取反再$+1$则得到对应真值正数的补码，变为原码。那么知道这个我们就可以特判是否为负数（这里通过右移$31$位，若为正数，则得到的是$0$，若为负数，则得到的是$-1$，而$0$的补码为$0000$,$-1$的补码为$1111$，根据异或性质即可判断。） 再进行反转即可实现求绝对值了。如下：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">abs</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> a <span class="token operator">^</span> <span class="token punctuation">(</span>a <span class="token operator">&gt;&gt;</span> <span class="token number">31</span><span class="token punctuation">)</span> <span class="token operator">?</span> a <span class="token operator">:</span> <span class="token operator">~</span> a <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
+<p>前后端分离的特点：</p>
 <ul>
-<li><strong>位运算实现对$p$取余（p为$2^k$）</strong></li>
+<li>当前主流</li>
+<li>后端只对数据进行处理，只提供数据</li>
+<li>前端效率、页面好不好看，全由前端负责，前后端完全独立</li>
+<li>解耦合</li>
+<li>前后端同时开发，缩小业务上线周期</li>
+<li>绝大多数情况下，前端发送json格式的参数，后端同样以json格式的数据返回<ul>
+<li>适应性、拓展性好</li>
+<li>适合多终端运行同一套接口（PC、APP、小程序等）</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">mod</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span><span class="token keyword">int</span> p<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">return</span> a <span class="token operator">&amp;</span> <span class="token punctuation">(</span>p <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>  取余实际上就是舍去大于等于$p$的位数，所以我们只需要保留在$p$范围内的数。由于我们限定了$p$为$2^k$，所以$(p - 1)$一定是将小于$p$的最高位全部变为了$1$，这样再进行与操作即可得到余数。</p>
+</li>
+</ul>
+<p>在本文中，对前后端不分离的开发框架模型这里不作叙述，这里主要介绍前后端分离的MVC模型和MVT模型。</p>
+<h3 id="1-2-2-MVC模型"><a href="#1-2-2-MVC模型" class="headerlink" title="1.2.2 MVC模型"></a>1.2.2 MVC模型</h3><ul>
+<li>体现：Java常用MVC模式，比如SpringMVC。</li>
+<li>MVC各部分的解释<ul>
+<li>M/Model（模型）：主要封装对数据层的操作，对数据库的数据进行增删改查操作。</li>
+<li>V/View（视图）：用于封装结果的，然后生成用于展示html。</li>
+<li>C/Controller（控制器）：用于接收请求，然后处理业务逻辑，并返回结果。它处于Model和View之间，与两者交互。</li>
+</ul>
+</li>
+</ul>
 <ul>
-<li><strong>位运算统计二进制数$1$的个数</strong></li>
-</ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        x <span class="token operator">=</span> x <span class="token operator">&amp;</span> <span class="token punctuation">(</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        cnt <span class="token operator">++</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>  对于任意的x，转换成二进制后，是形如这样的数字：aa…aa10…00，从右向左数有任意多个0，直到遇见第一个1，字母a用来占位，代表1左边的任意数字。x-1转换成二进制后，是形如这样的数字：aa…aa01…11，从右向左数，原来的任意多个0都变成1，原来的第一个1，变成0，字母a部分不变。对x 和 x-1 进行 按位与 计算，会得到：aa…aa00…00，从右向左数，原来的第一个1变成了0，字母a部分不变。所以 x &amp; (x-1)相当于消除了 x 从右向左数遇到的第一个1。那么，x转换成二进制后包含多少个1，count函数里的循环就会进行多少次，直到x所有的1都被“消除”。</p>
-<h2 id="6-位运算例题"><a href="#6-位运算例题" class="headerlink" title="6 位运算例题"></a>6 位运算例题</h2><h3 id="6-1-更新二进制位"><a href="#6-1-更新二进制位" class="headerlink" title="6.1 更新二进制位"></a><a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/179/">6.1 更新二进制位</a></h3><ul>
-<li><p><strong>题面</strong></p>
-<blockquote>
-<p>给出两个32位的整数N和M，以及两个二进制位的位置i和j。写一个方法来使得N中的第i到j位等于M（M会是N中从第i为开始到第j位的子串）</p>
-<p>样例：</p>
-<pre class="line-numbers language-none"><code class="language-none">输入: N=(10000000000)2 M=(10101)2 i=2 j=6
-输出: N=(10001010100)2
-输入: N=(10000000000)2 M=(11111)2 i=2 j=6
-输出: N=(10001111100)2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</blockquote>
-</li>
-<li><p><strong>解题思路</strong></p>
-<p>结合所学，我们的思路应该就是先将第$i$位到第$j$位全部变为$0$，再将与左移$i$位的$M$进行或操作。</p>
-</li>
-<li><p><strong>AC代码</strong></p>
+<li><p>图解</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/13826085-1840aa6fc7949581.png" alt="MVC模型"></p>
 </li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">updateBits</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> m<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> pos <span class="token operator">=</span> i<span class="token punctuation">;</span> pos <span class="token operator">&lt;=</span> j<span class="token punctuation">;</span> pos <span class="token operator">++</span> <span class="token punctuation">)</span><span class="token punctuation">{</span>
-        n <span class="token operator">&amp;=</span> <span class="token operator">~</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> pos<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> n <span class="token operator">|</span> <span class="token punctuation">(</span>m <span class="token operator">&lt;&lt;</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="6-2-A-B问题"><a href="#6-2-A-B问题" class="headerlink" title="6.2 A+B问题"></a><a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/1/">6.2 A+B问题</a></h3><ul>
-<li><p><strong>题面</strong></p>
-<blockquote>
-<p>给出两个整数 a 和 b , 求他们的和并以整数（int）的形式返回。<strong>不能使用</strong> <strong>+ 等数学运算符。</strong></p>
-<p>样例：</p>
-<p>输入：</p>
-<pre class="line-numbers language-none"><code class="language-none">a = 1
-b = 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>输出：</p>
-<pre class="line-numbers language-none"><code class="language-none">3<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>输入：</p>
-<pre class="line-numbers language-none"><code class="language-none">a = -1
-b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>输出：</p>
-<pre class="line-numbers language-none"><code class="language-none">0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</blockquote>
+<h3 id="1-2-3-MVT模型"><a href="#1-2-3-MVT模型" class="headerlink" title="1.2.3 MVT模型"></a>1.2.3 MVT模型</h3><ul>
+<li><p>体现：Python中的Django框架就是MVT</p>
 </li>
-<li><p><strong>解题思路</strong></p>
-<p>这题我们可以利用异或操作来实现，因为异或操作有一个别名叫不进位加法。那么进位操作我们实际上就可以通过$a&amp;b$来实现，因为$a&amp;b$得到的都是$a$和$b$上都有的$1$，我们再左移即得到的是进位之后的结果，所以$a+b=(a\wedge b)+(a&amp;b&lt;&lt;1)$。通过这样模拟竖式加法操作即可。</p>
+<li><p>MVT各部分的解释</p>
+<ul>
+<li>M/Model（模型）：与MVC的M功能相同，主要封装对数据层的操作，对数据库的数据进行增删改查操作。</li>
+<li>V/View（视图）：与MVC的C功能相同，接收请求，逻辑处理，返回结果。</li>
+<li>T/Template（模板）：和MVC中的V功能相同，负责封装和生成要返回的html。</li>
+</ul>
 </li>
-<li><p><strong>AC代码</strong></p>
+<li><p>图解</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/13826085-528b41457070260b.png" alt="MVT模型"></p>
 </li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">int</span> <span class="token function">aplusb</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">while</span><span class="token punctuation">(</span>b <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">int</span> temp_a <span class="token operator">=</span> a <span class="token operator">^</span> b<span class="token punctuation">;</span>
-            <span class="token keyword">int</span> temp_b <span class="token operator">=</span> <span class="token punctuation">(</span>a <span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            a <span class="token operator">=</span> temp_a<span class="token punctuation">;</span>
-            b <span class="token operator">=</span> temp_b<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> a<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="2-Django安装"><a href="#2-Django安装" class="headerlink" title="2 Django安装"></a>2 Django安装</h1><p>如果你还未安装Python环境需要先下载Python安装包。注意：目前的 Django 1.6.x 以上版本已经完全兼容 Python 3.x。</p>
+<p>使用<code>pip3 install Django==版本号 -i https://pypi.tuna.tsinghua.edu.cn/simple</code>即可安装Django，注意使用镜像源下载，不然下载速度会很慢。</p>
+<p>检查是否安装成功：</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220305175927603.png" alt="image-20220305175927603"></p>
+<h1 id="3-Django项目框架—创建第一个项目"><a href="#3-Django项目框架—创建第一个项目" class="headerlink" title="3 Django项目框架—创建第一个项目"></a>3 Django项目框架—创建第一个项目</h1><h2 id="3-1-Django管理工具"><a href="#3-1-Django管理工具" class="headerlink" title="3.1 Django管理工具"></a>3.1 Django管理工具</h2><p>安装好Django之后，我们现在就有了可用的管理工具<code>django-admin</code>，这个其实就是一个<code>py</code>文件，代码如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>core <span class="token keyword">import</span> management
+ 
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
+    management<span class="token punctuation">.</span>execute_from_command_line<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="6-3-O-1-时间检测2的幂次"><a href="#6-3-O-1-时间检测2的幂次" class="headerlink" title="6.3 $O(1)$时间检测2的幂次"></a><a target="_blank" rel="noopener" href="https://www.lintcode.com/problem/142/">6.3 $O(1)$时间检测2的幂次</a></h3><ul>
-<li><p><strong>题面</strong></p>
-<blockquote>
-<p>用 O(<em>1</em>) 时间检测整数 <em>n</em> 是否是 <em>2</em> 的幂次。</p>
-<p>样例</p>
-<p><code>n=4</code>，返回 <code>true</code>;</p>
-<p><code>n=5</code>，返回 <code>false</code>.</p>
-<p>挑战</p>
-<p>O(<em>1</em>) 时间复杂度</p>
-</blockquote>
-</li>
-<li><p><strong>解题思路</strong></p>
-<p>首先我们知道$2^k$是大于$0$的，这里我们需要特判，同理，$2^k$的二进制表示中只有$1$个$1$，故我们可以利用$x&amp;(x-1)$来消除唯一的$1$判断是否等于$0$即可。</p>
-</li>
-<li><p><strong>AC代码</strong></p>
-</li>
+<p><code>django-admin.py</code>调用<code>django.core.management</code>来执行命令，这个函数会根据命令行参数解析出命令的名称，根据命令的名称来调用相应的Command执行命令。</p>
+<h2 id="3-2-创建第一个项目"><a href="#3-2-创建第一个项目" class="headerlink" title="3.2 创建第一个项目"></a>3.2 创建第一个项目</h2><p>使用<code>django-admin</code>来创建HelloWorld项目：</p>
+<pre class="line-numbers language-django" data-language="django"><code class="language-django">django-admin startproject HelloWorld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>创建完成后，我们可以查看HelloWorld的目录结构如下：</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220305191934585.png" alt="image-20220305191934585">目录说明：</p>
+<ul>
+<li><strong>HelloWorld:</strong> 项目的容器。</li>
+<li><strong>manage.py:</strong> 一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互。</li>
+<li><strong>HelloWorld/<strong>init</strong>.py:</strong> 一个空文件，告诉 Python 该目录是一个 Python 包。</li>
+<li><strong>HelloWorld/asgi.py:</strong> 一个 ASGI 兼容的 Web 服务器的入口，以便运行你的项目。</li>
+<li><strong>HelloWorld/settings.py:</strong> 该 Django 项目的设置/配置。</li>
+<li><strong>HelloWorld/urls.py:</strong> 该 Django 项目的 URL 声明; 一份由 Django 驱动的网站”目录”。</li>
+<li><strong>HelloWorld/wsgi.py:</strong> 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目。</li>
 </ul>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
-<span class="token keyword">public</span><span class="token operator">:</span>
-    <span class="token keyword">bool</span> <span class="token function">checkPowerOf2</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment">// write your code here</span>
-        <span class="token keyword">return</span> n <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">&amp;</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我们进入HelloWorld目录后输入以下命令启动服务器：</p>
+<pre class="line-numbers language-django" data-language="django"><code class="language-django">python3 manage.py runserver 0.0.0.0:8000<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>其中<code>0.0.0.0</code>是为了让其他电脑能连接到开发服务器，8000 为端口号。如果不说明，那么端口号默认为 8000，但建议指明端口号。</p>
+<p>在浏览器输入我们的ip地址（如果是云服务器，则输入公网地址，如果是本机，则可以输入本机地址：127.0.0.1）。这里特别说明，若是云服务器，我们必须在控制台开放8000端口号和80端口号，要不然访问不了。如果没有将IP地址添加到ALLOWED_HOSTS，则会出现如图错误：</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220305194113293.png"></p>
+<p>我们需要将IP地址添加到<code>settings.py</code>中的<code>ALLOWED_HOSTS</code>中。再次访问出现如下界面，此为Django的默认界面：</p>
+<p><img src="C:/Users/pursuit/AppData/Roaming/Typora/typora-user-images/image-20220305194448542.png"></p>
+<h2 id="3-3-视图和URL配置"><a href="#3-3-视图和URL配置" class="headerlink" title="3.3 视图和URL配置"></a>3.3 视图和URL配置</h2><p>在先前创建的HelloWorld目录下的HelloWorld目录新建一个views.py，并输入代码：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
+ 
+<span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> HttpResponse<span class="token punctuation">(</span><span class="token string">"Hello world ! "</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>接着，绑定 URL 与视图函数。打开 urls.py 文件，删除原来代码，将以下代码复制粘贴到 urls.py 文件中：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> django<span class="token punctuation">.</span>urls <span class="token keyword">import</span> path
+ 
+<span class="token keyword">from</span> <span class="token punctuation">.</span>views <span class="token keyword">import</span> hello
+ 
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    path<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> hello<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>完成后，启动 Django 开发服务器，并在浏览器访问打开浏览器并访问：</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220305200823175.png">我们可以修改path，例如改为<code>path('/hello', hello)</code>，那么url即为：<code>http://127.0.0.1/hello</code>。这个path函数可以接收四个参数，分别是两个必选参数：<code>route</code>、<code>view</code>和两个可选参数：<code>kwargs</code>、<code>name</code>。语法格式如下：</p>
+<p><code>path(route, view, kwargs=None, name=None)</code></p>
+<ul>
+<li>route: 字符串，表示 URL 规则，与之匹配的 URL 会执行对应的第二个参数 view。</li>
+<li>view: 用于执行与正则表达式匹配的 URL 请求。</li>
+<li>kwargs: 视图使用的字典类型的参数。</li>
+<li>name: 用来反向获取 URL。</li>
+</ul>
+<p><strong>注意：</strong>项目中如果代码有改动，服务器会自动监测代码的改动并自动重新载入，所以如果你已经启动了服务器则不需手动重启。</p>
 
                 
             </div>
@@ -950,7 +662,7 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://unique-pure.github.io/2021/05/28/wei-yun-suan/">http://unique-pure.github.io/2021/05/28/wei-yun-suan/</a>
+                    <a href="http://unique-pure.github.io/2022/03/05/django-ru-men/">http://unique-pure.github.io/2022/03/05/django-ru-men/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -988,8 +700,8 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                                    <span class="chip bg-color">位运算</span>
+                                <a href="/tags/Django/">
+                                    <span class="chip bg-color">Django</span>
                                 </a>
                             
                         </div>
@@ -1160,7 +872,7 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
         repo: 'commentRes',
         owner: 'unique-pure',
         admin: "unique-pure",
-        id: '2021-05-28T13-12-04',
+        id: '2022-03-05T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1190,17 +902,18 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/10/07/di-45-jie-icpc-ya-zhou-qu-yu-sai-ji-nan-zhan-ti-jie/">
+                <a href="/2022/03/05/django-ru-men/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="第45届ICPC亚洲区域赛济南站题解">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Django学习笔记一初始Django">
                         
-                        <span class="card-title">第45届ICPC亚洲区域赛济南站题解</span>
+                        <span class="card-title">Django学习笔记一初始Django</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1210,26 +923,27 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
-                                    题解
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ICPC/">
-                        <span class="chip bg-color">ICPC</span>
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
                     </a>
                     
                 </div>
@@ -1243,13 +957,13 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/12/shu-wei-dp/">
+                <a href="/2022/02/13/docker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="数位DP学习整理">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Docker入门">
                         
-                        <span class="card-title">数位DP学习整理</span>
+                        <span class="card-title">Docker入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1260,14 +974,14 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
                                 </a>
                             
                             
@@ -1277,8 +991,12 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E4%BD%8DDP/">
-                        <span class="chip bg-color">数位DP</span>
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -1446,13 +1164,6 @@ b = 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 
