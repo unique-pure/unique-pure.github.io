@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-05T01:14:56.183Z</updated>
+  <updated>2022-03-05T01:18:17.430Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://unique-pure.github.io/2021/05/28/wei-yun-suan/"/>
     <id>http://unique-pure.github.io/2021/05/28/wei-yun-suan/</id>
     <published>2021-05-28T05:12:04.000Z</published>
-    <updated>2022-03-05T01:14:56.183Z</updated>
+    <updated>2022-03-05T01:18:17.430Z</updated>
     
     
       
@@ -34,10 +34,10 @@
     
     
     
-    <category term="algorithm" scheme="http://unique-pure.github.io/categories/algorithm/"/>
+    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Prim algorithm" scheme="http://unique-pure.github.io/tags/Prim-algorithm/"/>
+    <category term="位运算" scheme="http://unique-pure.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
   </entry>
   
@@ -46,7 +46,7 @@
     <link href="http://unique-pure.github.io/2020/07/29/dijkstra/"/>
     <id>http://unique-pure.github.io/2020/07/29/dijkstra/</id>
     <published>2020-07-29T08:15:34.000Z</published>
-    <updated>2022-03-05T01:10:25.229Z</updated>
+    <updated>2022-03-05T01:17:54.588Z</updated>
     
     
       
@@ -59,10 +59,12 @@
     
     
     
-    <category term="algorithm" scheme="http://unique-pure.github.io/categories/algorithm/"/>
+    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Dijkstra algorithm" scheme="http://unique-pure.github.io/tags/Dijkstra-algorithm/"/>
+    <category term="Dijkstra" scheme="http://unique-pure.github.io/tags/Dijkstra/"/>
+    
+    <category term="最短路" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
   </entry>
   
@@ -71,7 +73,7 @@
     <link href="http://unique-pure.github.io/2020/07/29/prim/"/>
     <id>http://unique-pure.github.io/2020/07/29/prim/</id>
     <published>2020-07-29T03:34:35.000Z</published>
-    <updated>2022-03-05T01:11:54.108Z</updated>
+    <updated>2022-03-05T01:18:26.373Z</updated>
     
     
       
@@ -84,10 +86,12 @@
     
     
     
-    <category term="algorithm" scheme="http://unique-pure.github.io/categories/algorithm/"/>
+    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="Prim algorithm" scheme="http://unique-pure.github.io/tags/Prim-algorithm/"/>
+    <category term="Prim" scheme="http://unique-pure.github.io/tags/Prim/"/>
+    
+    <category term="最小生成树" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
     
   </entry>
   

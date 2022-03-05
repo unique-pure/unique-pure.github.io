@@ -13,14 +13,14 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> 算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Prim algorithm </tag>
+            <tag> 位运算 </tag>
             
         </tags>
       
@@ -38,14 +38,16 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> 算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Dijkstra algorithm </tag>
+            <tag> Dijkstra </tag>
+            
+            <tag> 最短路 </tag>
             
         </tags>
       
@@ -63,14 +65,16 @@
       
       <categories>
           
-          <category> algorithm </category>
+          <category> 算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Prim algorithm </tag>
+            <tag> Prim </tag>
+            
+            <tag> 最小生成树 </tag>
             
         </tags>
       
