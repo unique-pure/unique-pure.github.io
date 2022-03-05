@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-05T01:50:36.629Z</updated>
+  <updated>2022-03-05T01:55:56.524Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://unique-pure.github.io/2022/02/13/docker/"/>
     <id>http://unique-pure.github.io/2022/02/13/docker/</id>
     <published>2022-02-12T16:00:00.000Z</published>
-    <updated>2022-03-05T01:50:36.629Z</updated>
+    <updated>2022-03-05T01:55:56.524Z</updated>
     
     
       
@@ -39,16 +39,149 @@
     
     <category term="Docker" scheme="http://unique-pure.github.io/tags/Docker/"/>
     
-    <category term="linux" scheme="http://unique-pure.github.io/tags/linux/"/>
+    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
     
   </entry>
   
   <entry>
-    <title>Docker入门</title>
-    <link href="http://unique-pure.github.io/2022/02/13/linux-chang-yong-wen-jian-guan-li-ming-ling/"/>
-    <id>http://unique-pure.github.io/2022/02/13/linux-chang-yong-wen-jian-guan-li-ming-ling/</id>
-    <published>2022-02-12T16:00:00.000Z</published>
-    <updated>2022-03-05T01:55:14.257Z</updated>
+    <title>Linux常用命令、管道、环境变量</title>
+    <link href="http://unique-pure.github.io/2022/02/05/linux-chang-yong-ming-ling-guan-dao-huan-jing-bian-liang/"/>
+    <id>http://unique-pure.github.io/2022/02/05/linux-chang-yong-ming-ling-guan-dao-huan-jing-bian-liang/</id>
+    <published>2022-02-04T16:00:00.000Z</published>
+    <updated>2022-03-05T02:33:10.911Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-Linux常用命令&quot;&gt;&lt;a href=&quot;#1-Linux常用命令&quot; class=&quot;headerlink&quot; title=&quot;1 Linux常用命令&quot;&gt;&lt;/a&gt;1 Linux常用命令&lt;/h1&gt;&lt;h2 id=&quot;1-1-系统状况&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>thrift教程</title>
+    <link href="http://unique-pure.github.io/2022/02/05/thrift-ru-men-jiao-cheng/"/>
+    <id>http://unique-pure.github.io/2022/02/05/thrift-ru-men-jiao-cheng/</id>
+    <published>2022-02-04T16:00:00.000Z</published>
+    <updated>2022-03-05T02:30:42.545Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-thrift简介&quot;&gt;&lt;a href=&quot;#1-thrift简介&quot; class=&quot;headerlink&quot; title=&quot;1 thrift简介&quot;&gt;&lt;/a&gt;1 thrift简介&lt;/h1&gt;&lt;h2 id=&quot;1-1-RPC&quot;&gt;&lt;a href=&quot;#1-1-RPC&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="thrift" scheme="http://unique-pure.github.io/tags/thrift/"/>
+    
+    <category term="RPC框架" scheme="http://unique-pure.github.io/tags/RPC%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git教程</title>
+    <link href="http://unique-pure.github.io/2022/01/26/git-jiao-cheng/"/>
+    <id>http://unique-pure.github.io/2022/01/26/git-jiao-cheng/</id>
+    <published>2022-01-25T16:00:00.000Z</published>
+    <updated>2022-03-05T02:29:46.273Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-git简介&quot;&gt;&lt;a href=&quot;#1-git简介&quot; class=&quot;headerlink&quot; title=&quot;1 git简介&quot;&gt;&lt;/a&gt;1 git简介&lt;/h1&gt;&lt;h2 id=&quot;1-1-什么是版本控制&quot;&gt;&lt;a href=&quot;#1-1-什么是版本控制&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
+    
+    <category term="Git" scheme="http://unique-pure.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SSH教程</title>
+    <link href="http://unique-pure.github.io/2022/01/23/ssh-jiao-cheng/"/>
+    <id>http://unique-pure.github.io/2022/01/23/ssh-jiao-cheng/</id>
+    <published>2022-01-22T16:00:00.000Z</published>
+    <updated>2022-03-05T02:25:09.356Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-SSH基本知识&quot;&gt;&lt;a href=&quot;#1-SSH基本知识&quot; class=&quot;headerlink&quot; title=&quot;1 SSH基本知识&quot;&gt;&lt;/a&gt;1 SSH基本知识&lt;/h1&gt;&lt;h2 id=&quot;1-1-SSH是什么&quot;&gt;&lt;a href=&quot;#1-1-SSH是什么&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
+    
+    <category term="SSH" scheme="http://unique-pure.github.io/tags/SSH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tmux与vim教程</title>
+    <link href="http://unique-pure.github.io/2022/01/22/shell-yu-fa/"/>
+    <id>http://unique-pure.github.io/2022/01/22/shell-yu-fa/</id>
+    <published>2022-01-21T16:00:00.000Z</published>
+    <updated>2022-03-05T02:23:24.081Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-Shell概论&quot;&gt;&lt;a href=&quot;#1-Shell概论&quot; class=&quot;headerlink&quot; title=&quot;1. Shell概论&quot;&gt;&lt;/a&gt;1.</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
+    
+    <category term="Shell" scheme="http://unique-pure.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux常用文件管理命令</title>
+    <link href="http://unique-pure.github.io/2022/01/21/linux-chang-yong-wen-jian-guan-li-ming-ling/"/>
+    <id>http://unique-pure.github.io/2022/01/21/linux-chang-yong-wen-jian-guan-li-ming-ling/</id>
+    <published>2022-01-20T16:00:00.000Z</published>
+    <updated>2022-03-05T02:00:13.171Z</updated>
     
     
       
@@ -64,7 +197,36 @@
     <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="linux" scheme="http://unique-pure.github.io/tags/linux/"/>
+    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tmux与vim教程</title>
+    <link href="http://unique-pure.github.io/2022/01/21/tmux-he-vim/"/>
+    <id>http://unique-pure.github.io/2022/01/21/tmux-he-vim/</id>
+    <published>2022-01-20T16:00:00.000Z</published>
+    <updated>2022-03-05T02:10:40.143Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-tmux使用教程&quot;&gt;&lt;a href=&quot;#1-tmux使用教程&quot; class=&quot;headerlink&quot; title=&quot;1 tmux使用教程&quot;&gt;&lt;/a&gt;1 tmux使用教程&lt;/h1&gt;&lt;h2 id=&quot;1-1-tmux安装&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
+    
+    <category term="tmux" scheme="http://unique-pure.github.io/tags/tmux/"/>
+    
+    <category term="vim" scheme="http://unique-pure.github.io/tags/vim/"/>
     
   </entry>
   
