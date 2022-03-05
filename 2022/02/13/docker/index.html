@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Prim算法详解, pursuit&#39;s blog">
-    <meta name="description" content="Prim算法1 最小生成树（Minimum Spanning Tree,MST）在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，若存在 $T$ ">
+    <meta name="keywords" content="Docker入门, pursuit&#39;s blog">
+    <meta name="description" content="1 初识Docker1.1 Docker开源项目Docker是基于Go语言实现的云开源项目，诞生于2013年初，用于支持创建和使用 Linux容器。它的主要目标是“Build, Ship and Run Any App, Anywhere”">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Prim算法详解 | pursuit&#39;s blog</title>
+    <title>Docker入门 | pursuit&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -325,12 +325,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Prim算法详解</h1>
+                    <h1 class="description center-align post-title">Docker入门</h1>
                 </div>
             </div>
         </div>
@@ -446,12 +446,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Prim/">
-                                <span class="chip bg-color">Prim</span>
+                            <a href="/tags/Docker/">
+                                <span class="chip bg-color">Docker</span>
                             </a>
                         
-                            <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                                <span class="chip bg-color">最小生成树</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -462,8 +462,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                开发
                             </a>
                         
                     </div>
@@ -475,7 +475,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-29
+                    2022-02-13
                 </div>
                 
 
@@ -489,14 +489,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    23 分
                 </div>
                 
 
@@ -519,124 +519,210 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><h2 id="1-最小生成树（Minimum-Spanning-Tree-MST）"><a href="#1-最小生成树（Minimum-Spanning-Tree-MST）" class="headerlink" title="1 最小生成树（Minimum Spanning Tree,MST）"></a>1 最小生成树（Minimum Spanning Tree,MST）</h2><p>在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，<strong>若存在 $T$ 为 $E$ 的子集且为无循环图，使得 $w(T)$ 最小，则此 $T$ 为 $G$ 的最小生成树</strong>，因为$T$是由图$G$产生的。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020081109252713.png"></p>
-<p>最小生成树其实是最小权重生成树的简称。我们称求取该生成树的问题成为最小生成树问题。==一个连通图可能有多个生成树。当图中的边具有权值时，总会有一个生成树的边的权值之和小于或者等于其它生成树的边的权值之和==。广义上而言，对于非连通无向图来说，它的每一连通分量同样有最小生成树，它们的并被称为<strong>最小生成森林</strong>。以有线电视电缆的架设为例，若只能沿着街道布线，则以街道为边，而路口为顶点，其中必然有一最小生成树能使布线成本最低。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi9kL2QyL01pbmltdW1fc3Bhbm5pbmdfdHJlZS5zdmcvMzAwcHgtTWluaW11bV9zcGFubmluZ190cmVlLnN2Zy5wbmc?x-oss-process=image/format,png"></p>
-<p>如图，这个是一个平面图，图中黑色线描述的就是最小生成树，它的权值之和小于其他的生成树。</p>
-<p>那么，我们如何来求最小生成树呢，由最小生成树的定义我们可以知道构建最小生成树是可以利用贪心算法去实现的，我们接下来介绍的两种算法也都是利用贪心算法去求得$MST$的。<strong>因为贪心算法的策略就是在每一步尽可能多的选择中选择最优的，在当前看是最好的选择</strong>，这种策略虽然一般不能在全局中寻找到最优解，但是对于最小生成树问题来说，它的确可以找到一颗权重最小的树。</p>
-<h2 id="2-Prim算法"><a href="#2-Prim算法" class="headerlink" title="2 Prim算法"></a>2 Prim算法</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><p>普里姆算法（Prim’s algorithm），图论中的一种算法，可在加权连通图里搜索最小生成树。意即由此算法搜索到的边子集所构成的树中，不但包括了连通图里的所有顶点，且其所有边的权值之和亦为最小。该算法于1930年由捷克数学家沃伊捷赫·亚尔尼克发现；并在1957年由美国计算机科学家罗伯特·普里姆独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。（来源于维基百科）</p>
-<h3 id="2-2-具体步骤"><a href="#2-2-具体步骤" class="headerlink" title="2.2 具体步骤"></a>2.2 具体步骤</h3><p>Prim算法是利用贪心算法实现的，我们确定根节点，从这个结点出发。普里姆算法按照以下步骤==逐步扩大树中所含顶点的数目，直到遍及连通图的所有顶点==。下面描述我们==假设$N=(V,E)$是连通网，$TE$是$N$上最小生成树中边的集合==。</p>
-<p>​    ①  $U={u_0}(u_0∈V) ,TE= {}$。</p>
-<p>​    ②  在所有$u∈U,v∈(V-U)$的边$(u,v)∈E$找到一条权值最小的边$(u_0,v_0)$并入集合$TE$，同时$v_0$并入集合$U$。</p>
-<p>​    ③  重复②步骤，知道$U=V$为止。</p>
-<p>此时$TE$中必有$n-1$条边，则$T=(V,TE)$即为我们求得的$N$的最小生成树。</p>
-<h3 id="2-3-算法示例图"><a href="#2-3-算法示例图" class="headerlink" title="2.3 算法示例图"></a>2.3 算法示例图</h3><p><img src="https://img-blog.csdnimg.cn/20210322125136390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70#pic_center"></p>
-<h3 id="2-4-算法实现"><a href="#2-4-算法实现" class="headerlink" title="2.4 算法实现"></a>2.4 算法实现</h3><p>我们如果对Dijkstra算法很熟悉的话，Prim算法也很好实现了，它们都是利用了一样的思路，但却不相同。==我们用利用$lowcost$数组来表示到集合中最近的距离，用$closest$数组来表示最小生成树的边。怎么来表示呢？我们用顶点来形容边，也就是说我们要求的就是$closet$数组。其中$closest[i]$表示的值就是与$i$顶点相邻边的顶点序号==。具体看代码（附带打印最小生成树代码）。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span>	<span class="token comment">//POJ不支持</span></span>
+                <h1 id="1-初识Docker"><a href="#1-初识Docker" class="headerlink" title="1 初识Docker"></a>1 初识Docker</h1><h2 id="1-1-Docker开源项目"><a href="#1-1-Docker开源项目" class="headerlink" title="1.1 Docker开源项目"></a>1.1 Docker开源项目</h2><p>Docker是基于Go语言实现的云开源项目，诞生于2013年初，用于支持创建和使用 Linux容器。它的主要目标是“Build, Ship and Run Any App, Anywhere”，即通过对应用封装（Packaging）、分发（Deployment）、运行（Runtime）等生命管理，达到应用组件级别的 ==“一次封装、到处运行”== 。这里的应用组件既可以是一个应用，也可以是一套数据库服务，甚至是一个操作系统或编译器。</p>
+<h2 id="1-2-Linux容器技术"><a href="#1-2-Linux容器技术" class="headerlink" title="1.2 Linux容器技术"></a>1.2 Linux容器技术</h2><p>Docker引擎的基础是Linux容器（Linux Containers，LXC）技术。容器则是有效地将由单个操作系统管理的资源划分到孤立的组中，以便更好地在孤立间平衡有冲突的资源使用需求，而LXC项目则是借助容器设计理念，并基于一系列新的内核特性实现了更具有扩展性的虚拟化容器方案。更关键的是，LXC被集成到了主流Linux内核中，进而成为Linux系统轻量级容器技术的事实标准。<br>那么在LXC的基础上，Docker进一步优化了容器的使用体验。Docker提供了各种容器管理工具（如分发、版本、移植等）让用户无需关注底层的操作，可以简单明了管理和使用容器。用户操作Docker容器就像操作一个轻量级的虚拟机那样简单。</p>
+<p>我们可以将Docker容器理解为一种沙盒，每个容器运行一个应用，不同的容器相互隔离，容器之间也可以建立通信机制。容器的创建和停止都十分迅速，容器自身对资源的需求也十分有限，远远低于虚拟机。很多时候，甚至将容器比作是应用本身也没有问题。</p>
+<h2 id="1-3-为什么要使用Docker"><a href="#1-3-为什么要使用Docker" class="headerlink" title="1.3 为什么要使用Docker"></a>1.3 为什么要使用Docker</h2><ul>
+<li><strong>Docker容器虚拟化</strong><br>举个简单的应用场景的例子，假设用户试图基于最常用的LAMP（Linux+Apache+MySQL+PHP）组合来运维一个网站。按照最传统的做法，首先需要安装Apache、Mysql和PHP以及它们各自运行所依赖的环境；之后分别对它们进行配置。经过大量操作后，然后还需要进行功能测试，看是否工作正常；如果不正常，则意味着更多的时间代价和不可控的风险。可以想象，如果再加上更多的应用，事情会变得更加难以处理。更为可怕的是，如果需要进行服务器迁移，如从腾讯云迁移到阿里云，往往需要重新部署和调试。==而Docker提供了一种更为聪明的方式，通过容器来打包应用，意味着迁移只需要再服务器上启动需要的容器就可以了，节约大量的宝贵时间，并降低部署过程中出现问题的风险。==</li>
+<li><strong>Docker在开发和运维的优势</strong><br>Docker可以在任何环境、任意时间让应用正常运行。在开发和运维中有4大优势：更快速的交付和部署；更高效的资源利用；更轻松的迁移和扩展；更简单的更新管理。</li>
+<li><strong>Docker与虚拟机的比较</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>容器</th>
+<th>虚拟机</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>启动速度</td>
+<td>秒级</td>
+<td>分钟级</td>
+</tr>
+<tr>
+<td>硬盘使用</td>
+<td>一般为MB</td>
+<td>一般为GB</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>接近原生</td>
+<td>弱于</td>
+</tr>
+<tr>
+<td>系统支持量</td>
+<td>单机支持上千个容器</td>
+<td>一般为几十个</td>
+</tr>
+<tr>
+<td>隔离性</td>
+<td>安全隔离</td>
+<td>完全隔离</td>
+</tr>
+</tbody></table>
+<h2 id="1-4-Docker的核心概念"><a href="#1-4-Docker的核心概念" class="headerlink" title="1.4 Docker的核心概念"></a>1.4 Docker的核心概念</h2><p>Docker有三大核心概念，如果我们理解了这三个核心概念，就能顺利理解Docker的整个生命周期。</p>
+<ul>
+<li><strong>镜像（Image）</strong><br>Docker镜像（Image）类似于虚拟机镜像，可以理解为一个面向Docker引擎的只读模板，包含了文件系统。例如一个镜像可以只包含一个完整的Ubuntu操作系统环境，可以把它称为一个Ubuntu镜像。镜像也可以安装了Apache应用程序，可以把它称为一个Apache镜像。<br>镜像是创建Docker容器的基础。通过版本管理和增量的文件系统，Docker提供了一套十分简单的机制来创建和更新现有的镜像，用户甚至可以从网上下载一个已经做好的应用镜像，并通过简单的命令就可以直接使用。</li>
+<li><strong>容器（Container）</strong><br>Docker容器（Container）类似于一个轻量级的沙箱，Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以将其启动、开始、停止、删除，而这些容器都是相互隔离、互不可见的。==我们实际是可以将容器看作是一个简易版的Linux系统环境（包括root用户权限、进程空间、用户空间和网络空间等），以及运行在其中的应用程序打包而成的应用盒子。==<br>镜像自身是只读的。容器从镜像启动的时候，Docker会在镜像的最上层创建一个可写层，镜像本身将保持不变。如果认为虚拟机是模拟运行的一整套操作系统（提供了运行态环境和其他系统环境）和跑在上面的应用，那么Docker容器就是独立运行的一个或一组应用，以及它们的必需运行环境。</li>
+<li><strong>仓库（Repository）</strong><br>Docker仓库（Repository）类似于代码仓库，是Docker集中存放镜像文件的场所。而注册服务器（Registry）是存放仓库的地方，其上往往存放着多个仓库。每个仓库集中存放某一类镜像，往往包括多个镜像文件，通过不同的标签（tag）来进行区分。例如存放Ubuntu操作系统镜像的仓库，称为Ubuntu仓库，其中可能包括20.04等不同版本的镜像。根据所存储的镜像公开分享与否，Docker仓库可以分为公开仓库（Public）和私有仓库（Private）两种形式。目前，最大的公开仓库是Docker Hub，存放着数量庞大的镜像供用户下载，国内的公开仓库包括Docker Pool等，可提供稳定的国内访问。<br>当然，用户如果不希望公开分享自己的镜像文件，Docker也支持用户在本地网络内创建一个只能自己访问的私有仓库。当用户创建了自己的镜像之后就可以使用push命令将它上传到指定的公有或者私有仓库。这样用户下次在另外一台机器上使用该镜像时，只需将其从仓库上pull下来就可以了。<h2 id="1-5-Docker安装（Linux）"><a href="#1-5-Docker安装（Linux）" class="headerlink" title="1.5 Docker安装（Linux）"></a>1.5 Docker安装（Linux）</h2><a target="_blank" rel="noopener" href="https://blog.csdn.net/hzf0701/article/details/122810614?spm=1001.2014.3001.5501">安装教程</a></li>
+</ul>
+<h1 id="2-镜像具体操作"><a href="#2-镜像具体操作" class="headerlink" title="2 镜像具体操作"></a>2 镜像具体操作</h1><h2 id="2-1-获取镜像"><a href="#2-1-获取镜像" class="headerlink" title="2.1 获取镜像"></a>2.1 获取镜像</h2><p>镜像是Docker运行容器的前提。使用<code>docker pull</code>命令即可从镜像仓库上下载指定镜像到本地。命令格式如下：<br><code>docker pull [options] NAME[:TAG]</code><br>options参数说明：</p>
+<ul>
+<li><code>-a</code>：拉取所有tagged镜像</li>
+</ul>
+<p>例如从Docker Hub的Ubuntu仓库下载一个最新版的Ubuntu操作系统的镜像</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> pull ubuntu:20.04 <span class="token comment"># 指定版本号，目前最新为20.04</span>
+<span class="token function">docker</span> pull ubuntu <span class="token comment">#该命令实际上下载的就是ubuntu:latest镜像。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://img-blog.csdnimg.cn/ab1e7c77f32c4616a74bc49ee493b34f.png"></p>
+<p>上面这两条命令实际上相当于<code>docker pull registry.hub.docker.com/ubuntu:latest</code>命令，即从默认的注册服务器registry.hub.docker.com中的ubuntu仓库来下载标记为latest的镜像。<br>我们也可以选择其他注册服务器的仓库下载。那么这个时候我们需要在仓库前指定完整的仓库注册服务器地址。例如从Docker Pool社区的镜像源d1.dockerpool.com下载最新的ubuntu镜像。<br><code>docker pull d1.dockerpool.com:5000/ubuntu</code></p>
+<h2 id="2-2-查看镜像信息"><a href="#2-2-查看镜像信息" class="headerlink" title="2.2 查看镜像信息"></a>2.2 查看镜像信息</h2><p>使用<code>docker images</code>命令可以列出本地主机上的所有镜像。命令格式如下：<br><code>docker images [options] [repository:[tag]]</code><br>options参数说明：</p>
+<ul>
+<li>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</li>
+<li>-f :显示满足条件的镜像；</li>
+<li>-q :只显示镜像ID。</li>
+</ul>
+<p>如果没有给出仓库名，那么默认列出本地主机上已有的镜像。我们使用<code>docker images</code>可以查看到如下信息：<br><img src="https://img-blog.csdnimg.cn/3e6c31e3a93b4d6a96177fcc77f098e1.png"><br>可以看到几个字段信息：</p>
+<ul>
+<li>repository：来自于哪个仓库，比如ubuntu仓库。</li>
+<li>tag：镜像的标签信息，比如20.04或latest。用于标记来自同一个仓库的不同镜像。</li>
+<li>==image id：镜像的ID号，这个特别重要，唯一标识镜像。==</li>
+<li>created：镜像创建时间。</li>
+<li>size：镜像大小。</li>
+</ul>
+<p>我们从图中可以发现，20.04和latest标签的镜像ID是完全一致的，说明它们实际上指向了同一个镜像文件，只是别名不同而已。标签在这里起到了引用或者快捷方式的作用。<br>我们使用<code>docker inpsect NAME|ID</code>即可查看该镜像的详细信息，为json格式。<br><img src="https://img-blog.csdnimg.cn/bbba0091cbed4581a6ee4f964021b019.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdW5pcXVlX3B1cnN1aXQ=,size_18,color_FFFFFF,t_70,g_se,x_16"><br>我们还可以使用<code>docker history</code>命令查看指定镜像的创建历史，命令格式如下：<br><code>docker history [options] IMAGE</code><br>options说明：</p>
+<ul>
+<li>-q :仅列出提交记录ID。<h2 id="2-3-搜寻镜像"><a href="#2-3-搜寻镜像" class="headerlink" title="2.3 搜寻镜像"></a>2.3 搜寻镜像</h2>使用<code>docker search</code>命令可以搜索云端仓库中共享的镜像，默认搜寻Docker Hub官方仓库的镜像。命令格式如下：<br><code>docker search [options] TERM</code><br>options说明：</li>
+<li>–automated :只列出 automated build类型的镜像；</li>
+<li>–no-trunc :显示完整的镜像描述；</li>
+<li>-f &lt;过滤条件&gt;:例如列出收藏数不小于指定值的镜像。</li>
+</ul>
+<p>例如搜寻带mysql关键字的镜像如下：<br><img src="https://img-blog.csdnimg.cn/2d53be1c47ff4f8da8b4fbfe26177db9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdW5pcXVlX3B1cnN1aXQ=,size_18,color_FFFFFF,t_70,g_se,x_16"></p>
+<h2 id="2-4-删除镜像"><a href="#2-4-删除镜像" class="headerlink" title="2.4 删除镜像"></a>2.4 删除镜像</h2><p>使用<code>docker rmi</code>命令可以删除镜像，命令格式如下：<br><code>docker rmi IMAGE [IMAGE...]</code><br>其中IMAGE可以为镜像标签或者镜像ID，这ID可以为能进行区分的部分前缀串。<br>需要注意的是，当有该镜像创建的容器存在时，镜像文件时默认无法删除的，若想要强行删除文件则需要加入<code>-f</code>参数来强制删除一个存在容器依赖的镜像，但这样往往会造成一些遗留问题。正确的做法应该是先删除依赖该镜像的所有容器，再来删除镜像。<br>若要删除所有镜像，可用<code>docker images -q</code>列出所有的ID，正确命令为：<code>docker rmi $(docker images -q)</code>。</p>
+<h2 id="2-5-创建镜像"><a href="#2-5-创建镜像" class="headerlink" title="2.5 创建镜像"></a>2.5 创建镜像</h2><p>创建镜像的方法有三种：基于已有镜像的容器创建、基于本地模板导入、基于Dockerfile创建。</p>
+<h3 id="2-5-1-基于已有镜像的容器创建"><a href="#2-5-1-基于已有镜像的容器创建" class="headerlink" title="2.5.1 基于已有镜像的容器创建"></a>2.5.1 基于已有镜像的容器创建</h3><p>使用<code>docker commit</code>命令即可从容器创建一个镜像，命令格式如下：<br><code>docker commit [options] CONTAINER [REPOSITORY[:TAG]]</code><br>options说明：</p>
+<ul>
+<li>-a :提交的镜像作者；</li>
+<li>-c :使用Dockerfile指令来创建镜像；</li>
+<li>-m :提交时的说明文字；</li>
+<li>-p :在commit时，将容器暂停。</li>
+</ul>
+<p>CONTAINER为容器ID。<br>顺利的话，命令会返回新创建的镜像的ID信息。<br>实例如下：<br><code> docker commit -a "pursuit" -m "my ubuntu" 3c61e963210c myubuntu:v1</code></p>
+<h3 id="2-5-2-基于本地模板导入"><a href="#2-5-2-基于本地模板导入" class="headerlink" title="2.5.2 基于本地模板导入"></a>2.5.2 基于本地模板导入</h3><p>可以从一个操作系统模板文件导入一个镜像，也可以从网上下载一个模板。一般使用OpenVZ提供的模板来创建。<a target="_blank" rel="noopener" href="https://wiki.openvz.org/Download/template/precreated">OpenVZ下载地址</a>。<br>首先下载一个，命令如下：<br><code>wget https://download.openvz.org/template/precreated/contrib/arch-20161108-x86_64.tar.gz</code><br><img src="https://img-blog.csdnimg.cn/5b4c7b988f554162918318c5256caa86.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdW5pcXVlX3B1cnN1aXQ=,size_17,color_FFFFFF,t_70,g_se,x_16"></p>
+<p>然后将导入该镜像：<br><code>cat arch-20161108-x86_64.tar.gz | docker import - arch:x86_64</code><br><img src="https://img-blog.csdnimg.cn/16984ce2669947c780175dfd0f3761a7.png"><br>查看新导入的镜像，已经本地存在了：<br><img src="https://img-blog.csdnimg.cn/105f0e690da642019b2359c6264fe4f3.png"></p>
+<h3 id="2-5-3-基于Dockerfile创建"><a href="#2-5-3-基于Dockerfile创建" class="headerlink" title="2.5.3 基于Dockerfile创建"></a>2.5.3 基于Dockerfile创建</h3><p>其中Dockerfile是一个文本格式的配置文件，用户可以使用 Dockerfile 快速创建自定义的镜像。<br>Dockerfile由一行行命令语句组成，并且支持以<code>#</code>开头的注释。Dockerfile分为四部分：基础镜像信息、维护者信息、镜像操作指令和容器启动时执行指令。例如下面的文件模板：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># This dockerfile user the ubuntu image</span>
+<span class="token comment"># VERSION 2 - EDITON 1</span>
+<span class="token comment"># Author: docker_user</span>
+<span class="token comment"># Command format: Instruction [arguments / command] ..</span>
 
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">rep</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量，a为初始值，n为界限值，递增</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">per</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&gt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量， a为初始值，n为界限值，递减。</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">pb</span> <span class="token expression">push_back</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">IOS</span> <span class="token expression">ios<span class="token double-colon punctuation">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">fi</span> <span class="token expression">first</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">se</span> <span class="token expression">second</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">mp</span> <span class="token expression">make_pair</span></span>
+<span class="token comment"># 第一行必须指定基于的基础镜像</span>
+FROM ubuntu
 
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token comment"># 维护者信息</span>
+<span class="token comment"># 例如MAINTAINER  docker_user docker_user@email.com</span>
+MAINTAINER pursuit unique.hzf@gmail.com
 
-<span class="token keyword">const</span> <span class="token keyword">int</span> inf <span class="token operator">=</span> <span class="token number">0x3f3f3f3f</span><span class="token punctuation">;</span><span class="token comment">//无穷大</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> maxn <span class="token operator">=</span> <span class="token number">1e3</span><span class="token punctuation">;</span><span class="token comment">//最大值。</span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">double</span> ld<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span>ll<span class="token punctuation">,</span> ll<span class="token operator">&gt;</span>  pll<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> pii<span class="token punctuation">;</span>
-<span class="token comment">//*******************************分割线，以上为自定义代码模板***************************************//</span>
+<span class="token comment"># 镜像的操作指令</span>
+<span class="token comment"># RUN &lt;command&gt;，当命令较长，可以用\来换行。</span>
+RUN <span class="token builtin class-name">echo</span> <span class="token string">"Hello, World!"</span>
 
-<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span><span class="token comment">//图的大小和边数。</span>
-<span class="token keyword">int</span> graph<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//图</span>
-<span class="token keyword">int</span> lowcost<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">,</span>closest<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//lowcost[i]表示i到距离集合最近的距离，closest[i]表示i与之相连边的顶点序号。</span>
-<span class="token keyword">int</span> sum<span class="token punctuation">;</span><span class="token comment">//计算最小生成树的权值总和。</span>
-<span class="token keyword">void</span> <span class="token function">Prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//初始化操作，获取基本信息。</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>s<span class="token punctuation">)</span>
-			lowcost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-		<span class="token keyword">else</span>
-			lowcost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-		closest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>s<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">int</span> minn<span class="token punctuation">,</span>pos<span class="token punctuation">;</span><span class="token comment">//距离集合最近的边，pos代表该点的终边下标。</span>
-	sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		minn<span class="token operator">=</span>inf<span class="token punctuation">;</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token comment">//找出距离点集合最近的边。</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>minn<span class="token punctuation">)</span><span class="token punctuation">{</span>
-				minn<span class="token operator">=</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-				pos<span class="token operator">=</span>j<span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>minn<span class="token operator">==</span>inf<span class="token punctuation">)</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment">//说明没有找到。</span>
-		sum<span class="token operator">+=</span>minn<span class="token punctuation">;</span><span class="token comment">//计算最小生成树的权值之和。</span>
-		lowcost<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//加入点集合。</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token comment">//由于点集合中加入了新的点，我们要去更新。</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-				closest<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>pos<span class="token punctuation">;</span><span class="token comment">//改变与顶点j相连的顶点序号。</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-	cout<span class="token operator">&lt;&lt;</span>sum<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//closest数组就是我们要的最小生成树。它代表的就是边。</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//打印最小生成树。</span>
-	<span class="token keyword">int</span> temp<span class="token punctuation">;</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token comment">//等于s自然不算，故除去这个为n-1条边。</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">!=</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			temp<span class="token operator">=</span>closest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-			cout<span class="token operator">&lt;&lt;</span>temp<span class="token operator">&lt;&lt;</span><span class="token string">"-&gt;"</span><span class="token operator">&lt;&lt;</span>i<span class="token operator">&lt;&lt;</span><span class="token string">"边权值为："</span><span class="token operator">&lt;&lt;</span>graph<span class="token punctuation">[</span>temp<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//freopen("in.txt", "r", stdin);//提交的时候要注释掉</span>
-	IOS<span class="token punctuation">;</span>
-	<span class="token keyword">while</span><span class="token punctuation">(</span>cin<span class="token operator">&gt;&gt;</span>n<span class="token operator">&gt;&gt;</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token function">memset</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span>inf<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//初始化。</span>
-		<span class="token keyword">int</span> u<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">;</span><span class="token comment">//临时变量。</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			cin<span class="token operator">&gt;&gt;</span>u<span class="token operator">&gt;&gt;</span>v<span class="token operator">&gt;&gt;</span>w<span class="token punctuation">;</span>
-			<span class="token comment">//视情况而论，我这里以无向图为例。</span>
-			graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>w<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		<span class="token comment">//任取根结点，我这里默认取1.</span>
-		<span class="token function">Prim</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印最小生成树。</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="token comment"># 容器启动时执行指令</span>
+CMD /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>创建好Dockerfile后，我们利用<code>docker build</code>命令，命令格式如下：<br><code>docker build -t PATH|URL repository:tag</code><br>如，我们利用Dockerfile生成镜像<br><code>sudo docker build . -t arch:x86_64_01</code><br>查看本地镜像如下：<br><img src="https://img-blog.csdnimg.cn/ee91502cb9374e1782f92fd75597df43.png"></p>
+<h2 id="2-6-存出和载入镜像"><a href="#2-6-存出和载入镜像" class="headerlink" title="2.6 存出和载入镜像"></a>2.6 存出和载入镜像</h2><p>我们可以使用<code>docker save</code>和<code>docker load</code>命令来存出和载入镜像。 ==存出即将镜像保存成tar归档文件，载入即将使用<code>docker save</code>命令导出的tar归档文件载入称为镜像文件。== 命令格式如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> save -o filename IMAGE
+或者
+<span class="token function">docker</span> save IMAGE<span class="token operator">&gt;</span>filename
 
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-5-算法分析"><a href="#2-5-算法分析" class="headerlink" title="2.5 算法分析"></a>2.5 算法分析</h3><p>对于此算法，我们图中有$n$个顶点，则第一个进行初始化的循环语句的频度为$n$,第二个循环语句的频度为$n$，==但其中第二个循环中有两个内循环：第一个是在$lowcost$中求最小值，其频度为$n$，第二个是重新选择具有最小权值的边，频度为$n$==，由此我们可知Prim算法的时间复杂度为$O(n^2)$，与图中的边数无关，故十分适合于稠密图。</p>
-<h3 id="2-6-测试"><a href="#2-6-测试" class="headerlink" title="2.6 测试"></a>2.6 测试</h3><p>我们用示例来测试：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">7</span> <span class="token number">11</span>
-<span class="token number">1</span> <span class="token number">2</span> <span class="token number">7</span>
-<span class="token number">1</span> <span class="token number">4</span> <span class="token number">5</span>
-<span class="token number">2</span> <span class="token number">4</span> <span class="token number">9</span>
-<span class="token number">2</span> <span class="token number">3</span> <span class="token number">8</span>
-<span class="token number">2</span> <span class="token number">5</span> <span class="token number">7</span>
-<span class="token number">4</span> <span class="token number">5</span> <span class="token number">15</span>
-<span class="token number">4</span> <span class="token number">6</span> <span class="token number">6</span>
-<span class="token number">6</span> <span class="token number">7</span> <span class="token number">11</span>
-<span class="token number">5</span> <span class="token number">6</span> <span class="token number">8</span>
-<span class="token number">5</span> <span class="token number">7</span> <span class="token number">9</span>
-<span class="token number">3</span> <span class="token number">5</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>测试结果如图：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200811095845614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70"></p>
+<span class="token function">docker</span> load --input filename
+或者
+<span class="token function">docker</span> load <span class="token operator">&lt;</span>filename
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>实例：<br><code> docker save -o files/ubuntu_20_04.tar ubuntu:20.04</code><br><img src="https://img-blog.csdnimg.cn/21e37193e1194d8aa1d15d6faa5b6f90.png"><br>然后我们需要删除ubuntu:20.04镜像，再导入。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> rmi ubuntu:20.04
+<span class="token function">docker</span> load <span class="token operator">&lt;</span>ubuntu_20_04.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://img-blog.csdnimg.cn/4d05d52c678f40bca2061c4c0f4f21f5.png"></p>
+<h2 id="2-7-修改镜像"><a href="#2-7-修改镜像" class="headerlink" title="2.7 修改镜像"></a>2.7 修改镜像</h2><p>使用<code>docker tag</code>命令可以标记本地镜像，将其归入某一仓库。命令格式如下：<br><code>docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]</code><br>实例：<br><code>docker tag ubuntu:20.04 myubuntu/ubuntu:20.04</code><br><img src="https://img-blog.csdnimg.cn/6a80b40a10a24e198099bbdeadf210e6.png"></p>
+<h2 id="2-8-上传镜像"><a href="#2-8-上传镜像" class="headerlink" title="2.8 上传镜像"></a>2.8 上传镜像</h2><p>使用<code>docker push</code>命令将本地的镜像上传到镜像仓库，默认上传到DockerHub官方仓库。要先登陆到镜像仓库。命令格式如下：<br><code>docker push NAME[:TAG]</code><br>例如用户user上传自己的本地镜像ubuntu:20.04，需要注意的是我们需要添加新的标签<code>user/ubuntu:20.04</code>（其中user一定要和我们的dockerhub中用户名同名，否则会报错）然后再上传。<br><img src="https://img-blog.csdnimg.cn/d1f0f11bb5ae42a5ac1f85bc3903644f.png"><br>之后，我们即可在DockerHub官网看到自己的仓库和上传的镜像了。<br><img src="https://img-blog.csdnimg.cn/6dd17208e09e48ad9f63f208d430fd4f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdW5pcXVlX3B1cnN1aXQ=,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
+<h1 id="3-容器具体操作"><a href="#3-容器具体操作" class="headerlink" title="3 容器具体操作"></a>3 容器具体操作</h1><h2 id="3-1-查看容器"><a href="#3-1-查看容器" class="headerlink" title="3.1 查看容器"></a>3.1 查看容器</h2><p>使用<code>docker ps</code>命令即可列出容器，命令格式如下：<br><code>docker ps [OPTIONS]</code><br>其中options说明：</p>
+<ul>
+<li>-a :显示所有的容器，包括未运行的。</li>
+<li>-f :根据条件过滤显示的内容。</li>
+<li>-q :静默模式，只显示容器编号。</li>
+</ul>
+<p>我们运行<code>docker ps -a</code>可以得到如图：<br><img src="https://img-blog.csdnimg.cn/af07e9a999dc4161954ff95877f47e00.png"><br>其中输出字段说明如下：</p>
+<ul>
+<li>CONTAINER ID: 容器 ID。</li>
+<li>IMAGE: 使用的镜像。</li>
+<li>COMMAND: 启动容器时运行的命令。</li>
+<li>CREATED: 容器的创建时间。</li>
+<li>STATUS: 容器状态。</li>
+<li>PORTS: 容器的端口信息和使用的连接类型（tcp\udp）。</li>
+<li>NAMES: 自动分配的容器名称。</li>
+</ul>
+<p>我们也可以使用<code>docker inspect</code>命令列出容器的元信息，输出格式为json格式，这个命令在查看镜像章节已经说明了，用法相同，这里不再叙述。</p>
+<p>使用<code>docker stats</code>可以查看所有容器的统计信息，包括CPU、内存、存储、网络等信息。<br>使用<code>docker top CONTAINER</code>可查看某个容器内的所有进程。</p>
+<h2 id="3-2-创建容器"><a href="#3-2-创建容器" class="headerlink" title="3.2 创建容器"></a>3.2 创建容器</h2><p>Docker的容器十分轻量级，用户可以随时创建或删除容器。</p>
+<ul>
+<li><strong>新建容器</strong><br>可以使用<code>docker create</code>命令新建一个容器，例如：<br><code>docker create -it ubuntu:20.04</code><br>即利用镜像ubuntu:20.04创建容器。</li>
+<li><strong>新建并启动一个容器</strong><br>使用<code>docker run</code>命令创建并启动容器。其命令格式如下：<br><code>docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</code><br>其中options说明：</li>
+</ul>
+<p>1.<code>--name</code>：为容器指定一个名称；<br>2.<code>-t</code>: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；<br>3.<code>-d</code>:  后台运行容器，并返回容器ID。<br>4.<code>-i</code>: 以交互模式运行容器，通常与 -t 同时使用。<br>当使用<code>docker</code>创建并启动容器时，Docker在后台运行的标准操作如下：<br>1.检查本地是否有指定的镜像，不存在就从公有仓库下载;<br>2.利用镜像创建并启动一个容器；<br>3.分配一个文件系统，并在只读的镜像层外面挂载一层可读写层；<br>4.从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去；<br>5.从地址池配置一个IP地址给容器；<br>6.执行用户指定的应用程序；<br>7.执行完毕后容器被终止。<br>下面这个实例将启动一个bash终端，允许用户进行交互，可以使用Linux命令。<br><code>docker run -it ubuntu:20.04 /bin/bash</code><br><img src="https://img-blog.csdnimg.cn/f28c825c687f4545b2f3a5966466051f.png"><br>其中root为用户名，@后面的为容器ID。我们用<code>ps</code>命令查看进程发现只运行了bash应用，并没有运行其他不需要的进程。可以使用Ctrl+d或输入<code>exit</code>命令来退出容器。当退出容器之后，该容器就自动处于终止状态了。 ==这是因为对于Docker容器来说，当运行的应用（此例子中为bash）退出后，容器也就没有再运行的必要了。==</p>
+<h2 id="3-3-启动终止容器"><a href="#3-3-启动终止容器" class="headerlink" title="3.3 启动终止容器"></a>3.3 启动终止容器</h2><ul>
+<li><strong>启动容器</strong><br>使用<code>docker start</code>可以启动一个已存在的容器。命令格式如下：<br><code>docker start CONTAINER</code></li>
+<li><strong>终止容器</strong><br>使用<code>docker stop</code>可以启动一个已存在的容器。命令格式如下：<br><code>docker stop CONTAINER</code></li>
+<li><strong>重启容器</strong><br>使用<code>docker restart</code>可以启动一个已存在的容器。命令格式如下：<br><code>docker restart CONTAINER</code><h2 id="3-4-获取容器的日志"><a href="#3-4-获取容器的日志" class="headerlink" title="3.4 获取容器的日志"></a>3.4 获取容器的日志</h2>使用<code>docker logs</code>即可获取容器的日志。命令格式如下：<br><code>docker logs [OPTIONS] CONTAINER</code><br>其中OPTIONS说明：</li>
+<li>-f : 跟踪日志输出</li>
+<li>–since :显示某个开始时间的所有日志</li>
+<li>-t : 显示时间戳</li>
+<li>–tail :仅列出最新N条容器日志</li>
+</ul>
+<p>实例：<br><img src="https://img-blog.csdnimg.cn/467a19f61691409aaab21237f232399e.png"></p>
+<h2 id="3-5-进入容器"><a href="#3-5-进入容器" class="headerlink" title="3.5 进入容器"></a>3.5 进入容器</h2><p>在使用<code>-d</code>参数后，容器启动后会自动进入后台，用户无法看到容器中的信息。我们如果需要进入容器进行操作，有多种方法，这里介绍两种。</p>
+<ul>
+<li><strong>使用<code>docker attach</code></strong><br>命令格式为：<code>docker attach CONTAINER</code><br>在容器中，我们可以先按<code>Ctrl-p</code>，再按<code>Ctrl-q</code>可以挂起容器。<br>但是使用attach命令有时候并不方便。当多个窗口同时attach到同一个容器的时候，所有窗口都会同步显示。当某个窗口因命令阻塞后，其他窗口也无法执行操作了。</li>
+<li><strong>使用<code>docker exec</code>命令</strong><br>Docker自1.3版本起，提供了一个更方便的工具exec，该命令可以在运行的容器中执行命令，命令格式如下：<br><code>docker exec [OPTIONS] CONTAINER COMMAND [ARG...]</code><br>其中OPTIONS说明：<br>  1.<code>-d</code> :分离模式: 在后台运行</li>
+</ul>
+<p> 2.<code>-i</code> :即使没有附加也保持STDIN 打开<br>3.<code>-t</code> :分配一个伪终端</p>
+<h2 id="3-5-删除容器"><a href="#3-5-删除容器" class="headerlink" title="3.5 删除容器"></a>3.5 删除容器</h2><p>可以使用<code>docker rm</code>命令来删除==处于终止状态的容器==，命令格式如下：<br><code>docker rm [OPTIONS] CONTAINER [CONTAINER...]</code><br>其中OPTIONS说明：</p>
+<ul>
+<li><code>-f</code> :通过 SIGKILL 信号强制删除一个运行中的容器。</li>
+<li><code>-l</code>:移除容器间的网络连接，而非容器本身。即删除容器的连接，但保留容器。</li>
+<li><code>-v</code> :删除与容器关联的卷。</li>
+</ul>
+<p>如果需要删除所有容器，可使用<code>docker rm $(docker ps -aq)</code>。</p>
+<h2 id="3-6-在本地和容器之间复制文件"><a href="#3-6-在本地和容器之间复制文件" class="headerlink" title="3.6 在本地和容器之间复制文件"></a>3.6 在本地和容器之间复制文件</h2><p>使用<code>docker cp</code>命令用于主机和容器之间的数据拷贝，命令格式如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token function">cp</span> xxx CONTAINER:xxx 
+<span class="token function">docker</span> <span class="token function">cp</span> CONTAINER:xxx xxx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>实例：<br><code>docker cp data.txt 3c61e963210c:data.txt</code><br><img src="https://img-blog.csdnimg.cn/a7779ca712a24a94bfa729c456d3b105.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdW5pcXVlX3B1cnN1aXQ=,size_16,color_FFFFFF,t_70,g_se,x_16"></p>
+<h2 id="3-7-修改容器"><a href="#3-7-修改容器" class="headerlink" title="3.7 修改容器"></a>3.7 修改容器</h2><p>使用<code>docker rename</code>可以重命名容器，命令格式如下：<br><code>docker rename CONTAINER1 CONTAINER2</code><br>使用<code>docker update</code>可以修改容器配置，命令格式如下：<br><code>docker update CONTAINER [options]</code><br>其中OPTIONS参数过多，使用的时候可以自行百度，例如我们修改容器的内存限制：<br><code>docker update 3c61e963210 --memory 500MB</code></p>
+<h2 id="3-8-导入和导出容器"><a href="#3-8-导入和导出容器" class="headerlink" title="3.8 导入和导出容器"></a>3.8 导入和导出容器</h2><h3 id="3-8-1-导出容器"><a href="#3-8-1-导出容器" class="headerlink" title="3.8.1 导出容器"></a>3.8.1 导出容器</h3><p>导出容器是指导出一个已经创建的容器到一个文件，不管此时这个容器是否处于运行状态，可以使用<code>docker export</code>命令导出容器。该命令格式如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">export</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span> xxx.tar CONTAINER 
+或者
+<span class="token function">docker</span> <span class="token builtin class-name">export</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span> CONTAINER<span class="token operator">&gt;</span>xxx.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>其中options说明：</p>
+<ul>
+<li>-o :将输入内容写到文件。</li>
+</ul>
+<p>例如将id为3c61e963210的容器按日期保存为tar文件：<br><img src="https://img-blog.csdnimg.cn/262372ab59414028b53091c724139c29.png"><br>可以将这些文件传输到其他的机器上，在其他机器上通过导入命令实现容器的迁移。</p>
+<h3 id="3-8-2-导入容器"><a href="#3-8-2-导入容器" class="headerlink" title="3.8.2 导入容器"></a>3.8.2 导入容器</h3><p>导出的文件又可以使用<code>docker import</code>命令导入，成为镜像，命令格式如下：<br><code>docker import  [OPTIONS] xxx.tar image_name:tag</code><br>其中OPTIONS说明：</p>
+<ul>
+<li><code>-c</code> :应用docker 指令创建镜像；</li>
+<li><code>-m</code> :提交时的说明文字。</li>
+</ul>
+<p>实例：<br><code>docker  import ubuntu-20220212.tar myubunt:latest</code><br><img src="https://img-blog.csdnimg.cn/fd4457a141224da88a6c87e130f17253.png"><br>我们知道，前面我们学习过<code>docker load</code>命令来导入一个镜像文件。实际上，既可以使用<code>docker load</code>命令来导入镜像存储文件到本地的镜像库，也可以使用<code>docker import</code>命令来导入一个容器快照到本地镜像库。 ==这两者的区别在于容器快照文件将丢弃所有的历史记录和元信息（仅保存容器当时的快照状态），，而镜像存储文件将保存完整记录，体积也要大。==</p>
+<h1 id="4-仓库"><a href="#4-仓库" class="headerlink" title="4 仓库"></a>4 仓库</h1><h2 id="4-1-Docker-Hub"><a href="#4-1-Docker-Hub" class="headerlink" title="4.1 Docker Hub"></a>4.1 Docker Hub</h2><h3 id="4-1-1-Linux登录登出DockerHub"><a href="#4-1-1-Linux登录登出DockerHub" class="headerlink" title="4.1.1 Linux登录登出DockerHub"></a>4.1.1 Linux登录登出DockerHub</h3><p>首先在<a target="_blank" rel="noopener" href="https://hub.docker.com/">dockerhub官网</a>注册一个账号，然后使用<code>docker login</code>即可登录。登出则直接输入<code>docker logout</code>即可。<br>实例：<br><img src="https://img-blog.csdnimg.cn/63fac7bb71f2486dbccbc625fb1377ae.png"></p>
+<h3 id="4-1-2-基本操作"><a href="#4-1-2-基本操作" class="headerlink" title="4.1.2 基本操作"></a>4.1.2 基本操作</h3><p>用户无需登录即可通过<code>docker search</code>命令来查找官网仓库的镜像，并利用<code>docker pull</code>命令来将它下载到本地。<br>根据是否为官方提供， 可将这些镜像资源分为两类。一种类似ubuntu这样的基础镜像，称为基础或根镜像。这些镜像是由Docker公司创建、验证、支持、提供的。这样的镜像往往使用单个单词作为名字。还有一种类型，比如pursuit/ubuntu镜像，它是由DockerHub用户pursuit创建并维护的，带有用户名称为前缀，表明是某用户的某仓库。可通过用户名称前缀user_name/ 来指定使用某个用户提供的镜像，比如pursuit用户的镜像前缀为pursuit/。</p>
+<h3 id="4-1-3-自动创建"><a href="#4-1-3-自动创建" class="headerlink" title="4.1.3 自动创建"></a>4.1.3 自动创建</h3><p>自动创建（Automated Builds）功能对于需要经常升级镜像内程序来说十分方便。有时候，用户创建了镜像，安装了某个软件，如果软件发布新版本则需要手动更新镜像。<br>而自动创建功能使得用户通过DockerHub指定追踪一个目标网站（目前支持Github或BitBucket）上的项目，一但发现项目新的提交，则自动执行创建。<br>要配置自动创建，有如下步骤：<br>1）创建并登录Docker Hub，以及目标网站； * 在目标网站中连接账户到Docker Hub。<br>2）在Docker Hub中配置一个自动创建。<br>3）选取一个目标网站中的项目（需要含Dockerfile）和分支。<br>4）指定Dockerfile的位置，并提交创建。<br>之后，就可以在DockerHub的”自动创建“页面跟踪每次创建的状态。</p>
+<h1 id="5-网络基础配置"><a href="#5-网络基础配置" class="headerlink" title="5 网络基础配置"></a>5 网络基础配置</h1><h2 id="5-1-端口映射实现访问容器"><a href="#5-1-端口映射实现访问容器" class="headerlink" title="5.1 端口映射实现访问容器"></a>5.1 端口映射实现访问容器</h2><p>大量的互联网应用服务包括多个服务组件，这往往需要多个容器之间通过网络通信进行相互配合。Docker目前提供了映射容器端口到宿主主机和容器互联机制来为容器提供互联网服务。</p>
+<p>在启动容器时，如果不指定对应参数，在容器外部是无法通过网络来访问容器内的网络应用和服务的。当容器中运行一些应用，要让外部访问这些应用时，可以通过<code>-p</code>参数来指定端口映射，并且，在一个指定的端口上只可以绑定一个容器。支持的格式有<code>ip:hostPort:containerPort</code>、<code>ip::containerPort</code>、<code>hostPort:containerPort</code>。</p>
+<ul>
+<li><strong>映射所有接口地址</strong><br>使用<code>hostPort:containerPort</code>格式将本地的4000端口映射到容器的4000端口，可以执行如下命令：<br><code>docker run -itd -p 4000:4000 --name my_docker_ubuntu ubuntu:20.04</code><br><img src="https://img-blog.csdnimg.cn/7bd5077670794fd096686c078bbc40b8.png"><br>我们可以看到，已经实现了端口映射。多次使用<code>-p</code>标记可以绑定多个端口。例如：<br><code>docker run -itd -p 4000:4000 -p 3000:3000 --name my_docker_ubuntu ubuntu:20.04</code></li>
+<li><strong>映射到指定地址的指定端口</strong><br>可以使用<code>ip:hostPort:containerPort</code>格式指定映射使用一个特定地址，比如localhost地址<code>127.0.0.1</code>：<br><code>docker run -itd -p 127.0.0.1:3000:3000 --name my_docker_ubuntu ubuntu:20.04</code></li>
+<li><strong>映射到指定地址的任意端口</strong><br>使用<code>ip::containerPort</code>绑定localhost的任意端口到容器的5000端口，本地主机会自动分配一个端口：<br><code>docker run -itd -p 127.0.0.1::5000 --name my_docker_ubuntu ubuntu:20.04</code></li>
+<li><strong>查看映射端口配置</strong><br>可以使用<code>docker port container</code>命令来查看当前映射的端口配置，也可以查看到绑定的地址。<br><img src="https://img-blog.csdnimg.cn/e8d0a51dd5a0440387a300ba4f84d0e3.png"></li>
+</ul>
 
                 
             </div>
@@ -663,7 +749,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://unique-pure.github.io/2020/07/29/prim/">http://unique-pure.github.io/2020/07/29/prim/</a>
+                    <a href="http://unique-pure.github.io/2022/02/13/docker/">http://unique-pure.github.io/2022/02/13/docker/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -701,12 +787,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Prim/">
-                                    <span class="chip bg-color">Prim</span>
+                                <a href="/tags/Docker/">
+                                    <span class="chip bg-color">Docker</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                                    <span class="chip bg-color">最小生成树</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -877,7 +963,7 @@
         repo: 'commentRes',
         owner: 'unique-pure',
         admin: "unique-pure",
-        id: '2020-07-29T11-34-35',
+        id: '2022-02-13T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -907,17 +993,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/29/dijkstra/">
+                <a href="/2022/02/13/docker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Dijkstra算法详解">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Docker入门">
                         
-                        <span class="card-title">Dijkstra算法详解</span>
+                        <span class="card-title">Docker入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -927,30 +1014,31 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dijkstra/">
-                        <span class="chip bg-color">Dijkstra</span>
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
-                        <span class="chip bg-color">最短路</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
@@ -964,13 +1052,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/27/floyd/">
+                <a href="/2022/02/13/linux-chang-yong-wen-jian-guan-li-ming-ling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Floyd算法详解">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Docker入门">
                         
-                        <span class="card-title">Floyd算法详解</span>
+                        <span class="card-title">Docker入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -981,14 +1069,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
                                 </a>
                             
                             
@@ -998,12 +1086,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
-                        <span class="chip bg-color">最短路</span>
-                    </a>
-                    
-                    <a href="/tags/Floyd/">
-                        <span class="chip bg-color">Floyd</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
@@ -1171,13 +1255,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 

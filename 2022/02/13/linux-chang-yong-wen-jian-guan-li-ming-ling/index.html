@@ -4,8 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Prim算法详解, pursuit&#39;s blog">
-    <meta name="description" content="Prim算法1 最小生成树（Minimum Spanning Tree,MST）在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，若存在 $T$ ">
+    <meta name="keywords" content="Docker入门, pursuit&#39;s blog">
+    <meta name="description" content="1. 通用基础知识
+查询指令命令help，通过指令名 --help或者man 指令名。
+例如，我们需要查询ls这个指令的参数用法以及作用，即通过ls --help即可得到如下：
+
+
+ctrl c：取消命令，并且换行。
+
+ctrl u：清空本">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Prim算法详解 | pursuit&#39;s blog</title>
+    <title>Docker入门 | pursuit&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -325,12 +332,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Prim算法详解</h1>
+                    <h1 class="description center-align post-title">Docker入门</h1>
                 </div>
             </div>
         </div>
@@ -446,12 +453,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Prim/">
-                                <span class="chip bg-color">Prim</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                                <span class="chip bg-color">最小生成树</span>
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
                             </a>
                         
                     </div>
@@ -462,8 +465,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                开发
                             </a>
                         
                     </div>
@@ -475,7 +478,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-29
+                    2022-02-13
                 </div>
                 
 
@@ -489,14 +492,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    4 分
                 </div>
                 
 
@@ -519,124 +522,100 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><h2 id="1-最小生成树（Minimum-Spanning-Tree-MST）"><a href="#1-最小生成树（Minimum-Spanning-Tree-MST）" class="headerlink" title="1 最小生成树（Minimum Spanning Tree,MST）"></a>1 最小生成树（Minimum Spanning Tree,MST）</h2><p>在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，<strong>若存在 $T$ 为 $E$ 的子集且为无循环图，使得 $w(T)$ 最小，则此 $T$ 为 $G$ 的最小生成树</strong>，因为$T$是由图$G$产生的。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020081109252713.png"></p>
-<p>最小生成树其实是最小权重生成树的简称。我们称求取该生成树的问题成为最小生成树问题。==一个连通图可能有多个生成树。当图中的边具有权值时，总会有一个生成树的边的权值之和小于或者等于其它生成树的边的权值之和==。广义上而言，对于非连通无向图来说，它的每一连通分量同样有最小生成树，它们的并被称为<strong>最小生成森林</strong>。以有线电视电缆的架设为例，若只能沿着街道布线，则以街道为边，而路口为顶点，其中必然有一最小生成树能使布线成本最低。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi9kL2QyL01pbmltdW1fc3Bhbm5pbmdfdHJlZS5zdmcvMzAwcHgtTWluaW11bV9zcGFubmluZ190cmVlLnN2Zy5wbmc?x-oss-process=image/format,png"></p>
-<p>如图，这个是一个平面图，图中黑色线描述的就是最小生成树，它的权值之和小于其他的生成树。</p>
-<p>那么，我们如何来求最小生成树呢，由最小生成树的定义我们可以知道构建最小生成树是可以利用贪心算法去实现的，我们接下来介绍的两种算法也都是利用贪心算法去求得$MST$的。<strong>因为贪心算法的策略就是在每一步尽可能多的选择中选择最优的，在当前看是最好的选择</strong>，这种策略虽然一般不能在全局中寻找到最优解，但是对于最小生成树问题来说，它的确可以找到一颗权重最小的树。</p>
-<h2 id="2-Prim算法"><a href="#2-Prim算法" class="headerlink" title="2 Prim算法"></a>2 Prim算法</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><p>普里姆算法（Prim’s algorithm），图论中的一种算法，可在加权连通图里搜索最小生成树。意即由此算法搜索到的边子集所构成的树中，不但包括了连通图里的所有顶点，且其所有边的权值之和亦为最小。该算法于1930年由捷克数学家沃伊捷赫·亚尔尼克发现；并在1957年由美国计算机科学家罗伯特·普里姆独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。（来源于维基百科）</p>
-<h3 id="2-2-具体步骤"><a href="#2-2-具体步骤" class="headerlink" title="2.2 具体步骤"></a>2.2 具体步骤</h3><p>Prim算法是利用贪心算法实现的，我们确定根节点，从这个结点出发。普里姆算法按照以下步骤==逐步扩大树中所含顶点的数目，直到遍及连通图的所有顶点==。下面描述我们==假设$N=(V,E)$是连通网，$TE$是$N$上最小生成树中边的集合==。</p>
-<p>​    ①  $U={u_0}(u_0∈V) ,TE= {}$。</p>
-<p>​    ②  在所有$u∈U,v∈(V-U)$的边$(u,v)∈E$找到一条权值最小的边$(u_0,v_0)$并入集合$TE$，同时$v_0$并入集合$U$。</p>
-<p>​    ③  重复②步骤，知道$U=V$为止。</p>
-<p>此时$TE$中必有$n-1$条边，则$T=(V,TE)$即为我们求得的$N$的最小生成树。</p>
-<h3 id="2-3-算法示例图"><a href="#2-3-算法示例图" class="headerlink" title="2.3 算法示例图"></a>2.3 算法示例图</h3><p><img src="https://img-blog.csdnimg.cn/20210322125136390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70#pic_center"></p>
-<h3 id="2-4-算法实现"><a href="#2-4-算法实现" class="headerlink" title="2.4 算法实现"></a>2.4 算法实现</h3><p>我们如果对Dijkstra算法很熟悉的话，Prim算法也很好实现了，它们都是利用了一样的思路，但却不相同。==我们用利用$lowcost$数组来表示到集合中最近的距离，用$closest$数组来表示最小生成树的边。怎么来表示呢？我们用顶点来形容边，也就是说我们要求的就是$closet$数组。其中$closest[i]$表示的值就是与$i$顶点相邻边的顶点序号==。具体看代码（附带打印最小生成树代码）。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span>	<span class="token comment">//POJ不支持</span></span>
-
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">rep</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量，a为初始值，n为界限值，递增</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">per</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&gt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量， a为初始值，n为界限值，递减。</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">pb</span> <span class="token expression">push_back</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">IOS</span> <span class="token expression">ios<span class="token double-colon punctuation">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">fi</span> <span class="token expression">first</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">se</span> <span class="token expression">second</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">mp</span> <span class="token expression">make_pair</span></span>
-
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> <span class="token keyword">int</span> inf <span class="token operator">=</span> <span class="token number">0x3f3f3f3f</span><span class="token punctuation">;</span><span class="token comment">//无穷大</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> maxn <span class="token operator">=</span> <span class="token number">1e3</span><span class="token punctuation">;</span><span class="token comment">//最大值。</span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">double</span> ld<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span>ll<span class="token punctuation">,</span> ll<span class="token operator">&gt;</span>  pll<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> pii<span class="token punctuation">;</span>
-<span class="token comment">//*******************************分割线，以上为自定义代码模板***************************************//</span>
-
-<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span><span class="token comment">//图的大小和边数。</span>
-<span class="token keyword">int</span> graph<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//图</span>
-<span class="token keyword">int</span> lowcost<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">,</span>closest<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//lowcost[i]表示i到距离集合最近的距离，closest[i]表示i与之相连边的顶点序号。</span>
-<span class="token keyword">int</span> sum<span class="token punctuation">;</span><span class="token comment">//计算最小生成树的权值总和。</span>
-<span class="token keyword">void</span> <span class="token function">Prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//初始化操作，获取基本信息。</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>s<span class="token punctuation">)</span>
-			lowcost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-		<span class="token keyword">else</span>
-			lowcost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-		closest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>s<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">int</span> minn<span class="token punctuation">,</span>pos<span class="token punctuation">;</span><span class="token comment">//距离集合最近的边，pos代表该点的终边下标。</span>
-	sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		minn<span class="token operator">=</span>inf<span class="token punctuation">;</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token comment">//找出距离点集合最近的边。</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>minn<span class="token punctuation">)</span><span class="token punctuation">{</span>
-				minn<span class="token operator">=</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-				pos<span class="token operator">=</span>j<span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>minn<span class="token operator">==</span>inf<span class="token punctuation">)</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment">//说明没有找到。</span>
-		sum<span class="token operator">+=</span>minn<span class="token punctuation">;</span><span class="token comment">//计算最小生成树的权值之和。</span>
-		lowcost<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//加入点集合。</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token comment">//由于点集合中加入了新的点，我们要去更新。</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-				closest<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>pos<span class="token punctuation">;</span><span class="token comment">//改变与顶点j相连的顶点序号。</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-	cout<span class="token operator">&lt;&lt;</span>sum<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//closest数组就是我们要的最小生成树。它代表的就是边。</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//打印最小生成树。</span>
-	<span class="token keyword">int</span> temp<span class="token punctuation">;</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token comment">//等于s自然不算，故除去这个为n-1条边。</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">!=</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			temp<span class="token operator">=</span>closest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-			cout<span class="token operator">&lt;&lt;</span>temp<span class="token operator">&lt;&lt;</span><span class="token string">"-&gt;"</span><span class="token operator">&lt;&lt;</span>i<span class="token operator">&lt;&lt;</span><span class="token string">"边权值为："</span><span class="token operator">&lt;&lt;</span>graph<span class="token punctuation">[</span>temp<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//freopen("in.txt", "r", stdin);//提交的时候要注释掉</span>
-	IOS<span class="token punctuation">;</span>
-	<span class="token keyword">while</span><span class="token punctuation">(</span>cin<span class="token operator">&gt;&gt;</span>n<span class="token operator">&gt;&gt;</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token function">memset</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span>inf<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//初始化。</span>
-		<span class="token keyword">int</span> u<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">;</span><span class="token comment">//临时变量。</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			cin<span class="token operator">&gt;&gt;</span>u<span class="token operator">&gt;&gt;</span>v<span class="token operator">&gt;&gt;</span>w<span class="token punctuation">;</span>
-			<span class="token comment">//视情况而论，我这里以无向图为例。</span>
-			graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>w<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		<span class="token comment">//任取根结点，我这里默认取1.</span>
-		<span class="token function">Prim</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印最小生成树。</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-5-算法分析"><a href="#2-5-算法分析" class="headerlink" title="2.5 算法分析"></a>2.5 算法分析</h3><p>对于此算法，我们图中有$n$个顶点，则第一个进行初始化的循环语句的频度为$n$,第二个循环语句的频度为$n$，==但其中第二个循环中有两个内循环：第一个是在$lowcost$中求最小值，其频度为$n$，第二个是重新选择具有最小权值的边，频度为$n$==，由此我们可知Prim算法的时间复杂度为$O(n^2)$，与图中的边数无关，故十分适合于稠密图。</p>
-<h3 id="2-6-测试"><a href="#2-6-测试" class="headerlink" title="2.6 测试"></a>2.6 测试</h3><p>我们用示例来测试：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">7</span> <span class="token number">11</span>
-<span class="token number">1</span> <span class="token number">2</span> <span class="token number">7</span>
-<span class="token number">1</span> <span class="token number">4</span> <span class="token number">5</span>
-<span class="token number">2</span> <span class="token number">4</span> <span class="token number">9</span>
-<span class="token number">2</span> <span class="token number">3</span> <span class="token number">8</span>
-<span class="token number">2</span> <span class="token number">5</span> <span class="token number">7</span>
-<span class="token number">4</span> <span class="token number">5</span> <span class="token number">15</span>
-<span class="token number">4</span> <span class="token number">6</span> <span class="token number">6</span>
-<span class="token number">6</span> <span class="token number">7</span> <span class="token number">11</span>
-<span class="token number">5</span> <span class="token number">6</span> <span class="token number">8</span>
-<span class="token number">5</span> <span class="token number">7</span> <span class="token number">9</span>
-<span class="token number">3</span> <span class="token number">5</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>测试结果如图：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200811095845614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70"></p>
+                <h1 id="1-通用基础知识"><a href="#1-通用基础知识" class="headerlink" title="1. 通用基础知识"></a>1. 通用基础知识</h1><ul>
+<li><p>查询指令命令<code>help</code>，通过<code>指令名 --help</code>或者<code>man 指令名</code>。</p>
+<p>例如，我们需要查询<code>ls</code>这个指令的参数用法以及作用，即通过<code>ls --help</code>即可得到如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/f7b0cae87d70d287017f89c014a6c99d.png"></p>
+</li>
+<li><p><code>ctrl c</code>：取消命令，并且换行。</p>
+</li>
+<li><p><code>ctrl u</code>：清空本行命令</p>
+</li>
+<li><p><code>tab</code>：补全命令和文件名，如果补全不了就快速按两下<code>tab</code>键，可以显示备选项。</p>
+</li>
+</ul>
+<h1 id="2-文件基础操作"><a href="#2-文件基础操作" class="headerlink" title="2. 文件基础操作"></a>2. 文件基础操作</h1><ul>
+<li><p><strong>注意事项</strong></p>
+<ul>
+<li>==如果文件名或者文件夹名存在空格或者一些特殊字符，我们要进行转移表示，即通过转移字符<code>\</code>来实现。==</li>
+<li></li>
+</ul>
+</li>
+<li><p>创建文件夹：<code>mkdir [-p][dirNmae]</code></p>
+<p>其中<code>-p</code>确保目录名称一定存在，如果不存在就会创建一个。</p>
+</li>
+<li><p>创建文件：<code>touch [dirName + fileName]</code></p>
+</li>
+<li><p>显示当前目录下或者指定目录下的所有文件：<code>ls [参数][dirName]</code></p>
+<p>其中显示的蓝色是文件夹，白色是普通文件，绿色是可执行文件，如图：</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20210818141132225.png">]</p>
+<p>参数有：</p>
+<ul>
+<li><strong><code>-a</code>显示所有文件及目录 (. 开头的隐藏文件也会列出)</strong></li>
+<li><strong><code>-l</code>除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</strong></li>
+<li><code>-r</code> 将文件以相反次序显示(原定依英文字母次序)</li>
+<li><code>-t </code>将文件依建立时间之先后次序列出</li>
+<li><code>-</code>A 同 <code>-a </code>，但不列出 “.” (目前目录) 及 “..” (父目录)</li>
+<li><code>-F</code> 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “/“</li>
+<li><code>-R</code> 若目录下有文件，则以下之文件亦皆依序列出</li>
+</ul>
+</li>
+<li><p>显示目前所在的工作目录的绝对路径名称：<code>pwd</code></p>
+</li>
+<li><p>切换当前工作目录：<code>cd [dirName]</code></p>
+<p>==其中<code>dirName</code>可为绝对路径或相对路径，如果没有给出，默认返回家目录。<code>cd -</code>会返回之前的工作目录==</p>
+</li>
+<li><p>删除文件或文件夹：<code>rm [dirName] [options]</code>，</p>
+<p>其中选项包括：</p>
+<p>​     <code> -i</code> 删除前逐一询问确认。</p>
+<p>　 <code>-f</code> 即使原档案属性设为唯读，亦直接删除，无需逐一确认。</p>
+<p>　 <code>-r</code> <strong>将目录及以下之档案亦逐一删除,递归所有的子目录,逐一询问。</strong></p>
+<p>一般删除普通文件直接使用<code>rm [dirName]</code></p>
+</li>
+<li><p>创建编写文件：<code>vim [dirName]</code></p>
+<p>创建好之后会自动进入文件，这个时候我们事写不动东西的，所以我们需要输入小写字母<code>i</code>（为insert的缩写）即可写入，写完之后如何保存？我们先需要按<code>ESC</code>键锁住文件，再输入<code>:wq</code>即可，这个命令就是保存并退出的意思。</p>
+</li>
+<li><p>查看文件：<code>cat [dirName]</code></p>
+</li>
+<li><p>复制文件：<code>cp [options] source dest</code></p>
+<p>其中参数说明：</p>
+<ul>
+<li><code>-a</code>：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。</li>
+<li><code>-d</code>：复制时保留链接。这里所说的链接相当于 Windows 系统中的快捷方式。</li>
+<li><code>-f</code>：覆盖已经存在的目标文件而不给出提示。</li>
+<li><code>-i</code>：与 <strong><code>-f</code></strong> 选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答 <strong>y</strong> 时目标文件将被覆盖。</li>
+<li><code>-p</code>：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</li>
+<li><code>-r</code>：<strong>若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。复制目录的时候一定要添加的参数</strong></li>
+<li><code>-l</code>：不复制文件，只是生成链接文件。</li>
+</ul>
+<p>即<code>cp</code> = 复制+粘贴+重命名，我们可以看一个例子<code>cp a/tmp.txt b/tmp2.txt</code>，那么会从<code>a</code>中的</p>
+<p><code>tmp.txt</code>复制到<code>b</code>中并重命名为<code>tmp2.txt</code>。</p>
+</li>
+<li><p>为文件或目录改名、或将文件或目录移入其它位置：<code>mv [options] source dest</code>。</p>
+<p>如果需要重命名，就在后面加上新的文件名。</p>
+<p>其中参数说明</p>
+<ul>
+<li><strong>-b</strong>: 当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份。</li>
+<li><strong>-i</strong>: 如果指定移动的源目录或文件与目标的目录或文件同名，则会先询问是否覆盖旧文件，输入 y 表示直接覆盖，输入 n 表示取消该操作。</li>
+<li><strong>-f</strong>: 如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件。</li>
+<li><strong>-n</strong>: 不要覆盖任何已存在的文件或目录。</li>
+<li><strong>-u</strong>：当源文件比目标文件新或者目标文件不存在时，才执行移动操作。</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-编译运行C-x2F-C-文件"><a href="#3-编译运行C-x2F-C-文件" class="headerlink" title="3 编译运行C/C++文件"></a>3 编译运行C/C++文件</h1><ul>
+<li><p><strong>编译</strong></p>
+<p><code>g++ 文件名.cpp -o 文件名 -std=版本</code></p>
+<p>例如:<code>g++ main.cpp -o main -std=c++11</code></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0c831c902b7d2c4769b8820ad28f357b.png" alt="image-20210815142613863"> </p>
+<p>值得注意的一点就是在<code>AC Terminal</code>里面是用不了万能头文件的。</p>
+</li>
+<li><p><strong>运行</strong></p>
+<p><code>./文件名</code>，即可运行。</p>
+</li>
+</ul>
+<h1 id="4-参考文献"><a href="#4-参考文献" class="headerlink" title="4 参考文献"></a>4 参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/introduction/57/">y总Linux基础课</a></p>
+<p>由于作者有限，本文仅为博主总结整理以供学习记录，如有侵权或者问题请指出。</p>
 
                 
             </div>
@@ -663,7 +642,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://unique-pure.github.io/2020/07/29/prim/">http://unique-pure.github.io/2020/07/29/prim/</a>
+                    <a href="http://unique-pure.github.io/2022/02/13/linux-chang-yong-wen-jian-guan-li-ming-ling/">http://unique-pure.github.io/2022/02/13/linux-chang-yong-wen-jian-guan-li-ming-ling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -701,12 +680,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Prim/">
-                                    <span class="chip bg-color">Prim</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                                    <span class="chip bg-color">最小生成树</span>
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
                                 </a>
                             
                         </div>
@@ -877,7 +852,7 @@
         repo: 'commentRes',
         owner: 'unique-pure',
         admin: "unique-pure",
-        id: '2020-07-29T11-34-35',
+        id: '2022-02-13T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -911,13 +886,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/29/dijkstra/">
+                <a href="/2022/02/13/docker/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Dijkstra算法详解">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Docker入门">
                         
-                        <span class="card-title">Dijkstra算法详解</span>
+                        <span class="card-title">Docker入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -928,14 +903,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
                                 </a>
                             
                             
@@ -945,12 +920,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dijkstra/">
-                        <span class="chip bg-color">Dijkstra</span>
+                    <a href="/tags/Docker/">
+                        <span class="chip bg-color">Docker</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
-                        <span class="chip bg-color">最短路</span>
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
                     </a>
                     
                 </div>
@@ -964,13 +939,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/27/floyd/">
+                <a href="/2021/05/28/wei-yun-suan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Floyd算法详解">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="位运算的奇淫技巧">
                         
-                        <span class="card-title">Floyd算法详解</span>
+                        <span class="card-title">位运算的奇淫技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -981,7 +956,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
                             </span>
                         <span class="publish-author">
                             
@@ -998,12 +973,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
-                        <span class="chip bg-color">最短路</span>
-                    </a>
-                    
-                    <a href="/tags/Floyd/">
-                        <span class="chip bg-color">Floyd</span>
+                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
                     </a>
                     
                 </div>
@@ -1171,13 +1142,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 
