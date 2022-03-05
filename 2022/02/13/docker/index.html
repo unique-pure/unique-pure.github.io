@@ -30,9 +30,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="pursuit's blog" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 6.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="pursuit's blog" type="application/atom+xml">
 </head>
 
 
@@ -1001,9 +1001,9 @@ CMD /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Django学习笔记一初始Django">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Django学习笔记一初识Django">
                         
-                        <span class="card-title">Django学习笔记一初始Django</span>
+                        <span class="card-title">Django学习笔记一初识Django</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1177,7 +1177,7 @@ CMD /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
             collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            headingSelector: 'h1,h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1189,7 +1189,7 @@ CMD /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
