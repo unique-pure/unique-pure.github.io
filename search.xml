@@ -268,7 +268,7 @@
     
     
     <entry>
-      <title>位运算的奇淫技巧</title>
+      <title>位运算的奇技淫巧</title>
       <link href="/2021/05/28/wei-yun-suan/"/>
       <url>/2021/05/28/wei-yun-suan/</url>
       
@@ -285,6 +285,31 @@
         <tags>
             
             <tag> 位运算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二分查找的奇技淫巧</title>
+      <link href="/2021/05/28/er-fen-cha-zhao-sou-suo/"/>
+      <url>/2021/05/28/er-fen-cha-zhao-sou-suo/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-二分搜索升天词"><a href="#1-二分搜索升天词" class="headerlink" title="1 二分搜索升天词"></a>1 二分搜索升天词</h1><p>转自：<a href="https://zhuanlan.zhihu.com/p/79553968">labuladong</a></p><p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/v2-a56776ec0125789e6169e715f3a4a22d_720w.jpg" alt="二分搜索升天词"></p><h1 id="2-手写二分查找模板"><a href="#2-手写二分查找模板" class="headerlink" title="2 手写二分查找模板"></a>2 手写二分查找模板</h1><p>二分模板一共有两个，分别适用于不同情况。<br>算法思路：假设目标值在闭区间$[l, r]$中， 每次将区间长度缩小一半，当$l = r$时，我们就找到了目标值。</p><h2 id="2-1-版本1"><a href="#2-1-版本1" class="headerlink" title="2.1 版本1"></a>2.1 版本1</h2><p>当我们将区间$[l, r]$划分成$[l, mid]$和$[mid + 1, r]$时，其更新操作是$r = mid$或者$l = mid + 1$;，计算$mid$时不需要加$1$。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check(int x) {    ...    ...}int binary_search_1(int l, int r) {    while (l &lt; r) {        int mid = (l + r) &gt;&gt; 1;        if (check(mid)) {            r = mid;        } else {            l = mid + 1;        }    }    return l;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="2-2-版本2"><a href="#2-2-版本2" class="headerlink" title="2.2 版本2"></a>2.2 版本2</h2><p>当我们将区间$[l, r]$划分成$[l, mid-1]$和$[mid, r]$时，其更新操作是$r = mid - 1$或者$l = mid$;，此时为了防止死循环，计算$mid$时需要加$1$。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check(int x) {    ...    ...}int binary_search_2(int l, int r) {    while (l &lt; r) {        int mid = (l + r + 1) &gt;&gt; 1;        if (check(mid)) { // check为判断函数，我们自己手写的规则            l = mid;        } else {            r = mid - 1;        }    }    return l;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="3-利用C-自带的lower-bound和upper-bound函数"><a href="#3-利用C-自带的lower-bound和upper-bound函数" class="headerlink" title="3 利用C++自带的lower_bound和upper_bound函数"></a>3 利用C++自带的lower_bound和upper_bound函数</h1><h2 id="3-1-自带函数源码"><a href="#3-1-自带函数源码" class="headerlink" title="3.1 自带函数源码"></a>3.1 自带函数源码</h2><p><code>lower_bound</code>：返回一个迭代器，迭代器指向[first, last)不小于val的第一个元素。<strong>如果范围内的所有元素比较小于val，则函数返回last。</strong></p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template &lt;class ForwardIterator, class T&gt;ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last, const T&amp; val){  ForwardIterator it;  iterator_traits&lt;ForwardIterator&gt;::difference_type count, step;  count = distance(first,last);  while (count&gt;0)  {    it = first; step=count/2; advance (it,step);    if (*it&lt;val) {                 // or: if (comp(*it,val)), for version (2)      first=++it;      count-=step+1;    }    else count=step;  }  return first;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><code>upper_bound</code>：返回一个迭代器，迭代器指向[first, last)大于val的第一个元素。<strong>如果范围内的所有元素比较都不大于val，则函数返回last。</strong></p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template &lt;class ForwardIterator, class T&gt;ForwardIterator upper_bound (ForwardIterator first, ForwardIterator last, const T&amp; val){  ForwardIterator it;  iterator_traits&lt;ForwardIterator&gt;::difference_type count, step;  count = std::distance(first,last);  while (count&gt;0)  {    it = first; step=count/2; std::advance (it,step);    if (!(val&lt;*it))                 // or: if (!comp(val,*it)), for version (2)      { first=++it; count-=step+1;  }    else count=step;  }  return first;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>根据源码，我们很容易就可以使用它们，不用自己手写了，但如果需要自定义比较规则，实际上就是需要我们实现一个check函数即可。</p><h2 id="3-2-进阶—自定义比较规则"><a href="#3-2-进阶—自定义比较规则" class="headerlink" title="3.2 进阶—自定义比较规则"></a>3.2 进阶—自定义比较规则</h2><p>在 C++ 中有很多情况下，我们需要自定义比较器，无非就是三种情况：</p><ol><li>对一个自定义的 <code>struct</code> 重写它的 <code>operator &lt;</code> 方法</li><li>定义一个``Comparator`函数</li><li>定义一个<code>Comparator</code>结构体对象</li></ol><ul><li><p><strong>自定义结构体</strong></p><p>如果我们自定义了一个<code>struct</code>，然后想要对其排序又不想额外写一个比较器，那么最好实现它的 <code>operaotr &lt;</code> 方法。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct node{    string s;    node(string s) {        this-&gt;s = s;    }    bool operator &lt; (const node &amp;a) const { // 注意这两个const，必须要加上，否则会报错，前者const是能接收非const和const的实参，后者const是表明该函数不会修改类成员变量。        return this-&gt;s.size() &lt; a.s.size();    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这样，我们就可以使用了。如下：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;node&gt; v(10, node("111"));int pos = lower_bound(v.begin(), v.end(), node("111")) - v.begin();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p><strong>函数比较器</strong></p><p>可以通过编写一个外部的比较器函数，实现 <code>&lt;</code> 功能。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct node{    string s;    node(string s) {        this-&gt;s = s;    }};bool cmp(const string &amp;s1, const string &amp;s2) {    return s1.size() &lt; s2.size();}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这个通常用于自定义排序，其他的会报错，应该是不支持函数比较器，读者可自行尝试。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;string&gt; v(10, "111");sort(v.begin(), v.end(), cmp);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p><strong>函数对象比较器</strong></p><p>所谓函数对象是指实现了 <code>operator ()</code> 的类或者结构体。可以用这样的一个对象来代替函数作为比较器。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct cmper {    bool operator() (const string &amp;s1, const string &amp;s2) const {        return s1.size() &lt; s2.size();    }};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这个通常用于自定义排序，其他的会报错，应该是不支持函数比较器，读者可自行尝试。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;string&gt; v(10, "111");sort(v.begin(), v.end(), cmper());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二分 </tag>
             
         </tags>
       

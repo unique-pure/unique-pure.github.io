@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Prim算法详解, pursuit&#39;s blog">
-    <meta name="description" content="Prim算法1 最小生成树（Minimum Spanning Tree,MST）在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，若存在 $T$ ">
+    <meta name="keywords" content="二分查找的奇技淫巧, pursuit&#39;s blog">
+    <meta name="description" content="1 二分搜索升天词转自：labuladong
+
+2 手写二分查找模板二分模板一共有两个，分别适用于不同情况。算法思路：假设目标值在闭区间$[l, r]$中， 每次将区间长度缩小一半，当$l = r$时，我们就找到了目标值。
+2.1 版本1当">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Prim算法详解 | pursuit&#39;s blog</title>
+    <title>二分查找的奇技淫巧 | pursuit&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -325,12 +328,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Prim算法详解</h1>
+                    <h1 class="description center-align post-title">二分查找的奇技淫巧</h1>
                 </div>
             </div>
         </div>
@@ -446,12 +449,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Prim/">
-                                <span class="chip bg-color">Prim</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                                <span class="chip bg-color">最小生成树</span>
+                            <a href="/tags/%E4%BA%8C%E5%88%86/">
+                                <span class="chip bg-color">二分</span>
                             </a>
                         
                     </div>
@@ -475,28 +474,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-29
+                    2021-05-28
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-03-05
+                    2022-03-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    988
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    4 分
                 </div>
                 
 
@@ -519,124 +518,131 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Prim算法"><a href="#Prim算法" class="headerlink" title="Prim算法"></a>Prim算法</h1><h2 id="1-最小生成树（Minimum-Spanning-Tree-MST）"><a href="#1-最小生成树（Minimum-Spanning-Tree-MST）" class="headerlink" title="1 最小生成树（Minimum Spanning Tree,MST）"></a>1 最小生成树（Minimum Spanning Tree,MST）</h2><p>在一给定的无向图$G = (V, E)$ 中，$(u, v)$代表连接顶点$u$ 与顶点 $v$ 的边，而 $w(u, v)$ 代表此边的权重，<strong>若存在 $T$ 为 $E$ 的子集且为无循环图，使得 $w(T)$ 最小，则此 $T$ 为 $G$ 的最小生成树</strong>，因为$T$是由图$G$产生的。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020081109252713.png"></p>
-<p>最小生成树其实是最小权重生成树的简称。我们称求取该生成树的问题成为最小生成树问题。==一个连通图可能有多个生成树。当图中的边具有权值时，总会有一个生成树的边的权值之和小于或者等于其它生成树的边的权值之和==。广义上而言，对于非连通无向图来说，它的每一连通分量同样有最小生成树，它们的并被称为<strong>最小生成森林</strong>。以有线电视电缆的架设为例，若只能沿着街道布线，则以街道为边，而路口为顶点，其中必然有一最小生成树能使布线成本最低。</p>
-<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQud2lraW1lZGlhLm9yZy93aWtpcGVkaWEvY29tbW9ucy90aHVtYi9kL2QyL01pbmltdW1fc3Bhbm5pbmdfdHJlZS5zdmcvMzAwcHgtTWluaW11bV9zcGFubmluZ190cmVlLnN2Zy5wbmc?x-oss-process=image/format,png"></p>
-<p>如图，这个是一个平面图，图中黑色线描述的就是最小生成树，它的权值之和小于其他的生成树。</p>
-<p>那么，我们如何来求最小生成树呢，由最小生成树的定义我们可以知道构建最小生成树是可以利用贪心算法去实现的，我们接下来介绍的两种算法也都是利用贪心算法去求得$MST$的。<strong>因为贪心算法的策略就是在每一步尽可能多的选择中选择最优的，在当前看是最好的选择</strong>，这种策略虽然一般不能在全局中寻找到最优解，但是对于最小生成树问题来说，它的确可以找到一颗权重最小的树。</p>
-<h2 id="2-Prim算法"><a href="#2-Prim算法" class="headerlink" title="2 Prim算法"></a>2 Prim算法</h2><h3 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h3><p>普里姆算法（Prim’s algorithm），图论中的一种算法，可在加权连通图里搜索最小生成树。意即由此算法搜索到的边子集所构成的树中，不但包括了连通图里的所有顶点，且其所有边的权值之和亦为最小。该算法于1930年由捷克数学家沃伊捷赫·亚尔尼克发现；并在1957年由美国计算机科学家罗伯特·普里姆独立发现；1959年，艾兹格·迪科斯彻再次发现了该算法。因此，在某些场合，普里姆算法又被称为DJP算法、亚尔尼克算法或普里姆－亚尔尼克算法。（来源于维基百科）</p>
-<h3 id="2-2-具体步骤"><a href="#2-2-具体步骤" class="headerlink" title="2.2 具体步骤"></a>2.2 具体步骤</h3><p>Prim算法是利用贪心算法实现的，我们确定根节点，从这个结点出发。普里姆算法按照以下步骤==逐步扩大树中所含顶点的数目，直到遍及连通图的所有顶点==。下面描述我们==假设$N=(V,E)$是连通网，$TE$是$N$上最小生成树中边的集合==。</p>
-<p>​    ①  $U={u_0}(u_0∈V) ,TE= {}$。</p>
-<p>​    ②  在所有$u∈U,v∈(V-U)$的边$(u,v)∈E$找到一条权值最小的边$(u_0,v_0)$并入集合$TE$，同时$v_0$并入集合$U$。</p>
-<p>​    ③  重复②步骤，知道$U=V$为止。</p>
-<p>此时$TE$中必有$n-1$条边，则$T=(V,TE)$即为我们求得的$N$的最小生成树。</p>
-<h3 id="2-3-算法示例图"><a href="#2-3-算法示例图" class="headerlink" title="2.3 算法示例图"></a>2.3 算法示例图</h3><p><img src="https://img-blog.csdnimg.cn/20210322125136390.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70#pic_center"></p>
-<h3 id="2-4-算法实现"><a href="#2-4-算法实现" class="headerlink" title="2.4 算法实现"></a>2.4 算法实现</h3><p>我们如果对Dijkstra算法很熟悉的话，Prim算法也很好实现了，它们都是利用了一样的思路，但却不相同。==我们用利用$lowcost$数组来表示到集合中最近的距离，用$closest$数组来表示最小生成树的边。怎么来表示呢？我们用顶点来形容边，也就是说我们要求的就是$closet$数组。其中$closest[i]$表示的值就是与$i$顶点相邻边的顶点序号==。具体看代码（附带打印最小生成树代码）。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h&gt;</span>	<span class="token comment">//POJ不支持</span></span>
+                <h1 id="1-二分搜索升天词"><a href="#1-二分搜索升天词" class="headerlink" title="1 二分搜索升天词"></a>1 二分搜索升天词</h1><p>转自：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/79553968">labuladong</a></p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/v2-a56776ec0125789e6169e715f3a4a22d_720w.jpg" alt="二分搜索升天词"></p>
+<h1 id="2-手写二分查找模板"><a href="#2-手写二分查找模板" class="headerlink" title="2 手写二分查找模板"></a>2 手写二分查找模板</h1><p>二分模板一共有两个，分别适用于不同情况。<br>算法思路：假设目标值在闭区间$[l, r]$中， 每次将区间长度缩小一半，当$l = r$时，我们就找到了目标值。</p>
+<h2 id="2-1-版本1"><a href="#2-1-版本1" class="headerlink" title="2.1 版本1"></a>2.1 版本1</h2><p>当我们将区间$[l, r]$划分成$[l, mid]$和$[mid + 1, r]$时，其更新操作是$r = mid$或者$l = mid + 1$;，计算$mid$时不需要加$1$。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check(int x) {
+    ...
+    ...
+}
+int binary_search_1(int l, int r) {
+    while (l &lt; r) {
+        int mid = (l + r) &gt;&gt; 1;
+        if (check(mid)) {
+            r = mid;
+        } else {
+            l = mid + 1;
+        }
+    }
+    return l;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">rep</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量，a为初始值，n为界限值，递增</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">per</span><span class="token expression"><span class="token punctuation">(</span>i<span class="token punctuation">,</span>a<span class="token punctuation">,</span>n<span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>a<span class="token punctuation">;</span>i<span class="token operator">&gt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span></span><span class="token comment">//i为循环变量， a为初始值，n为界限值，递减。</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">pb</span> <span class="token expression">push_back</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">IOS</span> <span class="token expression">ios<span class="token double-colon punctuation">::</span><span class="token function">sync_with_stdio</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>cin<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> cout<span class="token punctuation">.</span><span class="token function">tie</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">fi</span> <span class="token expression">first</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">se</span> <span class="token expression">second</span></span>
-<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">mp</span> <span class="token expression">make_pair</span></span>
+<h2 id="2-2-版本2"><a href="#2-2-版本2" class="headerlink" title="2.2 版本2"></a>2.2 版本2</h2><p>当我们将区间$[l, r]$划分成$[l, mid-1]$和$[mid, r]$时，其更新操作是$r = mid - 1$或者$l = mid$;，此时为了防止死循环，计算$mid$时需要加$1$。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check(int x) {
+    ...
+    ...
+}
+int binary_search_2(int l, int r) {
+    while (l &lt; r) {
+        int mid = (l + r + 1) &gt;&gt; 1;
+        if (check(mid)) { // check为判断函数，我们自己手写的规则
+            l = mid;
+        } else {
+            r = mid - 1;
+        }
+    }
+    return l;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<h1 id="3-利用C-自带的lower-bound和upper-bound函数"><a href="#3-利用C-自带的lower-bound和upper-bound函数" class="headerlink" title="3 利用C++自带的lower_bound和upper_bound函数"></a>3 利用C++自带的lower_bound和upper_bound函数</h1><h2 id="3-1-自带函数源码"><a href="#3-1-自带函数源码" class="headerlink" title="3.1 自带函数源码"></a>3.1 自带函数源码</h2><p><code>lower_bound</code>：返回一个迭代器，迭代器指向[first, last)不小于val的第一个元素。<strong>如果范围内的所有元素比较小于val，则函数返回last。</strong></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template &lt;class ForwardIterator, class T&gt;
+ForwardIterator lower_bound (ForwardIterator first, ForwardIterator last, const T&amp; val)
+{
+  ForwardIterator it;
+  iterator_traits&lt;ForwardIterator&gt;::difference_type count, step;
+  count = distance(first,last);
+  while (count&gt;0)
+  {
+    it = first; step=count/2; advance (it,step);
+    if (*it&lt;val) {                 // or: if (comp(*it,val)), for version (2)
+      first=++it;
+      count-=step+1;
+    }
+    else count=step;
+  }
+  return first;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">const</span> <span class="token keyword">int</span> inf <span class="token operator">=</span> <span class="token number">0x3f3f3f3f</span><span class="token punctuation">;</span><span class="token comment">//无穷大</span>
-<span class="token keyword">const</span> <span class="token keyword">int</span> maxn <span class="token operator">=</span> <span class="token number">1e3</span><span class="token punctuation">;</span><span class="token comment">//最大值。</span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">double</span> ld<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span>ll<span class="token punctuation">,</span> ll<span class="token operator">&gt;</span>  pll<span class="token punctuation">;</span>
-<span class="token keyword">typedef</span> pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">&gt;</span> pii<span class="token punctuation">;</span>
-<span class="token comment">//*******************************分割线，以上为自定义代码模板***************************************//</span>
+<p><code>upper_bound</code>：返回一个迭代器，迭代器指向[first, last)大于val的第一个元素。<strong>如果范围内的所有元素比较都不大于val，则函数返回last。</strong></p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template &lt;class ForwardIterator, class T&gt;
+ForwardIterator upper_bound (ForwardIterator first, ForwardIterator last, const T&amp; val)
+{
+  ForwardIterator it;
+  iterator_traits&lt;ForwardIterator&gt;::difference_type count, step;
+  count = std::distance(first,last);
+  while (count&gt;0)
+  {
+    it = first; step=count/2; std::advance (it,step);
+    if (!(val&lt;*it))                 // or: if (!comp(val,*it)), for version (2)
+      { first=++it; count-=step+1;  }
+    else count=step;
+  }
+  return first;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">int</span> n<span class="token punctuation">,</span>m<span class="token punctuation">;</span><span class="token comment">//图的大小和边数。</span>
-<span class="token keyword">int</span> graph<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//图</span>
-<span class="token keyword">int</span> lowcost<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">,</span>closest<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment">//lowcost[i]表示i到距离集合最近的距离，closest[i]表示i与之相连边的顶点序号。</span>
-<span class="token keyword">int</span> sum<span class="token punctuation">;</span><span class="token comment">//计算最小生成树的权值总和。</span>
-<span class="token keyword">void</span> <span class="token function">Prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//初始化操作，获取基本信息。</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">==</span>s<span class="token punctuation">)</span>
-			lowcost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-		<span class="token keyword">else</span>
-			lowcost<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>s<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-		closest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>s<span class="token punctuation">;</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">int</span> minn<span class="token punctuation">,</span>pos<span class="token punctuation">;</span><span class="token comment">//距离集合最近的边，pos代表该点的终边下标。</span>
-	sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		minn<span class="token operator">=</span>inf<span class="token punctuation">;</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token comment">//找出距离点集合最近的边。</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>minn<span class="token punctuation">)</span><span class="token punctuation">{</span>
-				minn<span class="token operator">=</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-				pos<span class="token operator">=</span>j<span class="token punctuation">;</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>minn<span class="token operator">==</span>inf<span class="token punctuation">)</span><span class="token keyword">break</span><span class="token punctuation">;</span><span class="token comment">//说明没有找到。</span>
-		sum<span class="token operator">+=</span>minn<span class="token punctuation">;</span><span class="token comment">//计算最小生成树的权值之和。</span>
-		lowcost<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//加入点集合。</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>j<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			<span class="token comment">//由于点集合中加入了新的点，我们要去更新。</span>
-			<span class="token keyword">if</span><span class="token punctuation">(</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">!=</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-				lowcost<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>pos<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
-				closest<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span>pos<span class="token punctuation">;</span><span class="token comment">//改变与顶点j相连的顶点序号。</span>
-			<span class="token punctuation">}</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-	cout<span class="token operator">&lt;&lt;</span>sum<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span class="token comment">//closest数组就是我们要的最小生成树。它代表的就是边。</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">int</span> s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//打印最小生成树。</span>
-	<span class="token keyword">int</span> temp<span class="token punctuation">;</span>
-	<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token comment">//等于s自然不算，故除去这个为n-1条边。</span>
-		<span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">!=</span>s<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			temp<span class="token operator">=</span>closest<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
-			cout<span class="token operator">&lt;&lt;</span>temp<span class="token operator">&lt;&lt;</span><span class="token string">"-&gt;"</span><span class="token operator">&lt;&lt;</span>i<span class="token operator">&lt;&lt;</span><span class="token string">"边权值为："</span><span class="token operator">&lt;&lt;</span>graph<span class="token punctuation">[</span>temp<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-	<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-	<span class="token comment">//freopen("in.txt", "r", stdin);//提交的时候要注释掉</span>
-	IOS<span class="token punctuation">;</span>
-	<span class="token keyword">while</span><span class="token punctuation">(</span>cin<span class="token operator">&gt;&gt;</span>n<span class="token operator">&gt;&gt;</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
-		<span class="token function">memset</span><span class="token punctuation">(</span>graph<span class="token punctuation">,</span>inf<span class="token punctuation">,</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>graph<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//初始化。</span>
-		<span class="token keyword">int</span> u<span class="token punctuation">,</span>v<span class="token punctuation">,</span>w<span class="token punctuation">;</span><span class="token comment">//临时变量。</span>
-		<span class="token function">rep</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">{</span>
-			cin<span class="token operator">&gt;&gt;</span>u<span class="token operator">&gt;&gt;</span>v<span class="token operator">&gt;&gt;</span>w<span class="token punctuation">;</span>
-			<span class="token comment">//视情况而论，我这里以无向图为例。</span>
-			graph<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span>graph<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span>w<span class="token punctuation">;</span>
-		<span class="token punctuation">}</span>
-		<span class="token comment">//任取根结点，我这里默认取1.</span>
-		<span class="token function">Prim</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-		<span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//打印最小生成树。</span>
-	<span class="token punctuation">}</span>
-	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<p>根据源码，我们很容易就可以使用它们，不用自己手写了，但如果需要自定义比较规则，实际上就是需要我们实现一个check函数即可。</p>
+<h2 id="3-2-进阶—自定义比较规则"><a href="#3-2-进阶—自定义比较规则" class="headerlink" title="3.2 进阶—自定义比较规则"></a>3.2 进阶—自定义比较规则</h2><p>在 C++ 中有很多情况下，我们需要自定义比较器，无非就是三种情况：</p>
+<ol>
+<li>对一个自定义的 <code>struct</code> 重写它的 <code>operator &lt;</code> 方法</li>
+<li>定义一个``Comparator`函数</li>
+<li>定义一个<code>Comparator</code>结构体对象</li>
+</ol>
+<ul>
+<li><p><strong>自定义结构体</strong></p>
+<p>如果我们自定义了一个<code>struct</code>，然后想要对其排序又不想额外写一个比较器，那么最好实现它的 <code>operaotr &lt;</code> 方法。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct node{
+    string s;
+    node(string s) {
+        this-&gt;s = s;
+    }
+    bool operator &lt; (const node &amp;a) const { // 注意这两个const，必须要加上，否则会报错，前者const是能接收非const和const的实参，后者const是表明该函数不会修改类成员变量。
+        return this-&gt;s.size() &lt; a.s.size();
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>这样，我们就可以使用了。如下：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;node&gt; v(10, node("111"));
+int pos = lower_bound(v.begin(), v.end(), node("111")) - v.begin();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>函数比较器</strong></p>
+<p>可以通过编写一个外部的比较器函数，实现 <code>&lt;</code> 功能。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct node{
+    string s;
+    node(string s) {
+        this-&gt;s = s;
+    }
+};
+bool cmp(const string &amp;s1, const string &amp;s2) {
+    return s1.size() &lt; s2.size();
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-5-算法分析"><a href="#2-5-算法分析" class="headerlink" title="2.5 算法分析"></a>2.5 算法分析</h3><p>对于此算法，我们图中有$n$个顶点，则第一个进行初始化的循环语句的频度为$n$,第二个循环语句的频度为$n$，==但其中第二个循环中有两个内循环：第一个是在$lowcost$中求最小值，其频度为$n$，第二个是重新选择具有最小权值的边，频度为$n$==，由此我们可知Prim算法的时间复杂度为$O(n^2)$，与图中的边数无关，故十分适合于稠密图。</p>
-<h3 id="2-6-测试"><a href="#2-6-测试" class="headerlink" title="2.6 测试"></a>2.6 测试</h3><p>我们用示例来测试：</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token number">7</span> <span class="token number">11</span>
-<span class="token number">1</span> <span class="token number">2</span> <span class="token number">7</span>
-<span class="token number">1</span> <span class="token number">4</span> <span class="token number">5</span>
-<span class="token number">2</span> <span class="token number">4</span> <span class="token number">9</span>
-<span class="token number">2</span> <span class="token number">3</span> <span class="token number">8</span>
-<span class="token number">2</span> <span class="token number">5</span> <span class="token number">7</span>
-<span class="token number">4</span> <span class="token number">5</span> <span class="token number">15</span>
-<span class="token number">4</span> <span class="token number">6</span> <span class="token number">6</span>
-<span class="token number">6</span> <span class="token number">7</span> <span class="token number">11</span>
-<span class="token number">5</span> <span class="token number">6</span> <span class="token number">8</span>
-<span class="token number">5</span> <span class="token number">7</span> <span class="token number">9</span>
-<span class="token number">3</span> <span class="token number">5</span> <span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>测试结果如图：</p>
-<p><img src="https://img-blog.csdnimg.cn/20200811095845614.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h6ZjA3MDE=,size_16,color_FFFFFF,t_70"></p>
+<p>这个通常用于自定义排序，其他的会报错，应该是不支持函数比较器，读者可自行尝试。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;string&gt; v(10, "111");
+sort(v.begin(), v.end(), cmp);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>函数对象比较器</strong></p>
+<p>所谓函数对象是指实现了 <code>operator ()</code> 的类或者结构体。可以用这样的一个对象来代替函数作为比较器。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct cmper {
+    bool operator() (const string &amp;s1, const string &amp;s2) const {
+        return s1.size() &lt; s2.size();
+    }
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这个通常用于自定义排序，其他的会报错，应该是不支持函数比较器，读者可自行尝试。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">vector&lt;string&gt; v(10, "111");
+sort(v.begin(), v.end(), cmper());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ul>
 
                 
             </div>
@@ -663,7 +669,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://unique-pure.github.io/2020/07/29/prim/">http://unique-pure.github.io/2020/07/29/prim/</a>
+                    <a href="http://unique-pure.github.io/2021/05/28/er-fen-cha-zhao-sou-suo/">http://unique-pure.github.io/2021/05/28/er-fen-cha-zhao-sou-suo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -701,12 +707,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Prim/">
-                                    <span class="chip bg-color">Prim</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                                    <span class="chip bg-color">最小生成树</span>
+                                <a href="/tags/%E4%BA%8C%E5%88%86/">
+                                    <span class="chip bg-color">二分</span>
                                 </a>
                             
                         </div>
@@ -877,7 +879,7 @@
         repo: 'commentRes',
         owner: 'unique-pure',
         admin: "unique-pure",
-        id: '2020-07-29T11-34-35',
+        id: '2021-05-28T13-12-04',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -911,13 +913,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/29/dijkstra/">
+                <a href="/2021/05/28/wei-yun-suan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Dijkstra算法详解">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="位运算的奇技淫巧">
                         
-                        <span class="card-title">Dijkstra算法详解</span>
+                        <span class="card-title">位运算的奇技淫巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -928,7 +930,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
                         </span>
                         <span class="publish-author">
                             
@@ -945,12 +947,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Dijkstra/">
-                        <span class="chip bg-color">Dijkstra</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
-                        <span class="chip bg-color">最短路</span>
+                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
                     </a>
                     
                 </div>
@@ -964,13 +962,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/27/floyd/">
+                <a href="/2021/05/12/shu-wei-dp/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Floyd算法详解">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="数位DP学习整理">
                         
-                        <span class="card-title">Floyd算法详解</span>
+                        <span class="card-title">数位DP学习整理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -981,7 +979,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-12
                             </span>
                         <span class="publish-author">
                             
@@ -998,12 +996,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
-                        <span class="chip bg-color">最短路</span>
-                    </a>
-                    
-                    <a href="/tags/Floyd/">
-                        <span class="chip bg-color">Floyd</span>
+                    <a href="/tags/%E6%95%B0%E4%BD%8DDP/">
+                        <span class="chip bg-color">数位DP</span>
                     </a>
                     
                 </div>
