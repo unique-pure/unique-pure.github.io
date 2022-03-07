@@ -388,11 +388,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E9%A2%98%E8%A7%A3/" title="题解: 2">
+                <a href="/categories/%E9%A2%98%E8%A7%A3/" title="题解: 4">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #D5F5E3;">题解
-                        <span class="tag-length">2</span>
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -401,15 +401,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #E8F8F5;">后端
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E9%A2%98%E8%A7%A3/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" title="算法学习计划: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #FEF9E7;">算法学习计划
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -911,7 +902,7 @@ ctrl u：清空本
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">50.6k</span>
+                        class="white-color">51.8k</span>
             
             
             
@@ -936,6 +927,7 @@ ctrl u：清空本
                 <span id="sitetime"> Loading ...</span>
                 <script>
                     var calcSiteTime = function () {
+                        window.setTimeout("calcSiteTime()",1000); // 每秒运行一次函数
                         var seconds = 1000;
                         var minutes = seconds * 60;
                         var hours = minutes * 60;
@@ -959,10 +951,14 @@ ctrl u：清空本
                         var diff = t2 - t1;
                         var diffYears = Math.floor(diff / years);
                         var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff / hours) - diffYears * 365 * 24 - diffDays * 24);
+                        var diffMinutes = Math.floor((diff / minutes) - diffYears * 365 * 24 * 60 - diffDays * 24 * 60 - diffHours * 60);
+                        var diffSeconds = Math.floor((diff / seconds) - diffYears * 365 * 24 * 60 * 60 - diffDays * 24 * 60 * 60 
+                        - diffHours * 60 * 60 - diffMinutes * 60);
 
                         // 区分是否有年份.
                         var language = 'zh-CN';
-                        if (startYear === String(todayYear)) {
+                        if (startYear === String(todayYear)) { // 是否为当前年份
                             document.getElementById("year").innerHTML = todayYear;
                             var daysTip = 'This site has been running for ' + diffDays + ' days';
                             if (language === 'zh-CN') {
@@ -976,9 +972,11 @@ ctrl u：清空本
                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
                                 + diffDays + ' days';
                             if (language === 'zh-CN') {
-                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                                yearsAndDaysTip = '本站已安全运行 ' + diffYears + ' 年 ' + diffDays + ' 天 ' + diffHours + ' 时 '
+                                + diffMinutes + ' 分 ' + diffSeconds + ' 秒';
                             } else if (language === 'zh-HK') {
-                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                                yearsAndDaysTip = '本站已安全運行 ' + diffYears + ' 年 ' + diffDays + ' 天 ' + diffDays + ' 天 ' + diffHours + ' 时'
+                                + diffMinutes + ' 分 ' + diffSeconds + ' 秒';
                             }
                             document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
                         }

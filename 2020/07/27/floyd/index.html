@@ -958,13 +958,13 @@ graph G<span class="token punctuation">;</span><span aria-hidden="true" class="l
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/21/er-fen-cha-zhao-sou-suo/">
+                <a href="/2020/07/01/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-yi-tian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="二分查找的奇技淫巧">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="算法学习计划基础篇——第一天">
                         
-                        <span class="card-title">二分查找的奇技淫巧</span>
+                        <span class="card-title">算法学习计划基础篇——第一天</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -975,14 +975,14 @@ graph G<span class="token punctuation">;</span><span aria-hidden="true" class="l
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
                                 </a>
                             
                             
@@ -994,6 +994,10 @@ graph G<span class="token punctuation">;</span><span aria-hidden="true" class="l
                     
                     <a href="/tags/%E4%BA%8C%E5%88%86/">
                         <span class="chip bg-color">二分</span>
+                    </a>
+                    
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
                 </div>
@@ -1232,7 +1236,7 @@ graph G<span class="token punctuation">;</span><span aria-hidden="true" class="l
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">50.6k</span>
+                        class="white-color">51.8k</span>
             
             
             
@@ -1257,6 +1261,7 @@ graph G<span class="token punctuation">;</span><span aria-hidden="true" class="l
                 <span id="sitetime"> Loading ...</span>
                 <script>
                     var calcSiteTime = function () {
+                        window.setTimeout("calcSiteTime()",1000); // 每秒运行一次函数
                         var seconds = 1000;
                         var minutes = seconds * 60;
                         var hours = minutes * 60;
@@ -1280,10 +1285,14 @@ graph G<span class="token punctuation">;</span><span aria-hidden="true" class="l
                         var diff = t2 - t1;
                         var diffYears = Math.floor(diff / years);
                         var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff / hours) - diffYears * 365 * 24 - diffDays * 24);
+                        var diffMinutes = Math.floor((diff / minutes) - diffYears * 365 * 24 * 60 - diffDays * 24 * 60 - diffHours * 60);
+                        var diffSeconds = Math.floor((diff / seconds) - diffYears * 365 * 24 * 60 * 60 - diffDays * 24 * 60 * 60 
+                        - diffHours * 60 * 60 - diffMinutes * 60);
 
                         // 区分是否有年份.
                         var language = 'zh-CN';
-                        if (startYear === String(todayYear)) {
+                        if (startYear === String(todayYear)) { // 是否为当前年份
                             document.getElementById("year").innerHTML = todayYear;
                             var daysTip = 'This site has been running for ' + diffDays + ' days';
                             if (language === 'zh-CN') {
@@ -1297,9 +1306,11 @@ graph G<span class="token punctuation">;</span><span aria-hidden="true" class="l
                             var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
                                 + diffDays + ' days';
                             if (language === 'zh-CN') {
-                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                                yearsAndDaysTip = '本站已安全运行 ' + diffYears + ' 年 ' + diffDays + ' 天 ' + diffHours + ' 时 '
+                                + diffMinutes + ' 分 ' + diffSeconds + ' 秒';
                             } else if (language === 'zh-HK') {
-                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                                yearsAndDaysTip = '本站已安全運行 ' + diffYears + ' 年 ' + diffDays + ' 天 ' + diffDays + ' 天 ' + diffHours + ' 时'
+                                + diffMinutes + ' 分 ' + diffSeconds + ' 秒';
                             }
                             document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
                         }
