@@ -392,9 +392,9 @@
       
         <tags>
             
-            <tag> 最小生成树 </tag>
-            
             <tag> Kruskal </tag>
+            
+            <tag> 最小生成树 </tag>
             
         </tags>
       
@@ -419,9 +419,9 @@
       
         <tags>
             
-            <tag> Dijkstra </tag>
-            
             <tag> 最短路 </tag>
+            
+            <tag> Dijkstra </tag>
             
         </tags>
       
@@ -446,9 +446,9 @@
       
         <tags>
             
-            <tag> Prim </tag>
-            
             <tag> 最小生成树 </tag>
+            
+            <tag> Prim </tag>
             
         </tags>
       
@@ -473,9 +473,9 @@
       
         <tags>
             
-            <tag> 最短路 </tag>
-            
             <tag> Floyd </tag>
+            
+            <tag> 最短路 </tag>
             
         </tags>
       
