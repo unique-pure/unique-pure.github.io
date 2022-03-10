@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-10T03:00:39.351Z</updated>
+  <updated>2022-03-10T07:07:12.912Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://unique-pure.github.io/2022/03/10/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220310/"/>
     <id>http://unique-pure.github.io/2022/03/10/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220310/</id>
     <published>2022-03-09T16:00:00.000Z</published>
-    <updated>2022-03-10T03:00:39.351Z</updated>
+    <updated>2022-03-10T07:07:12.912Z</updated>
     
     
       
@@ -45,6 +45,8 @@
     
     <category term="迭代" scheme="http://unique-pure.github.io/tags/%E8%BF%AD%E4%BB%A3/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -52,7 +54,7 @@
     <link href="http://unique-pure.github.io/2022/03/08/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220308/"/>
     <id>http://unique-pure.github.io/2022/03/08/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220308/</id>
     <published>2022-03-07T16:00:00.000Z</published>
-    <updated>2022-03-08T08:15:02.548Z</updated>
+    <updated>2022-03-10T07:07:21.635Z</updated>
     
     
       
@@ -72,6 +74,8 @@
     
     <category term="前缀和" scheme="http://unique-pure.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -79,7 +83,7 @@
     <link href="http://unique-pure.github.io/2022/03/07/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220307/"/>
     <id>http://unique-pure.github.io/2022/03/07/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220307/</id>
     <published>2022-03-06T16:00:00.000Z</published>
-    <updated>2022-03-07T03:05:21.021Z</updated>
+    <updated>2022-03-10T07:07:30.764Z</updated>
     
     
       
@@ -99,6 +103,8 @@
     
     <category term="递归" scheme="http://unique-pure.github.io/tags/%E9%80%92%E5%BD%92/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -106,7 +112,7 @@
     <link href="http://unique-pure.github.io/2022/03/06/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220306/"/>
     <id>http://unique-pure.github.io/2022/03/06/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220306/</id>
     <published>2022-03-05T16:00:00.000Z</published>
-    <updated>2022-03-07T03:05:17.940Z</updated>
+    <updated>2022-03-10T07:07:40.551Z</updated>
     
     
       
@@ -129,6 +135,8 @@
     <category term="双指针" scheme="http://unique-pure.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
     <category term="滑动窗口" scheme="http://unique-pure.github.io/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"/>
+    
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
     
   </entry>
   
@@ -347,7 +355,7 @@
     <link href="http://unique-pure.github.io/2022/01/21/tmux-he-vim/"/>
     <id>http://unique-pure.github.io/2022/01/21/tmux-he-vim/</id>
     <published>2022-01-20T16:00:00.000Z</published>
-    <updated>2022-03-05T02:10:40.143Z</updated>
+    <updated>2022-03-10T07:06:21.214Z</updated>
     
     
       
@@ -361,6 +369,8 @@
     
     
     <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="工具" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/%E5%B7%A5%E5%85%B7/"/>
     
     
     <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
@@ -376,7 +386,7 @@
     <link href="http://unique-pure.github.io/2021/10/07/di-45-jie-icpc-ya-zhou-qu-yu-sai-ji-nan-zhan-ti-jie/"/>
     <id>http://unique-pure.github.io/2021/10/07/di-45-jie-icpc-ya-zhou-qu-yu-sai-ji-nan-zhan-ti-jie/</id>
     <published>2021-10-06T16:00:00.000Z</published>
-    <updated>2022-03-05T04:41:18.864Z</updated>
+    <updated>2022-03-10T07:04:43.242Z</updated>
     
     
       
@@ -394,6 +404,8 @@
     
     <category term="ICPC" scheme="http://unique-pure.github.io/tags/ICPC/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -401,7 +413,7 @@
     <link href="http://unique-pure.github.io/2021/05/28/wei-yun-suan/"/>
     <id>http://unique-pure.github.io/2021/05/28/wei-yun-suan/</id>
     <published>2021-05-28T05:12:04.000Z</published>
-    <updated>2022-03-06T05:19:21.960Z</updated>
+    <updated>2022-03-10T07:05:02.003Z</updated>
     
     
       
@@ -419,6 +431,8 @@
     
     <category term="位运算" scheme="http://unique-pure.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -426,7 +440,7 @@
     <link href="http://unique-pure.github.io/2021/05/12/shu-wei-dp/"/>
     <id>http://unique-pure.github.io/2021/05/12/shu-wei-dp/</id>
     <published>2021-05-11T16:00:00.000Z</published>
-    <updated>2022-03-05T01:44:26.921Z</updated>
+    <updated>2022-03-10T07:04:51.526Z</updated>
     
     
       
@@ -444,6 +458,8 @@
     
     <category term="数位DP" scheme="http://unique-pure.github.io/tags/%E6%95%B0%E4%BD%8DDP/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -451,7 +467,7 @@
     <link href="http://unique-pure.github.io/2020/08/11/kruskal/"/>
     <id>http://unique-pure.github.io/2020/08/11/kruskal/</id>
     <published>2020-08-10T16:00:00.000Z</published>
-    <updated>2022-03-05T01:33:03.059Z</updated>
+    <updated>2022-03-10T07:05:33.211Z</updated>
     
     
       
@@ -471,6 +487,8 @@
     
     <category term="最小生成树" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -478,7 +496,7 @@
     <link href="http://unique-pure.github.io/2020/07/29/dijkstra/"/>
     <id>http://unique-pure.github.io/2020/07/29/dijkstra/</id>
     <published>2020-07-29T08:15:34.000Z</published>
-    <updated>2022-03-05T01:26:45.052Z</updated>
+    <updated>2022-03-10T07:05:09.412Z</updated>
     
     
       
@@ -498,6 +516,8 @@
     
     <category term="Dijkstra" scheme="http://unique-pure.github.io/tags/Dijkstra/"/>
     
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
   </entry>
   
   <entry>
@@ -505,7 +525,7 @@
     <link href="http://unique-pure.github.io/2020/07/29/prim/"/>
     <id>http://unique-pure.github.io/2020/07/29/prim/</id>
     <published>2020-07-29T03:34:35.000Z</published>
-    <updated>2022-03-05T01:33:08.048Z</updated>
+    <updated>2022-03-10T07:05:48.579Z</updated>
     
     
       
@@ -524,6 +544,8 @@
     <category term="最小生成树" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
     
     <category term="Prim" scheme="http://unique-pure.github.io/tags/Prim/"/>
+    
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
     
   </entry>
   
