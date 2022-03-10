@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-07T03:05:21.021Z</updated>
+  <updated>2022-03-10T03:00:39.351Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>力扣每日一题——N叉树的前序遍历</title>
+    <link href="http://unique-pure.github.io/2022/03/10/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220310/"/>
+    <id>http://unique-pure.github.io/2022/03/10/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220310/</id>
+    <published>2022-03-09T16:00:00.000Z</published>
+    <updated>2022-03-10T03:00:39.351Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1 题目描述&quot;&gt;&lt;/a&gt;1 题目描述&lt;/h1&gt;&lt;p&gt;给定一个 n 叉树的根节点  &lt;code&gt;root&lt;/code&gt; ，返回 其节点值的</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
+    
+    <category term="递归" scheme="http://unique-pure.github.io/tags/%E9%80%92%E5%BD%92/"/>
+    
+    <category term="树" scheme="http://unique-pure.github.io/tags/%E6%A0%91/"/>
+    
+    <category term="迭代" scheme="http://unique-pure.github.io/tags/%E8%BF%AD%E4%BB%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>力扣每日一题——蜡烛之间的盘子</title>
+    <link href="http://unique-pure.github.io/2022/03/08/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220308/"/>
+    <id>http://unique-pure.github.io/2022/03/08/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220308/</id>
+    <published>2022-03-07T16:00:00.000Z</published>
+    <updated>2022-03-08T08:15:02.548Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1 题目描述&quot;&gt;&lt;/a&gt;1 题目描述&lt;/h1&gt;&lt;p&gt;给你一个长桌子，桌子上盘子和蜡烛排成一列。给你一个下标从 &lt;strong&gt;0&lt;/strong&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
+    
+    <category term="前缀和" scheme="http://unique-pure.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>力扣每日一题——七进制数</title>
@@ -493,60 +551,6 @@
     <category term="Floyd" scheme="http://unique-pure.github.io/tags/Floyd/"/>
     
     <category term="最短路" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法学习计划基础篇——第二天</title>
-    <link href="http://unique-pure.github.io/2020/07/02/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-er-tian/"/>
-    <id>http://unique-pure.github.io/2020/07/02/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-er-tian/</id>
-    <published>2020-07-01T16:00:00.000Z</published>
-    <updated>2022-03-07T04:47:08.621Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1-寻找旋转排序数组中的最小值&quot;&gt;&lt;a href=&quot;#1-寻找旋转排序数组中的最小值&quot; class=&quot;headerlink&quot; title=&quot;1 寻找旋转排序数组中的最小值&quot;&gt;&lt;/a&gt;1 寻找旋转排序数组中的最小值&lt;/h1&gt;&lt;h2 id=&quot;1-1-题目描述&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="二分" scheme="http://unique-pure.github.io/tags/%E4%BA%8C%E5%88%86/"/>
-    
-    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法学习计划基础篇——第一天</title>
-    <link href="http://unique-pure.github.io/2020/07/01/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-yi-tian/"/>
-    <id>http://unique-pure.github.io/2020/07/01/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-yi-tian/</id>
-    <published>2020-06-30T16:00:00.000Z</published>
-    <updated>2022-03-06T15:45:32.607Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1-在排序数组中查找元素的第一个和最后一个位置&quot;&gt;&lt;a href=&quot;#1-在排序数组中查找元素的第一个和最后一个位置&quot; class=&quot;headerlink&quot; title=&quot;1 在排序数组中查找元素的第一个和最后一个位置&quot;&gt;&lt;/a&gt;1</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="二分" scheme="http://unique-pure.github.io/tags/%E4%BA%8C%E5%88%86/"/>
-    
-    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
     
   </entry>
   
