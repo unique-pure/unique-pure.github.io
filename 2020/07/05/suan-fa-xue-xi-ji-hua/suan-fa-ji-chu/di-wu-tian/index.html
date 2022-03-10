@@ -5,15 +5,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="tmux与vim教程, 题解,Linux,Django,开发,后端,网站">
-    <meta name="description" content="1 tmux使用教程1.1 tmux安装# Ubuntu 或 Debian
-$ sudo apt-get install tmux
+    <meta name="keywords" content="算法学习计划基础篇——第五天, 题解,Linux,Django,开发,后端,网站">
+    <meta name="description" content="1 找到所有字符串中所有字母异位词1.1 题目描述给定两个字符串 s 和 p，找到 s 中所有 p 的 异位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。异位词 指由相同字母重排列形成的字符串（包括相同的字符串）。
 
-# CentOS 或 Fedora
-$ sudo yum install tmux
-
-# Mac
-$ br">
+1 &amp;lt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -27,7 +22,7 @@ $ br">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>tmux与vim教程 | pursuit&#39;s blog</title>
+    <title>算法学习计划基础篇——第五天 | pursuit&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -334,12 +329,12 @@ $ br">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">tmux与vim教程</h1>
+                    <h1 class="description center-align post-title">算法学习计划基础篇——第五天</h1>
                 </div>
             </div>
         </div>
@@ -455,16 +450,24 @@ $ br">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/%E4%BA%8C%E5%88%86/">
+                                <span class="chip bg-color">二分</span>
                             </a>
                         
-                            <a href="/tags/tmux/">
-                                <span class="chip bg-color">tmux</span>
+                            <a href="/tags/leetcode/">
+                                <span class="chip bg-color">leetcode</span>
                             </a>
                         
-                            <a href="/tags/vim/">
-                                <span class="chip bg-color">vim</span>
+                            <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
+                                <span class="chip bg-color">前缀和</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                                <span class="chip bg-color">滑动窗口</span>
+                            </a>
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -475,12 +478,8 @@ $ br">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
-                                开发
-                            </a>
-                        
-                            <a href="/categories/%E5%BC%80%E5%8F%91/%E5%B7%A5%E5%85%B7/" class="post-category">
-                                工具
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                题解
                             </a>
                         
                     </div>
@@ -492,7 +491,7 @@ $ br">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-21
+                    2020-07-05
                 </div>
                 
 
@@ -506,14 +505,14 @@ $ br">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.7k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    5 分
                 </div>
                 
 
@@ -536,755 +535,136 @@ $ br">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-tmux使用教程"><a href="#1-tmux使用教程" class="headerlink" title="1 tmux使用教程"></a>1 tmux使用教程</h1><h2 id="1-1-tmux安装"><a href="#1-1-tmux安装" class="headerlink" title="1.1 tmux安装"></a>1.1 tmux安装</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Ubuntu 或 Debian</span>
-$ <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> tmux
+                <h1 id="1-找到所有字符串中所有字母异位词"><a href="#1-找到所有字符串中所有字母异位词" class="headerlink" title="1 找到所有字符串中所有字母异位词"></a>1 找到所有字符串中所有字母异位词</h1><h2 id="1-1-题目描述"><a href="#1-1-题目描述" class="headerlink" title="1.1 题目描述"></a>1.1 题目描述</h2><p>给定两个字符串 <code>s</code> 和 <code>p</code>，找到 <code>s</code> 中所有 <code>p</code> 的 <strong>异位词</strong> 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。<strong>异位词</strong> 指由相同字母重排列形成的字符串（包括相同的字符串）。</p>
+<ul>
+<li><code>1 &lt;= s.length, p.length &lt;= 3 * 104</code></li>
+<li><code>s</code> 和 <code>p</code> 仅包含小写字母</li>
+</ul>
+<h2 id="1-2-滑动窗口O-n"><a href="#1-2-滑动窗口O-n" class="headerlink" title="1.2 滑动窗口O(n)"></a>1.2 滑动窗口O(n)</h2><p>由此题易知字符串<code>p</code>的异位词长度一定与字符串<code>p</code>相同，所以可以构建这样大小的滑动窗口，并在滑动中维护窗口中每种字母的数量。当窗口中每种字母的数量和字符串<code>p</code>中的字母数量相同时，则说明为字符串<code>p</code>的异位词。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">findAnagrams</span><span class="token punctuation">(</span>string s<span class="token punctuation">,</span> string p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">cnt1</span><span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">cnt2</span><span class="token punctuation">(</span><span class="token number">26</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> res<span class="token punctuation">;</span>
+        <span class="token keyword">int</span> len1 <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> len2 <span class="token operator">=</span> p<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>len1 <span class="token operator">&lt;</span> len2<span class="token punctuation">)</span> <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len2<span class="token punctuation">;</span> <span class="token operator">++</span> i <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token operator">++</span> cnt1<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token operator">++</span> cnt2<span class="token punctuation">[</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt1 <span class="token operator">==</span> cnt2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> len2<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len1<span class="token punctuation">;</span> <span class="token operator">++</span> i <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token operator">--</span> cnt1<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i <span class="token operator">-</span> len2<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token operator">++</span> cnt1<span class="token punctuation">[</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token char">'a'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt1 <span class="token operator">==</span> cnt2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                res<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>i <span class="token operator">-</span> len2 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment"># CentOS 或 Fedora</span>
-$ <span class="token function">sudo</span> yum <span class="token function">install</span> tmux
+<h1 id="2-乘积小于K的子数组"><a href="#2-乘积小于K的子数组" class="headerlink" title="2 乘积小于K的子数组"></a>2 乘积小于K的子数组</h1><h2 id="2-1-题目描述"><a href="#2-1-题目描述" class="headerlink" title="2.1 题目描述"></a>2.1 题目描述</h2><p>给定一个正整数数组 <code>nums</code>和整数 <code>k</code> 。请找出该数组内乘积小于 <code>k</code> 的连续的子数组的个数。</p>
+<ul>
+<li>$1 &lt;= nums.length &lt;= 3 * 10^4$</li>
+<li>$1 &lt;= nums[i] &lt;= 1000$</li>
+<li>$0 &lt;= k &lt;= 10^6$</li>
+</ul>
+<h2 id="2-2-二分查找-前缀和-O-nlogn"><a href="#2-2-二分查找-前缀和-O-nlogn" class="headerlink" title="2.2 二分查找+前缀和 O(nlogn)"></a>2.2 二分查找+前缀和 O(nlogn)</h2><p>由于<code>nums</code>为正整数数组，所以对于固定的<code>i</code>，我们可以二分查找出最大的<code>j</code>满足<code>nums[i]</code>到<code>nums[j]</code>的乘积小于<code>k</code>。但由于乘积可能会非常大，导致数值溢出，所以这里取对数，将乘积转换为对数和，即$\log(\prod\limits_{t=i}^jnums[t])=\sum\limits_{t=i}^j\log(nums[t])$，这样就解决了溢出问题。</p>
+<p>由于需要计算一段区间的对数和，所以我们可以利用前缀和来优化这个问题，从而到达$O(1)$时间求出一段区间的对数和。这里需要用<code>eps</code>控制精度损失。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">numSubarrayProductLessThanK</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> x <span class="token operator">=</span> <span class="token function">log</span><span class="token punctuation">(</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">&gt;</span> <span class="token function">prefixSum</span><span class="token punctuation">(</span>len <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> <span class="token operator">++</span> i <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            prefixSum<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> prefixSum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token function">log</span><span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> eps <span class="token operator">=</span> <span class="token number">1e-9</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> <span class="token operator">++</span> i <span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+            <span class="token keyword">int</span> l <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r <span class="token operator">=</span> len <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>l <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>l <span class="token operator">+</span> r<span class="token punctuation">)</span> <span class="token operator">&gt;&gt;</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>prefixSum<span class="token punctuation">[</span>mid<span class="token punctuation">]</span> <span class="token operator">-</span> prefixSum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> x <span class="token operator">+</span> eps <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    l <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    r <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            ans <span class="token operator">+=</span> l <span class="token operator">-</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token comment"># Mac</span>
-$ brew <span class="token function">install</span> tmux<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="2-3-滑动窗口O-n"><a href="#2-3-滑动窗口O-n" class="headerlink" title="2.3 滑动窗口O(n)"></a>2.3 滑动窗口O(n)</h2><p>当我们固定<code>right</code>，我们只需要找到最小的<code>left</code>，使得$\prod\limits_{i=left}^{right}nums[i]&lt;t$，由于当<code>left</code>增加时，这个乘积是单调不增的，所以我们可以单调移动<code>left</code>。</p>
+<p>所以我们可以枚举<code>right</code>，然后往右移动<code>left</code>，直到满足条件。这个过程我们需要维护这个滑动窗口的乘积，即移动<code>left</code>除，移动<code>right</code>乘。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">numSubarrayProductLessThanK</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> prod <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> right <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> <span class="token operator">++</span> right <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            prod <span class="token operator">*=</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>prod <span class="token operator">&gt;=</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                prod <span class="token operator">/=</span> nums<span class="token punctuation">[</span>left <span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            res <span class="token operator">+=</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="1-2-tmux简介"><a href="#1-2-tmux简介" class="headerlink" title="1.2 tmux简介"></a>1.2 tmux简介</h2><p>tmux是一个非常优秀的终端复用器（terminal multiplexer），其可以使用一系列的终端session，它使您可以在一个终端中的多个程序之间轻松切换、分离它们（它们继续在后台运行）并将它们重新附加到不同的终端。</p>
-<p>session：我们知道，在windows命令行中我们打开一个终端窗口，然后输入命令实现与计算机的交流。而这种用户与计算机的这种临时的交互就叫做session。</p>
-<p>tmux的主要功能有：</p>
+<h1 id="3-长度最小的子数组"><a href="#3-长度最小的子数组" class="headerlink" title="3 长度最小的子数组"></a>3 长度最小的子数组</h1><h2 id="3-1-题目描述"><a href="#3-1-题目描述" class="headerlink" title="3.1 题目描述"></a>3.1 题目描述</h2><p>给定一个含有 <code>n</code> 个正整数的数组和一个正整数 <code>target</code> <strong>。</strong>找出该数组中满足其和 <code>≥ target</code> 的长度最小的 <strong>连续子数组</strong> <code>[numsl</code>, $nums_{l+1}, …, nums_{r-1}, nums_{r}]$ ，并返回其长度<strong>。</strong>如果不存在符合条件的子数组，返回 <code>0</code> 。</p>
 <ul>
-<li>分屏，即允许在单个窗口中访问多个会话。这对我们同时运行多个命令行程序非常有用。</li>
-<li>允许断开Terminal连接后，继续运行进程。这样，我们可以随时随地放心的进行操作，即使工作进行到一半突然断开，我们打开tmux仍可以重新进入到操作现场。</li>
-<li>会话共享（适用于结对编程或者远程教学）。我们可以将tmux的会话地址分享给其他人，这样他们就可以通过SSH接入该会话。更骚的是，如果你要给其他人演示远程服务器的操作，不必一直盯着屏幕，我们可以借助tmux，他就可以完全进入你的会话。</li>
+<li>$1 &lt;= target &lt;= 10^9$</li>
+<li>$1 &lt;= nums.length &lt;= 10^5$</li>
+<li>$1 &lt;= nums[i] &lt;= 10^5$</li>
 </ul>
-<p>当然，tmux的功能还有很多，相比于其他的终端复用器，tmux更易用也更强大，这也是我们为什么要学习tmux的原因。</p>
-<h2 id="1-3-tmux结构"><a href="#1-3-tmux结构" class="headerlink" title="1.3 tmux结构"></a>1.3 tmux结构</h2><p>tmux是采用C/S模型构建的，我们输入tmux即相当于开启了一个服务器，此时默认将新建一个session，然后再session中新建一个window，window中新建一个pane。其联系为：一个tmux可以包含多个session，一个session可以包含多个window，一个window可以包含多个pane。</p>
-<p>以下即是实例：<br>        tmux:<br>            session 0:<br>                window 0:<br>                    pane 0<br>                    pane 1<br>                    pane 2<br>                    …<br>                window 1<br>                window 2<br>                …<br>            session 1<br>            session 2<br>            …</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/a3ea3ebfc8cbe63d5716d61f0057dbae.png"></p>
-<h2 id="1-4-tmux操作"><a href="#1-4-tmux操作" class="headerlink" title="1.4 tmux操作"></a>1.4 tmux操作</h2><p>注：以下操作大多数都会给出命令和对应的快捷键，如果用于学习，建议两种操作都要学会，但在平常操作中，使用快捷键是更方便的。</p>
-<h3 id="1-4-1-前缀键"><a href="#1-4-1-前缀键" class="headerlink" title="1.4.1 前缀键"></a>1.4.1 前缀键</h3><p>tmux提供了很多的快捷键。特别的是所有的快捷键都需要通过前缀键唤起，默认的快捷键为<code>ctrl + b</code>。我们可以通过<code>tmux list-keys</code>命令来查看所有快捷键指令。</p>
-<p>当然如果觉得<code>ctrl + b</code>不好用，习惯用其他的键，这里提供修改前缀键的方法如下：</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux"># 首先打开文件~/.tmux.conf
-vim ~/.tmux.conf
-# 设置前缀为Ctrl + a。
-set -g prefix C-a
-# 解除Ctrl + b与前缀的对应关系。
-unbind C-b
-# 绑定ctrl + a 成为新的指令前缀。
-bind C-a send-prefix
-#然后让它生效。我们也可以直接重启让它生效。
-source ~/.tmux.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-2-前缀和-二分-O-nlogn"><a href="#3-2-前缀和-二分-O-nlogn" class="headerlink" title="3.2 前缀和+二分 O(nlogn)"></a>3.2 前缀和+二分 O(nlogn)</h2><p>我们直接暴力的时间复杂度是$O(n^2)$，如果我们在确定某个子数组下标的时候，用二分查找，则查询可以优化到$O(log_2n)$，那么这个时候我们需要确定后续的区间和，然后通过二分查找找到最远的右端点，即可通过前缀和实现，由于每个元素都为证书，所以前缀和一定是递增的，这一点保证了二分的正确性。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">minSubArrayLen</span><span class="token punctuation">(</span><span class="token keyword">int</span> target<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span> <span class="token function">prefixSum</span><span class="token punctuation">(</span>len <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        prefixSum<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> len<span class="token punctuation">;</span> <span class="token operator">++</span> i <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            prefixSum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> prefixSum<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> INT_MAX<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> len<span class="token punctuation">;</span> <span class="token operator">++</span> i <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> newTarget <span class="token operator">=</span> target <span class="token operator">+</span> prefixSum<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">auto</span> bound <span class="token operator">=</span> <span class="token function">lower_bound</span><span class="token punctuation">(</span>prefixSum<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> prefixSum<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> newTarget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>bound <span class="token operator">!=</span> prefixSum<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token comment">// 说明有解。</span>
+                res <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token punctuation">(</span>bound <span class="token operator">-</span> prefixSum<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token punctuation">(</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> res <span class="token operator">==</span> INT_MAX <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="1-4-2-会话-session-操作"><a href="#1-4-2-会话-session-操作" class="headerlink" title="1.4.2 会话(session)操作"></a>1.4.2 会话(session)操作</h3><ul>
-<li><p>新建会话：<code>tmux new -s sessionName</code>。</p>
-<p>这样，我们就可以创建一个名为sessionName的会话了。当然我们也可以直接简写为<code>tmux</code>，这样会新建一个无名称的会话。但为了我们方便管理，所以建议还是指定会话名称。</p>
-</li>
-<li><p>断开当前会话：<code>tmux detach</code>。</p>
-<p>这样，我们就可以断开当前会话，但是会话 还是会在后台运行。当然，我们还可以使用快捷键：先按<code>ctrl + b</code>，再按 <code>ctrl + d</code>即可退出。</p>
-<p>注意：这个并没有真正的关闭会话。</p>
-</li>
-<li><p>进入已存在的会话：<code>tmux a -t sessionName</code>或者直接输入<code>tmux a</code>。</p>
-<p>前者可以指定进入的sessionName会话，而后者是默认进入第一个会话。其中的<code>a</code>命令实际上就是<code>attach</code>，我们可以简写为<code>a</code>。</p>
-</li>
-<li><p>关闭会话：<code>tmux kill -session -t sessionName</code>或者<code>tmux kill -server</code>。</p>
-<p>我们可以使用tmux的<code>kill</code>命令，其中kill命令有四种：<code>kill -pane, kill -server, kill -session, kill window</code>。根据需求我们使用自己需要的命令，需要注意的是，根据前面的联系，我们关闭了<code>session</code>，那么其中的所有<code>pane</code>和<code>window</code>也都不存在了，同理关闭<code>server</code>,那么所有<code>session</code>也都不存在了。所以这里即是使用<code>kill -session</code>和<code>kill -server</code>，前者关闭<code>sessionName</code>这个会话，后者关闭所有的会话。</p>
-</li>
-<li><p>查看所有的会话：<code>tmux ls</code>。</p>
-<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20210901141903522.png"></p>
-</li>
-<li><p>切换会话：<code>switch</code>命令用于切换会话。</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux"># 使用会话编号来切换
-tmux switch -t 0
-# 使用会话名称来切换
-tmux switch -t sessionName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>重命名会话：<code>tmux rename-session -t sessionName  new Name</code>。</p>
-</li>
-<li><p>常用会话操作快捷键。</p>
-<table>
-<thead>
-<tr>
-<th align="center">前缀</th>
-<th align="center">指令</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">d</td>
-<td align="center">断开当前会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">D</td>
-<td align="center">选择要断开的会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">$</td>
-<td align="center">重命名当前会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">s</td>
-<td align="center">列出当前会话用于选择并切换</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">r</td>
-<td align="center">强制重载当前会话</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">ctrl + z</td>
-<td align="center">挂起当前会话</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>tmux中复制/粘贴文本的通用方法。</p>
-<p>(1).按下<code>Ctrl + b</code>前缀键，然后按<code>[</code>；</p>
-<p>(2).用鼠标选中文本，然后被选中的文本会被自动复制到tmux的剪贴板；</p>
-<p>(3).按下<code>Ctrl + b</code>后前缀键，然后按<code>]</code>，会自动将剪贴板的内容粘贴到光标处。</p>
-</li>
-</ul>
-<h3 id="1-4-3-窗口-window-操作"><a href="#1-4-3-窗口-window-操作" class="headerlink" title="1.4.3 窗口(window)操作"></a>1.4.3 窗口(window)操作</h3><ul>
-<li><p>新建窗口：<code>tmux new-window -n windowName</code>。</p>
-<p>如此我们可创建一个新的名为windowName的窗口。当然我们也可以直接输入<code>tmux new-window</code>来创建一个没有指定名称的窗口。 创建一个新窗口后，原窗口我们是看不到了的，但依然存在。</p>
-</li>
-<li><p>切换窗口：<code>tmux select-window -t windowName</code>。</p>
-</li>
-<li><p>重命名窗口：<code>tmux rename-window windowName</code>。</p>
-</li>
-<li><p>常用窗口操作快捷键。</p>
-<table>
-<thead>
-<tr>
-<th align="center">前缀</th>
-<th align="center">指令</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">c</td>
-<td align="center">新建窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">&amp;</td>
-<td align="center">关闭当前窗口，需要输入<code>y or n</code>确认</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><number>编号</number></td>
-<td align="center">切换到指定编号的窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">p</td>
-<td align="center">切换到上一个窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">n</td>
-<td align="center">切换到下一个窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">w</td>
-<td align="center">显示窗口列表用于切换。</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">,（逗号）</td>
-<td align="center">重命名当前窗口</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">.</td>
-<td align="center">修改当前窗口编号（适用于窗口排序）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center">f</td>
-<td align="center">快速定位到窗口（输入关键字匹配窗口）</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h3 id="1-4-4-面板-pane-操作"><a href="#1-4-4-面板-pane-操作" class="headerlink" title="1.4.4 面板(pane)操作"></a>1.4.4 面板(pane)操作</h3><ul>
-<li><p>划分面板。</p>
-<p>注意，此划分是针对当前选中的面板，面板可以无限划分。</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux"># 划分成上下两个面板
-tmux split-window
-#划分成左右两个面板
-tmux split-window -h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-3-滑动窗口O-n"><a href="#3-3-滑动窗口O-n" class="headerlink" title="3.3 滑动窗口O(n)"></a>3.3 滑动窗口O(n)</h2><p>和第二题很像，同样可以使用滑动窗口来维护窗口和，那么我们需要时刻保证和符合条件的时候就进行一次计算，然后再移动左端口取最优解。</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">minSubArrayLen</span><span class="token punctuation">(</span><span class="token keyword">int</span> target<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> len <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> prod <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>prod <span class="token operator">&lt;</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>right <span class="token operator">==</span> len<span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+                prod <span class="token operator">*=</span> nums<span class="token punctuation">[</span>right <span class="token operator">++</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20210901153031880.png"></p>
-</li>
-<li><p>切换面板。</p>
-<p><code>tmux select-pane</code>命令用来移动光标位置，这个更严谨的说应该是切换光标，因为我们的光标正好可以选中面板，即可以通过鼠标点击选中。当然，前者过于简单且没有逼格，我们可以通过快捷键或者命令来实现。</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux"># 光标切换到上方面板
-tmux select-pane -U
-# 光标切换到下方面板
-tmux select-pane -D
-# 光标切换到左方面板
-tmux select-pane -L
-# 光标切换到右方面板
-tmux select-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>交换面板位置。</p>
-<p><code>tmux swap-pane</code>可用于交换面板位置。同切换面板差不多的形式。</p>
-<pre class="line-numbers language-linux" data-language="linux"><code class="language-linux"># 上移
-tmux swap-pane -U
-# 下移
-tmux swap-pane -D
-# 左移
-tmux swap-pane -L
-# 右移
-tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>常用面板操作快捷键。</p>
-<table>
-<thead>
-<tr>
-<th align="center">前缀</th>
-<th align="center">指令</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>"</code></td>
-<td align="center">当前面板上下一分为二，下侧新建面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>%</code></td>
-<td align="center">当前面板左右一分为二，右侧新建面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>x</code></td>
-<td align="center">关闭当前面板（关闭前需输入<code>y</code> or <code>n</code>确认）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>z</code></td>
-<td align="center">最大化当前面板，再重复一次按键后恢复正常（v1.8版本新增）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>!</code></td>
-<td align="center">将当前面板移动到新的窗口打开（原窗口中存在两个及以上面板有效）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>;</code></td>
-<td align="center">切换到最后一次使用的面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>q</code></td>
-<td align="center">显示面板编号，在编号消失前输入对应的数字可切换到相应的面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>方向键</code></td>
-<td align="center">移动光标切换面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>hjkl(分别代表左下上右)</code></td>
-<td align="center">移动光标切换面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>{</code></td>
-<td align="center">向前置换当前面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>}</code></td>
-<td align="center">向后置换当前面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>Ctrl+o</code></td>
-<td align="center">顺时针旋转当前窗口中的所有面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>o</code></td>
-<td align="center">选择下一面板</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>空格键</code></td>
-<td align="center">在自带的面板布局中循环切换</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>Alt+方向键</code></td>
-<td align="center">以5个单元格为单位调整当前面板边缘</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>Ctrl+方向键</code></td>
-<td align="center">以1个单元格为单位调整当前面板边缘（Mac下被系统快捷键覆盖）</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+b</code></td>
-<td align="center"><code>t</code></td>
-<td align="center">显示时钟</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h1 id="2-vim使用教程"><a href="#2-vim使用教程" class="headerlink" title="2 vim使用教程"></a>2 vim使用教程</h1><h2 id="2-1-vim简介"><a href="#2-1-vim简介" class="headerlink" title="2.1 vim简介"></a>2.1 vim简介</h2><p>vim就是linux系统上的一款文本编辑器，具有语法高亮，代码补全，代码缩进，根据扩展名识别编程语言以及编译等方便编程的功能。是程序开发者一款非常好用的工具，这也是我们为什么要学习vim。</p>
-<p>需要注意的是，作为程序员一般认为vim是一个程序开发工具而不是文字处理软件。如果学会了vim，对编程效率有极大的提高。</p>
-<p>如果没有安装vim，可以通过:<code>sudo apt-get install vim</code>来安装。</p>
-<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20210902190634607.png"></p>
-<p>这个就是vim的界面，界面介绍在之后会介绍，同时vim对应的键盘功能图如下：</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/4fa748e07a8d9bc792fde0639e55f1af.gif"></p>
-<p>​                                                                    图源：<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html">https://www.runoob.com/linux/linux-vim.html</a></p>
-<p>这个键盘图特别重要，也是vim的核心。</p>
-<h2 id="2-2-vim模式"><a href="#2-2-vim模式" class="headerlink" title="2.2 vim模式"></a>2.2 vim模式</h2><p>在使用vim之间，我们有必要了解它的模式，也可以认为是状态，一共有四种模式：</p>
-<ul>
-<li>正常模式(Normal-mode)；</li>
-<li>插入模式(Insert-mode)；</li>
-<li>命令模式(Command -mode)；</li>
-<li>可视模式(Visual-mode)。</li>
-</ul>
-<p>有的时候通常也认为是三个模式，即没有可视模式（<del>可能是因为这个模式存在感低</del>），我们可以参考下图理解模式之间的转换：</p>
-<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6(6).png"></p>
-<p>接下来我们分别介绍这几个模式。</p>
-<h3 id="2-2-1-正常模式-Normal-mode"><a href="#2-2-1-正常模式-Normal-mode" class="headerlink" title="2.2.1 正常模式(Normal-mode)"></a>2.2.1 正常模式(Normal-mode)</h3><p>此模式一般用于浏览文件，包括一些复制，粘贴，删除等操作。我们从任何模式返回到正常模式，只需要按下<code>ESC</code>键。</p>
-<p>当我们通过<code>vim 文件名.后缀</code>启动vim时，就进入到了正常模式，如果已有文件，则打开它，否则就打开一个新的文件，并命名为<code>文件名</code>。</p>
-<p>此时我们是无法向文件写内容的，此状态下敲击键盘会被vim识别为命令，而不是输入字符。</p>
-<p>当我们输入<code>i</code>，<code>I</code>,  <code>a</code>,<code>A</code> 时会进入插入模式。</p>
-<p>当我们输入<code>v</code>时会进入可视模式。</p>
-<p>当我们输入<code>:</code>时会进入命令模式，即在最底下一行输入命令。所以也叫底线命令模式。</p>
-<p>要重点介绍的一个内容就是如何删除、复制，剪切以及粘贴了。vim对于复制，剪切，粘贴有它自己的一套术语。其中复制被叫做yank(y)， 剪切被叫做<code>delete(d)</code>，粘贴被叫做<code>put(p)</code>。</p>
-<ul>
-<li><p><strong>删除</strong></p>
-<ul>
-<li><code>c</code> -向下删除一行。如果要删除多行，则输入<code>nc</code>，即可向下删除$n$行。</li>
-<li><code>x</code> - 向后删除一个字符，相当于<code>del</code>按键。如果要连续删除多个字符，则输入<code>nx</code>，即可删除$n$个。</li>
-<li><code>X</code> -向前删除一个字符， 相当于<code>Backspace</code>按键。同理<code>nX</code>。</li>
-</ul>
-</li>
-<li><p><strong>复制(yank)</strong></p>
-<p>我们如果需要复制文本，那么需要将光标放到你想要复制的地方，然后根据需求按下相应命令即可。</p>
-<ul>
-<li><p><code>y</code> -复制选中的文本（选中文本在视图模式中会讲到）。</p>
-</li>
-<li><p><code>yy</code> -复制当前行，包括换行符。</p>
-</li>
-<li><p><code>&lt;number&gt;yy</code> -复制从光标所在的当前行开始的number行文本。</p>
-<p>例如<code>3yy</code>即可复制从当前行开始的$3$行文本。</p>
-</li>
-<li><p><code>y$</code> -复制从光标位置到行尾的文本。</p>
-</li>
-<li><p><code>y^</code> -复制从光标位置到行首的文本。 </p>
-</li>
-<li><p><code>yw</code> -复制到下一个词的开头。</p>
-</li>
-<li><p><code>yiw</code> - 复制当前词。</p>
-</li>
-<li><p><code>y%</code> -复制匹配符号范围的内容。默认支持的符号对为<code>()</code>,<code>{}</code>,<code>[]</code>。这个在复制括号内容时，非常有用。</p>
-</li>
-<li><p><code>yG</code> -复制游标所在行到最后一行的行的所有数据。</p>
-</li>
-<li><p><code>ynG</code> -n为数组，复制游标所在行到第$n$行的所有数据。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>剪切(delete)</strong></p>
-<p>这个命令正常来说也可以作删除用。剪切文本时将光标移动到想要的位置，根据需求按下相应命令即可。</p>
-<ul>
-<li><p><code>d</code> -剪切选中的文本。</p>
-</li>
-<li><p><code>dd</code> -剪切当前行，包括换行符等。</p>
-</li>
-<li><p><code>&lt;number&gt;dd</code> -剪切从光标位置所在的行开始的number行文本。</p>
-</li>
-<li><p><code>d$</code> - 剪切从光标位置到行尾的内容。</p>
-</li>
-<li><p>…不难发现，这些命令和复制差不多，就是将<code>y</code>换成<code>d</code>。这里就不再做阐述了。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>粘贴(put)</strong></p>
-<p>先将光标移动到想要粘贴的位置，然后按<code>p</code>键即可将剪贴板的内容复制到当前光标后面。</p>
-<p>当然，大写的<code>P</code>则是复制到光标位置前面。</p>
-</li>
-<li><p><strong>其他常用操作</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">J</td>
-<td align="center">将光标所在行与下一行的数据结合成同一行</td>
-</tr>
-<tr>
-<td align="center"><code>gg=G</code></td>
-<td align="center">将全文代码格式化</td>
-</tr>
-<tr>
-<td align="center">u</td>
-<td align="center">撤销。(常用)</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl+r</code></td>
-<td align="center">取消撤销。(常用)</td>
-</tr>
-<tr>
-<td align="center">这个 <code>u </code>与 <code>Ctrl+r</code> 是很常用的指令！一个是复原，另一个则是重做一次～ 利用这两个功能按键，你的编辑，嘿嘿！很快乐的啦！</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><code>.</code></td>
-<td align="center">不要怀疑！这就是小数点！意思是重复前一个动作的意思。 如果你想要重复删除、重复贴上等等动作，按下小数点『.』就好了！ (常用)</td>
-</tr>
-<tr>
-<td align="center"><code>n</code></td>
-<td align="center">重复前一个查找操作（常用）</td>
-</tr>
-<tr>
-<td align="center"><code>N</code></td>
-<td align="center">反向重复前一个查找操作（常用）</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>其他的不常用操作这里不作列举。</p>
-<p>我们可以通过方向键操作光标位置，注意linux中的方向键可以通过<code>hjkl</code>分别代表左下上右。这里给出移动光标的方法表格：</p>
-<table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">h 或 向左箭头键(←)</td>
-<td align="center">光标向左移动一个字符</td>
-</tr>
-<tr>
-<td align="center">j 或 向下箭头键(↓)</td>
-<td align="center">光标向下移动一个字符</td>
-</tr>
-<tr>
-<td align="center">k 或 向上箭头键(↑)</td>
-<td align="center">光标向上移动一个字符</td>
-</tr>
-<tr>
-<td align="center">l 或 向右箭头键(→)</td>
-<td align="center">光标向右移动一个字符</td>
-</tr>
-<tr>
-<td align="center">如果你将右手放在键盘上的话，你会发现 hjkl 是排列在一起的，因此可以使用这四个按钮来移动光标。 如果想要进行多次移动的话，例如向下移动 30 行，可以使用 “30j” 或 “30↓” 的组合按键， 亦即加上想要进行的次数(数字)后，按下动作即可！</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl] + f</code></td>
-<td align="center">屏幕『向下』移动一页，相当于 [Page Down]按键 (常用)</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + b</code></td>
-<td align="center">屏幕『向上』移动一页，相当于 [Page Up] 按键 (常用)</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + d</code></td>
-<td align="center">屏幕『向下』移动半页</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl] + u</code></td>
-<td align="center">屏幕『向上』移动半页</td>
-</tr>
-<tr>
-<td align="center"><code>+</code></td>
-<td align="center">光标移动到非空格符的下一行行首</td>
-</tr>
-<tr>
-<td align="center"><code>-</code></td>
-<td align="center">光标移动到非空格符的上一行行首</td>
-</tr>
-<tr>
-<td align="center"><code>n&lt;space&gt;</code></td>
-<td align="center">那个 n 表示『数字』，例如 20 。按下数字后再按空格键，光标会向右移动这一行的 n 个字符。例如 20<space> 则光标会向后面移动 20 个字符距离。</space></td>
-</tr>
-<tr>
-<td align="center">0 或功能键``Home`</td>
-<td align="center">这是数字『 0 』：移动到这一行的最前面字符处 (常用)</td>
-</tr>
-<tr>
-<td align="center">$ 或功能键``End`</td>
-<td align="center">移动到这一行的最后面字符处(常用)</td>
-</tr>
-<tr>
-<td align="center"><code>H</code></td>
-<td align="center">光标移动到这个屏幕的最上方那一行的第一个字符</td>
-</tr>
-<tr>
-<td align="center"><code>M</code></td>
-<td align="center">光标移动到这个屏幕的中央那一行的第一个字符</td>
-</tr>
-<tr>
-<td align="center"><code>L</code></td>
-<td align="center">光标移动到这个屏幕的最下方那一行的第一个字符</td>
-</tr>
-<tr>
-<td align="center"><code>G</code></td>
-<td align="center">移动到这个档案的最后一行(常用)</td>
-</tr>
-<tr>
-<td align="center"><code>:n</code>或<code>nG</code></td>
-<td align="center">n 为数字。移动到这个档案的第 n 行。例如 20G 则会移动到这个档案的第 20 行(可配合 :set nu)</td>
-</tr>
-<tr>
-<td align="center"><code>gg</code></td>
-<td align="center">移动到这个档案的第一行，相当于 1G 啊！ (常用)</td>
-</tr>
-<tr>
-<td align="center"><code>n&lt;Enter&gt;</code></td>
-<td align="center">n 为数字。光标向下移动 n 行(常用)</td>
-</tr>
-<tr>
-<td align="center"><code>f{char}</code></td>
-<td align="center">光标跳转到光标所在行从光标开始之后的<code>char</code>字符处。即从光标位置到该行尾检索<code>char</code>字符，光标位置前的不处理</td>
-</tr>
-<tr>
-<td align="center"><code>F{char}</code></td>
-<td align="center">光标跳转到光标所在行从光标开始之前的<code>char</code>字符处。即从行开头到光标处检索<code>char</code>字符，光标位置前的不处理</td>
-</tr>
-<tr>
-<td align="center"><code>W</code>或者<code>w</code>（大小写均可）</td>
-<td align="center">跳转到下一个单词的开头。支持数字前缀</td>
-</tr>
-<tr>
-<td align="center"><code>b</code>或者<code>B</code>（大小写均可）</td>
-<td align="center">跳转到上一个单词的开头。支持数字前缀。</td>
-</tr>
-<tr>
-<td align="center"><code>{</code></td>
-<td align="center">光标跳转到段首</td>
-</tr>
-<tr>
-<td align="center"><code>}</code></td>
-<td align="center">光标跳转到段尾</td>
-</tr>
-<tr>
-<td align="center"><code>^</code></td>
-<td align="center">光标跳转到软行首。即该行的最早非空格位置字符。</td>
-</tr>
-<tr>
-<td align="center"><code>E</code>或<code>e</code>（大小写均可）</td>
-<td align="center">移动到词尾。</td>
-</tr>
-<tr>
-<td align="center"><code>(</code></td>
-<td align="center">句首</td>
-</tr>
-<tr>
-<td align="center"><code>)</code></td>
-<td align="center">下一句首</td>
-</tr>
-<tr>
-<td align="center"><code>%</code></td>
-<td align="center">括号匹配。</td>
-</tr>
-</tbody></table>
-<p>正常模式只有一些基本的命令，因此我们需要靠命令模式来输入更多的命令。</p>
-<h3 id="2-2-2-插入模式-Insert-mode"><a href="#2-2-2-插入模式-Insert-mode" class="headerlink" title="2.2.2 插入模式(Insert-mode)"></a>2.2.2 插入模式(Insert-mode)</h3><p>由上相信大家应该知道怎么由正常模式进入输入模式，即按下<code>i</code>(insert)即可进入插入模式。</p>
-<p>在插入模式中，操作和正常的文本编辑器差不多，这里不作叙述。给出对应的快捷键操作表。</p>
-<table>
-<thead>
-<tr>
-<th align="center">快捷键</th>
-<th align="center">功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>Ctrl + m</code>或者<code>Ctrl + j</code></td>
-<td align="center">开启新行</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + e</code></td>
-<td align="center">插入光标下的字符</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + y</code></td>
-<td align="center">插入光标上的字符</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + a</code></td>
-<td align="center">插入上次插入的文本</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + @</code></td>
-<td align="center">插入上次插入的文本并结束插入模式</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + w</code></td>
-<td align="center">删除光标前的一个单词</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + u</code></td>
-<td align="center">删除当前行的所有字符</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + T</code></td>
-<td align="center">在当前行首插入一个移位宽度的缩进</td>
-</tr>
-<tr>
-<td align="center"><code>Ctrl + D</code></td>
-<td align="center">从当前行首删除一个位移宽度的缩进</td>
-</tr>
-</tbody></table>
-<h3 id="2-2-3-命令模式-Command-mode"><a href="#2-2-3-命令模式-Command-mode" class="headerlink" title="2.2.3 命令模式(Command -mode)"></a>2.2.3 命令模式(Command -mode)</h3><p>我们在一般命令模式下按下<code>:/?</code>这三个字母中的任意一个就可以进入命令行模式了，命令行在最下面，可以进行查找、替换、保存、退出、配置编译器等操作。需要注意的就是我们每执行完一个命令之后就会回到正常模式，所以在需要操作的时候一定要输入<code>:/?</code>这三个字母中的其中一个。</p>
-<p>当然输入三个字母进入实现的命令是不一样的，这里给出具体操作。</p>
-<ul>
-<li><p><code>/word</code> -向光标之下（向后搜索）寻找第一个值为word的字符串。</p>
-</li>
-<li><p><code>?word</code> -向光标之上（向前搜索）寻找第一个值为word的字符串。</p>
-</li>
-<li><p><code>:n1,n2s/word1/word2/g</code> -n1与n2为数字，在第n1行与n2行之间寻找word1这个字符串，并将字符串替换为word2。</p>
-<p>如果在g后面加上<code>c</code>命令，即<code>:n1,n2s/word1/word2/gc</code>那么会在替换前要求用户确认。</p>
-</li>
-<li><p><code>:1,$s/word1/word2/g</code> -将全文的word1替换成word2。</p>
-<p>同理，如果在g后面加上c命令，也会要求确认。</p>
-</li>
-<li><p><code>:w</code> -保存。</p>
-</li>
-<li><p><code>:w!</code> -强制保存，当文件属性为只读时强制写入。不过这还是跟你对该文档的权限有关。</p>
-</li>
-<li><p><code>:q</code> -退出vim。</p>
-</li>
-<li><p><code>:q!</code> -强制退出vim。</p>
-</li>
-<li><p><code>:wq</code> -保存并退出。</p>
-</li>
-<li><p><code>:set paste</code> -设置成粘贴模式，取消代码自动缩进。</p>
-</li>
-<li><p><code>:set nopaste</code> -取消粘贴模式，开启代码自动缩进。</p>
-</li>
-<li><p><code>:set nu</code> -显示行号。</p>
-</li>
-<li><p><code>set nonu</code> -隐藏行号。</p>
-</li>
-<li><p><code>:noh</code> -关闭查找关键词高亮。</p>
-</li>
-</ul>
-<h3 id="2-2-4-可视模式-Visual-mode"><a href="#2-2-4-可视模式-Visual-mode" class="headerlink" title="2.2.4 可视模式(Visual-mode)"></a>2.2.4 可视模式(Visual-mode)</h3><p>这个模式存在感很低，有的甚至将它归结为正常模式。因为进入可视模式最直接的一个目的就是选中区域，然后再这个区域上进行操作，例如删除，替换等。不过，我认为这个模式异常重要，因为技巧性特别多。用好了这个模式，效率能大大的提高。</p>
-<ul>
-<li><p><strong>如何选中一块区域？</strong></p>
-<p>在vim中有三种激活可视模式并选择一块区域的方法：</p>
-<table>
-<thead>
-<tr>
-<th align="center">模式类型</th>
-<th align="center">激活方式</th>
-<th align="center">选择效果</th>
-<th align="center">左下角提示（即提示你当前处于何种模式）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">字符文本</td>
-<td align="center"><code>v</code>(小写)</td>
-<td align="center">逐个字符选择文本</td>
-<td align="center"><code>VISUAL</code></td>
-</tr>
-<tr>
-<td align="center">行文本</td>
-<td align="center"><code>V</code>(大写)</td>
-<td align="center">逐行选择文本</td>
-<td align="center"><code>VISUAL LINE</code></td>
-</tr>
-<tr>
-<td align="center">块文本</td>
-<td align="center"><code>Ctrl + v</code></td>
-<td align="center">按照块的方式选择文本</td>
-<td align="center"><code>VISUAL BLOCK</code></td>
-</tr>
-</tbody></table>
-<p>可能看着有点懵。我们来解释一下，</p>
-<ul>
-<li>对于字符文本选择，实际上就是从当前光标位置开始，通过方向键去逐个字符连续选取文本，和我们在平常的文本编辑器中按住<code>shift</code>键移动方向键选取功能相同；</li>
-<li>对于行文本选择，那么也是从当前光标位置开始选择，通过方向键去逐行连续选取文本，和上一个区别在于粒度不一样，这个方式选择的最小单位是行；</li>
-<li>而对于块文本选择为最强大的选择模式，因为前面两种选择具有局限性，这个模式它可以完全无视行的存在，可以在文本中按照需要的区域自由u许纳泽。</li>
-</ul>
-<p>我们来看一个例子：</p>
-<p><img src="https://img-blog.csdnimg.cn/9c0011eaa813465ead07b7b22a18dadf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAdW5pcXVlX3B1cnN1aXQ=,size_20,color_FFFFFF,t_70,g_se,x_16"></p>
-<p>假设我们要选择<code>Hello,Linux</code>，那么使用字符文本选择我们只需要将光标移动到<code>H</code>处，然后进入字符文本选择模式，再通过方向键选中即可。块文本选择同理操作即可。</p>
-</li>
-<li><p><strong>如何快速选择目标区域？</strong></p>
-<p>如果通过以上模式而不使用快捷键选取，那么效率很低。而在正常模式中，我们已经介绍了很多快速移动光标的命令，而在可视模式下，这些快速移动光标的命令也是可以使用的。</p>
-</li>
-<li><p>如何重复选择目标区域?</p>
-<p>可以使用<code>gv</code>命令来重新选中之前选中的目标区域。</p>
-</li>
-<li><p>对选中的区域进行操作</p>
-<table>
-<thead>
-<tr>
-<th align="center">命令</th>
-<th align="center">命令效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>d</code></td>
-<td align="center">删除选中文本</td>
-</tr>
-<tr>
-<td align="center"><code>c</code></td>
-<td align="center">修改选中文本</td>
-</tr>
-<tr>
-<td align="center"><code>r</code></td>
-<td align="center">替换选中文本</td>
-</tr>
-<tr>
-<td align="center"><code>I</code></td>
-<td align="center">在选中文本前插入</td>
-</tr>
-<tr>
-<td align="center"><code>A</code></td>
-<td align="center">在选中文本后插入</td>
-</tr>
-<tr>
-<td align="center"><code>gu</code></td>
-<td align="center">选中区域转为小写</td>
-</tr>
-<tr>
-<td align="center"><code>gU</code></td>
-<td align="center">选中区域转为大写</td>
-</tr>
-<tr>
-<td align="center"><code>g~</code></td>
-<td align="center">大小写互调</td>
-</tr>
-<tr>
-<td align="center"><code>&gt;</code></td>
-<td align="center">向右缩进一个单位</td>
-</tr>
-<tr>
-<td align="center"><code>&lt;</code></td>
-<td align="center">向左缩进一个单位</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<h2 id="2-3-快捷键速览图"><a href="#2-3-快捷键速览图" class="headerlink" title="2.3 快捷键速览图"></a>2.3 快捷键速览图</h2><p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/20190731151200140.jpg"></p>
-<h1 id="3-参考文献"><a href="#3-参考文献" class="headerlink" title="3 参考文献"></a>3 参考文献</h1><p><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/10/tmux.html">Tmux 使用教程-阮一峰</a></p>
-<p><a target="_blank" rel="noopener" href="http://louiszhai.github.io/2017/09/30/tmux/#%E5%AF%BC%E8%AF%BB">Tmux使用手册-路易斯</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/98384704">tmux使用教程-小可七</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.acwing.com/activity/content/introduction/57/">y总Linux基础课</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/68111471">精通 VIM ，此文就够了-zempty</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-vim.html">Linux vi/vim - runoob.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39457834/article/details/103039558">vim编辑器 莫迟</a></p>
-<p>由于作者有限，本文仅为博主总结整理以供学习记录，如有侵权或者问题请指出。</p>
 
                 
             </div>
@@ -1311,7 +691,7 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://unique-pure.github.io/2022/01/21/tmux-he-vim/">http://unique-pure.github.io/2022/01/21/tmux-he-vim/</a>
+                    <a href="http://unique-pure.github.io/2020/07/05/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-wu-tian/">http://unique-pure.github.io/2020/07/05/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-wu-tian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1349,16 +729,24 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/%E4%BA%8C%E5%88%86/">
+                                    <span class="chip bg-color">二分</span>
                                 </a>
                             
-                                <a href="/tags/tmux/">
-                                    <span class="chip bg-color">tmux</span>
+                                <a href="/tags/leetcode/">
+                                    <span class="chip bg-color">leetcode</span>
                                 </a>
                             
-                                <a href="/tags/vim/">
-                                    <span class="chip bg-color">vim</span>
+                                <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
+                                    <span class="chip bg-color">前缀和</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                                    <span class="chip bg-color">滑动窗口</span>
+                                </a>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -1529,7 +917,7 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
         repo: 'commentRes',
         owner: 'unique-pure',
         admin: "unique-pure",
-        id: '2022-01-21T00-00-00',
+        id: '2020-07-05T00-00-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1563,13 +951,13 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/01/21/linux-chang-yong-wen-jian-guan-li-ming-ling/">
+                <a href="/2020/07/27/floyd/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Linux常用文件管理命令">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Floyd算法详解">
                         
-                        <span class="card-title">Linux常用文件管理命令</span>
+                        <span class="card-title">Floyd算法详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1580,14 +968,14 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
-                                    开发
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -1597,8 +985,12 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/Floyd/">
+                        <span class="chip bg-color">Floyd</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/">
+                        <span class="chip bg-color">最短路</span>
                     </a>
                     
                 </div>
@@ -1612,13 +1004,13 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/10/07/di-45-jie-icpc-ya-zhou-qu-yu-sai-ji-nan-zhan-ti-jie/">
+                <a href="/2020/07/04/suan-fa-xue-xi-ji-hua/suan-fa-ji-chu/di-si-tian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="第45届ICPC亚洲区域赛济南站题解">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="算法学习计划基础篇——第四天">
                         
-                        <span class="card-title">第45届ICPC亚洲区域赛济南站题解</span>
+                        <span class="card-title">算法学习计划基础篇——第四天</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1629,7 +1021,7 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
                             </span>
                         <span class="publish-author">
                             
@@ -1646,8 +1038,12 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ICPC/">
-                        <span class="chip bg-color">ICPC</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
                     </a>
                     
                     <a href="/tags/C/">
@@ -1819,6 +1215,13 @@ tmux swap-pane -R<span aria-hidden="true" class="line-numbers-rows"><span></span
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 
