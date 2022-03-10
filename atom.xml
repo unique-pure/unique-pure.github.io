@@ -50,6 +50,35 @@
   </entry>
   
   <entry>
+    <title>力扣每日一题——得分最高的最小轮调</title>
+    <link href="http://unique-pure.github.io/2022/03/09/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220309/"/>
+    <id>http://unique-pure.github.io/2022/03/09/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220309/</id>
+    <published>2022-03-08T16:00:00.000Z</published>
+    <updated>2022-03-10T13:07:46.037Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1 题目描述&quot;&gt;&lt;/a&gt;1 题目描述&lt;/h1&gt;&lt;p&gt;给你一个数组 &lt;code&gt;nums&lt;/code&gt;，我们可以将它按一个非负整数 &lt;code&gt;k&lt;/code&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
+    
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
+    <category term="动态规划" scheme="http://unique-pure.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    
+  </entry>
+  
+  <entry>
     <title>力扣每日一题——蜡烛之间的盘子</title>
     <link href="http://unique-pure.github.io/2022/03/08/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220308/"/>
     <id>http://unique-pure.github.io/2022/03/08/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220308/</id>
@@ -546,33 +575,6 @@
     <category term="Prim" scheme="http://unique-pure.github.io/tags/Prim/"/>
     
     <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Floyd算法详解</title>
-    <link href="http://unique-pure.github.io/2020/07/27/floyd/"/>
-    <id>http://unique-pure.github.io/2020/07/27/floyd/</id>
-    <published>2020-07-26T16:00:00.000Z</published>
-    <updated>2022-03-05T01:33:49.114Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Floyd算法（邻接矩阵与邻接表实现）&quot;&gt;&lt;a href=&quot;#Floyd算法（邻接矩阵与邻接表实现）&quot; class=&quot;headerlink&quot; title=&quot;Floyd算法（邻接矩阵与邻接表实现）&quot;&gt;&lt;/a&gt;Floyd算法（邻接矩阵与邻接表实现）&lt;/h1&gt;&lt;h2</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Floyd" scheme="http://unique-pure.github.io/tags/Floyd/"/>
-    
-    <category term="最短路" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
   </entry>
   
