@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-10T07:07:12.912Z</updated>
+  <updated>2022-03-11T05:04:30.061Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>力扣每日一题——统计最高分的节点数目</title>
+    <link href="http://unique-pure.github.io/2022/03/11/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220311/"/>
+    <id>http://unique-pure.github.io/2022/03/11/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220311/</id>
+    <published>2022-03-10T16:00:00.000Z</published>
+    <updated>2022-03-11T05:04:30.061Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1 题目描述&quot;&gt;&lt;/a&gt;1 题目描述&lt;/h1&gt;&lt;p&gt;给你一棵根节点为 &lt;code&gt;0&lt;/code&gt; 的 &lt;strong&gt;二叉树&lt;/strong&gt; ，它总共有</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
+    
+    <category term="树" scheme="http://unique-pure.github.io/tags/%E6%A0%91/"/>
+    
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
+    <category term="dfs" scheme="http://unique-pure.github.io/tags/dfs/"/>
+    
+  </entry>
   
   <entry>
     <title>力扣每日一题——N叉树的前序遍历</title>
@@ -544,35 +575,6 @@
     <category term="最短路" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
     
     <category term="Dijkstra" scheme="http://unique-pure.github.io/tags/Dijkstra/"/>
-    
-    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Prim算法详解</title>
-    <link href="http://unique-pure.github.io/2020/07/29/prim/"/>
-    <id>http://unique-pure.github.io/2020/07/29/prim/</id>
-    <published>2020-07-29T03:34:35.000Z</published>
-    <updated>2022-03-10T07:05:48.579Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Prim算法&quot;&gt;&lt;a href=&quot;#Prim算法&quot; class=&quot;headerlink&quot; title=&quot;Prim算法&quot;&gt;&lt;/a&gt;Prim算法&lt;/h1&gt;&lt;h2 id=&quot;1-最小生成树（Minimum-Spanning-Tree-MST）&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="最小生成树" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
-    
-    <category term="Prim" scheme="http://unique-pure.github.io/tags/Prim/"/>
     
     <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
     
