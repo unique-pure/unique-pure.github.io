@@ -6,7 +6,7 @@
   <link href="http://unique-pure.github.io/atom.xml" rel="self"/>
   
   <link href="http://unique-pure.github.io/"/>
-  <updated>2022-03-11T05:04:30.061Z</updated>
+  <updated>2022-03-13T03:02:02.606Z</updated>
   <id>http://unique-pure.github.io/</id>
   
   <author>
@@ -15,6 +15,70 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>力扣每日一题——UTF-8 编码验证</title>
+    <link href="http://unique-pure.github.io/2022/03/13/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220313/"/>
+    <id>http://unique-pure.github.io/2022/03/13/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220313/</id>
+    <published>2022-03-12T16:00:00.000Z</published>
+    <updated>2022-03-13T03:02:02.606Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1 题目描述&quot;&gt;&lt;/a&gt;1 题目描述&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="位运算" scheme="http://unique-pure.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
+    
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
+    <category term="模拟" scheme="http://unique-pure.github.io/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>力扣每日一题——N叉树的后序遍历</title>
+    <link href="http://unique-pure.github.io/2022/03/12/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220312/"/>
+    <id>http://unique-pure.github.io/2022/03/12/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220312/</id>
+    <published>2022-03-11T16:00:00.000Z</published>
+    <updated>2022-03-13T02:45:51.730Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1 题目描述&quot;&gt;&lt;/a&gt;1 题目描述&lt;/h1&gt;&lt;p&gt;给定一个 n 叉树的根节点  &lt;code&gt;root&lt;/code&gt; ，返回 其节点值的</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
+    
+    <category term="递归" scheme="http://unique-pure.github.io/tags/%E9%80%92%E5%BD%92/"/>
+    
+    <category term="树" scheme="http://unique-pure.github.io/tags/%E6%A0%91/"/>
+    
+    <category term="迭代" scheme="http://unique-pure.github.io/tags/%E8%BF%AD%E4%BB%A3/"/>
+    
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>力扣每日一题——统计最高分的节点数目</title>
@@ -52,7 +116,7 @@
     <link href="http://unique-pure.github.io/2022/03/10/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220310/"/>
     <id>http://unique-pure.github.io/2022/03/10/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220310/</id>
     <published>2022-03-09T16:00:00.000Z</published>
-    <updated>2022-03-10T07:07:12.912Z</updated>
+    <updated>2022-03-13T02:38:23.436Z</updated>
     
     
       
@@ -517,64 +581,6 @@
     
     
     <category term="数位DP" scheme="http://unique-pure.github.io/tags/%E6%95%B0%E4%BD%8DDP/"/>
-    
-    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kruskal算法详解</title>
-    <link href="http://unique-pure.github.io/2020/08/11/kruskal/"/>
-    <id>http://unique-pure.github.io/2020/08/11/kruskal/</id>
-    <published>2020-08-10T16:00:00.000Z</published>
-    <updated>2022-03-10T07:05:33.211Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Kruskal算法&quot;&gt;&lt;a href=&quot;#Kruskal算法&quot; class=&quot;headerlink&quot; title=&quot;Kruskal算法&quot;&gt;&lt;/a&gt;Kruskal算法&lt;/h1&gt;&lt;h2 id=&quot;1、简介&quot;&gt;&lt;a href=&quot;#1、简介&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="Kruskal" scheme="http://unique-pure.github.io/tags/Kruskal/"/>
-    
-    <category term="最小生成树" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/"/>
-    
-    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Dijkstra算法详解</title>
-    <link href="http://unique-pure.github.io/2020/07/29/dijkstra/"/>
-    <id>http://unique-pure.github.io/2020/07/29/dijkstra/</id>
-    <published>2020-07-29T08:15:34.000Z</published>
-    <updated>2022-03-10T07:05:09.412Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;dijkstra算法详解&quot;&gt;&lt;a href=&quot;#dijkstra算法详解&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="最短路" scheme="http://unique-pure.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
-    
-    <category term="Dijkstra" scheme="http://unique-pure.github.io/tags/Dijkstra/"/>
     
     <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
     
