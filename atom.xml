@@ -48,6 +48,87 @@
   </entry>
   
   <entry>
+    <title>力扣每日一题——统计按位或能得到最大值的子集数目</title>
+    <link href="http://unique-pure.github.io/2022/03/14/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220315/"/>
+    <id>http://unique-pure.github.io/2022/03/14/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220315/</id>
+    <published>2022-03-13T16:00:00.000Z</published>
+    <updated>2022-03-15T07:06:47.816Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-题目描述&quot;&gt;&lt;a href=&quot;#1-题目描述&quot; class=&quot;headerlink&quot; title=&quot;1 题目描述&quot;&gt;&lt;/a&gt;1 题目描述&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
+    
+    
+    <category term="位运算" scheme="http://unique-pure.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+    <category term="leetcode" scheme="http://unique-pure.github.io/tags/leetcode/"/>
+    
+    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
+    
+    <category term="模拟" scheme="http://unique-pure.github.io/tags/%E6%A8%A1%E6%8B%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一章 操作系统概论</title>
+    <link href="http://unique-pure.github.io/2022/03/14/zhuan-ye-xue-xi/cao-zuo-xi-tong/di-yi-zhang-cao-zuo-xi-tong-gai-lun/"/>
+    <id>http://unique-pure.github.io/2022/03/14/zhuan-ye-xue-xi/cao-zuo-xi-tong/di-yi-zhang-cao-zuo-xi-tong-gai-lun/</id>
+    <published>2022-03-13T16:00:00.000Z</published>
+    <updated>2022-03-14T12:55:56.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-操作系统的基本概念&quot;&gt;&lt;a href=&quot;#1-操作系统的基本概念&quot; class=&quot;headerlink&quot; title=&quot;1 操作系统的基本概念&quot;&gt;&lt;/a&gt;1 操作系统的基本概念&lt;/h1&gt;&lt;h2 id=&quot;1-1-操作系统的概念&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://unique-pure.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="操作系统" scheme="http://unique-pure.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一章 操作系统概论</title>
+    <link href="http://unique-pure.github.io/2022/03/14/zhuan-ye-xue-xi/cao-zuo-xi-tong/di-er-zhang-jin-cheng-yu-xian-cheng/"/>
+    <id>http://unique-pure.github.io/2022/03/14/zhuan-ye-xue-xi/cao-zuo-xi-tong/di-er-zhang-jin-cheng-yu-xian-cheng/</id>
+    <published>2022-03-13T16:00:00.000Z</published>
+    <updated>2022-03-14T14:16:50.694Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-进程和线程&quot;&gt;&lt;a href=&quot;#1-进程和线程&quot; class=&quot;headerlink&quot; title=&quot;1 进程和线程&quot;&gt;&lt;/a&gt;1 进程和线程&lt;/h1&gt;&lt;h2 id=&quot;1-1-进程的概念和特征&quot;&gt;&lt;a href=&quot;#1-1-进程的概念和特征&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="学习" scheme="http://unique-pure.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="操作系统" scheme="http://unique-pure.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>力扣每日一题——UTF-8 编码验证</title>
     <link href="http://unique-pure.github.io/2022/03/13/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220313/"/>
     <id>http://unique-pure.github.io/2022/03/13/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220313/</id>
@@ -502,91 +583,6 @@
     
     
     <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>tmux与vim教程</title>
-    <link href="http://unique-pure.github.io/2022/01/21/tmux-he-vim/"/>
-    <id>http://unique-pure.github.io/2022/01/21/tmux-he-vim/</id>
-    <published>2022-01-20T16:00:00.000Z</published>
-    <updated>2022-03-10T07:06:21.214Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1-tmux使用教程&quot;&gt;&lt;a href=&quot;#1-tmux使用教程&quot; class=&quot;headerlink&quot; title=&quot;1 tmux使用教程&quot;&gt;&lt;/a&gt;1 tmux使用教程&lt;/h1&gt;&lt;h2 id=&quot;1-1-tmux安装&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="开发" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/"/>
-    
-    <category term="工具" scheme="http://unique-pure.github.io/categories/%E5%BC%80%E5%8F%91/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="Linux" scheme="http://unique-pure.github.io/tags/Linux/"/>
-    
-    <category term="tmux" scheme="http://unique-pure.github.io/tags/tmux/"/>
-    
-    <category term="vim" scheme="http://unique-pure.github.io/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第45届ICPC亚洲区域赛济南站题解</title>
-    <link href="http://unique-pure.github.io/2021/10/07/di-45-jie-icpc-ya-zhou-qu-yu-sai-ji-nan-zhan-ti-jie/"/>
-    <id>http://unique-pure.github.io/2021/10/07/di-45-jie-icpc-ya-zhou-qu-yu-sai-ji-nan-zhan-ti-jie/</id>
-    <published>2021-10-06T16:00:00.000Z</published>
-    <updated>2022-03-10T07:04:43.242Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;A-Matrix-Equation&quot;&gt;&lt;a href=&quot;#A-Matrix-Equation&quot; class=&quot;headerlink&quot; title=&quot;A.Matrix Equation&quot;&gt;&lt;/a&gt;A.Matrix</summary>
-        
-      
-    
-    
-    
-    <category term="题解" scheme="http://unique-pure.github.io/categories/%E9%A2%98%E8%A7%A3/"/>
-    
-    
-    <category term="ICPC" scheme="http://unique-pure.github.io/tags/ICPC/"/>
-    
-    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>位运算的奇技淫巧</title>
-    <link href="http://unique-pure.github.io/2021/05/28/wei-yun-suan/"/>
-    <id>http://unique-pure.github.io/2021/05/28/wei-yun-suan/</id>
-    <published>2021-05-28T05:12:04.000Z</published>
-    <updated>2022-03-10T07:05:02.003Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;位运算详解&quot;&gt;&lt;a href=&quot;#位运算详解&quot; class=&quot;headerlink&quot; title=&quot;位运算详解&quot;&gt;&lt;/a&gt;位运算详解&lt;/h1&gt;&lt;h2 id=&quot;1-位运算概述&quot;&gt;&lt;a href=&quot;#1-位运算概述&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="算法" scheme="http://unique-pure.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="位运算" scheme="http://unique-pure.github.io/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-    <category term="C++" scheme="http://unique-pure.github.io/tags/C/"/>
     
   </entry>
   

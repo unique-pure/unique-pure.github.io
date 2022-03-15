@@ -1,0 +1,1630 @@
+<!DOCTYPE HTML>
+
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="第一章 操作系统概论, 题解,Linux,Django,开发,后端,网站">
+    <meta name="description" content="1 操作系统的基本概念1.1 操作系统的概念计算机系统自下而上可大致分为4部分：硬件、操作系统、应用程序和用户。而操作系统管理各种计算机硬件，为应用程序提供基础，并充当计算机硬件与用户之间的中介。在计算机系统的运行过程中，操作系统提供了正确">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="baidu-site-verification" content="code-07D6YuJyG9" />
+    <meta name="google-site-verification" content="yhIzekdvYJBVj7jDHhopPxZFqy5xv4gIAnVNHUo3AVk" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>第一章 操作系统概论 | pursuit&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="pursuit's blog" type="application/atom+xml">
+</head>
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">pursuit&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">pursuit&#39;s blog</div>
+        <div class="logo-desc">
+            
+            自信的朝你梦想的方向前进，去过你所想要的生活
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/unique-pure" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/unique-pure" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第一章 操作系统概论</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                学习
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-03-14
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-03-14
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    21 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="1-操作系统的基本概念"><a href="#1-操作系统的基本概念" class="headerlink" title="1 操作系统的基本概念"></a>1 操作系统的基本概念</h1><h2 id="1-1-操作系统的概念"><a href="#1-1-操作系统的概念" class="headerlink" title="1.1 操作系统的概念"></a>1.1 操作系统的概念</h2><p>计算机系统自下而上可大致分为4部分：硬件、操作系统、应用程序和用户。而操作系统管理各种计算机硬件，为应用程序提供基础，并充当计算机硬件与用户之间的中介。在计算机系统的运行过程中，操作系统提供了正确使用这些资源的方法。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220309221406287.png" alt="计算机系统层次结构"></p>
+<p>综上所述，<strong>操作系统(Operating System, OS)：</strong>是指控制和管理整个计算机系统的硬件和软件资源，并合理地组织、调度计算机的工作和资源分配，以提供给用户和其他软件方便的接口和环境的软件集合；它是计算机系统中最基本的系统软件。</p>
+<h2 id="1-2-操作系统的特征"><a href="#1-2-操作系统的特征" class="headerlink" title="1.2 操作系统的特征"></a>1.2 操作系统的特征</h2><p>操作系统的基本特征包括<strong>并发、共享、虚拟和异步。</strong>这些概念对理解和掌握操作系统的核心至关重要。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220310114343747.png" alt="操作系统的特征"></p>
+<ol>
+<li><p><strong>并发（Concurrence）</strong></p>
+<blockquote>
+<p>并发是指两个或多个时间在同一时间间隔内发生。操作系统的并发性则是指计算机系统中同时存在多个运行的程序，因此具有处理和调度多个程序同时执行的能力。在操作系统中，引入进程的目的就是为了使程序能并发执行。</p>
+</blockquote>
+<p>注意同一时间间隔（并发）和同一时刻（并行）的区别。在多道程序环境下，一段时间内，宏观上有多道程序在同时执行，而在每个时刻，单处理机环境下实际仅能有一道程序执行，因此微观上这些程序仍是分时交替执行的。<font color="red">操作系统的并发性使通过分时得以实现的</font>。注意，并行性是指系统具有同时进行运算或操作的特性，在同一时刻能完成两种或两种以上的工作。并行性需要有相关硬件的支持，如多流水线或多处理机硬件环境。</p>
+<p>我们可以以一个现实生活中的直观例子来认识并发和并行的区别。例如，如果你在<code>9:00~9:10</code>仅吃面包，在<code>9:00~9:20</code>仅写字，在<code>9:20~9:30</code>仅吃面包，在<code>9:30~10:00</code>仅写字，那么在<code>9:00~10:00</code>吃面包和写字这两种行为就是并发执行的；那如果你在<code>9:00~10:00</code>左手吃面包，右手同时写字，那么这两个动作就是并行执行的。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220310114448354.png" alt="重要考点"></p>
+</li>
+<li><p><strong>共享（Sharing）</strong></p>
+<blockquote>
+<p>资源共享即共享，是指系统中的资源可供内存中多个并发执行的进程共同使用。共享可分为以下两种资源共享方式。</p>
+</blockquote>
+<p>（1）<strong>互斥共享方式</strong>：系统中的某些资源，如打印机、磁带机等，虽然可供多个进程使用，但为使得所打印或记录的结果不一致造成混淆，应规定在一段时间内只允许一个进程访问该资源。为此，当进程A访问某个资源时，必须先提出请求，若此时该资源空闲，则系统将之分配给进程A使用，此后若有其他进程也要访问资源时（只要A未用完）就必须等待。仅当进程A访问完并释放该资源后，才允许另一个进程对该资源进行访问。我们把这种资源共享方式称为互斥式共享，而把在一段时间内只允许一个进程访问的资源称为<strong>临界资源。</strong>计算机系统中的大多数物理设备以及某些软件中所用的栈、变量和表格，都属于临界资源，它们都要求被互斥地共享。</p>
+<p>（2）<strong>同时访问方式</strong>：系统中还有一类资源，这类资源允许在一段时间内由多个进程“同时”访问。这里说的“同时”通常是宏观上的，而在微观上，这些进程可能是交替地对该资源进行访问即“分时共享”的。<font color="red">可供多个进程“同时”访问的典型资源就是磁盘设备</font>，一些用重入码编写的文件也可以被“同时”共享，即允许若干个用户同时访问该文件。</p>
+<p><font color="red">注意，互斥共享要求一种资源在一段时间内只满足一个请求，否则就会出现严重的问题，而同时访问共享通常要求一个请求分几个时间片段间隔地完成，其效果与连续完成效果相同。</font></p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220310114551995.png" alt="实例"></p>
+<p>并发和共享是操作系统两个最基本的特征，两者互为存在的条件：①资源共享是以程序的并发为条件的，若系统不允许程序并发执行，则自然不存在资源共享问题；②若系统不能对资源共享实施有效的管理，则必将影响到程序并发执行，甚至根本无法并发执行。</p>
+</li>
+<li><p><strong>虚拟（Virtual）</strong></p>
+<p><font color="red">虚拟是指把一个物理上的实体变为若干逻辑上的对应物。</font>物理实体（前者）是实的，是实际存在的；而后者是虚的，是用户感觉上的事物。用于实现虚拟的技术，称为虚拟技术。操作系统中利用了多种虚拟技术来实现虚拟处理器、虚拟内存和虚拟外部设备等。</p>
+<p>虚拟处理器技术是通过多道程序设计技术，采用让多道程序并发执行的方法，来分时使用一个处理器的。此时，虽然只有一个处理器，但它能为多个用户服务，使每个终端用户都感觉有一个中央处理器（CPU）在专门为他服务。利用多道程序设计技术把一个物理上的CPU虚拟为多个逻辑上的CPU，称为虚拟处理器。</p>
+<p>操作系统的虚拟技术可归纳为：时分复用技术，如处理器的分时复用；空分复用技术，如虚拟存储器。</p>
+</li>
+<li><p><strong>异步（Asynchronism）</strong></p>
+<p><font color="red">多道程序环境允许多个程序并发执行，但由于资源有限，进程的执行并不是一贯到底的，而是走走停停的，它以不可预知的速度向前推进，这就是进程的异步性。</font></p>
+<p>异步性使得操作系统运行在一种随机环境下，可能导致进程产生与时间有关的错误，就像对全局变量的访问顺序不当会导致程序出错一样。然而，只要运行环境相同，操作系统就须保证多次运行进程后都能获得相同的结果。</p>
+</li>
+</ol>
+<h2 id="1-3-操作系统的目标和功能"><a href="#1-3-操作系统的目标和功能" class="headerlink" title="1.3 操作系统的目标和功能"></a>1.3 操作系统的目标和功能</h2><p>为了给多道程序提供良好的运行环境，操作系统应具有以下几方面的功能：<font color="red">处理机管理、存储器管理、设备管理和文件管理</font>。为了方便用户使用操作系统，还必须向用户提供接口。同时操作系统可用来扩充机器，以提供更方便的服务、更高的资源利用率。</p>
+<p>我们用一个直观的例子来理解这种情况，假设用户是雇主，操作系统是工人（用来操作机器），计算机是机器（由处理机、存储器、设备、文件几个部件构成），工人有熟练的技能，能够控制和协调各个部件的工作，这就是操作系统对资源的管理；同时，工人必须接收雇主的命令，这就是“接口”；有了工人，机器就能发挥更大的作用，因此工人就成了“扩充机器”。</p>
+<ol>
+<li><p><strong>操作系统作为计算机系统资源的管理者</strong></p>
+<p>（1）<strong>处理机管理</strong>：在多道程序环境下，处理机的分配和运行都以进程（或线程）为基本单位，因而对处理机的管理可归结为对进程的管理。<font color="red"> 进程管理的主要功能包括进程控制、进程同步、进程通信、死锁处理、处理机调度等</font>。</p>
+<p>（2）<strong>存储器管理</strong>：存储器管理是为了给多道程序的运行提供良好的环境，方便用户使用及提高内存的利用率，主要包括内存分配与回收、地址映射、内存保护与共享和内存扩充等功能。</p>
+<p>（3）<strong>文件管理</strong>：计算机中的信息都是以文件的形式存在的，操作系统中负责文件管理的部分称为文件系统。<font color="red">文件管理包括文件存储空间的管理、目录管理及文件读写管理和保护等</font>。</p>
+<p>（4）<strong>设备管理</strong>：设备管理的主要任务是完成用户的I/O请求，方便用户使用各种设备，并提高设备的利用率，主要包括缓冲管理、设备分配、设备处理和虚拟设备等功能。</p>
+<p>这些工作都由“工人”负责，“雇主”无须关注。</p>
+</li>
+<li><p><strong>操作系统作为用户与计算机硬件系统之间的接口</strong></p>
+<p>操作系统提供的接口主要分为两类：<font color="red">一类是命令接口，用户利用这些操作命令来组织和控制作业的执行；另一类是程序接口，编程人员可以使用它们来请求操作系统服务</font>。</p>
+<p>（1）<strong>命令接口</strong>： 使用命令接口进行作业控制的主要方式有两种，即联机控制方式和脱机控制方式。按作业控制方式的不同，可将命令接口分为联机命令接口和脱机命令接口。联机命令接口又称交互式命令接口，适用于分时或实时系统的接口，它由一组键盘操作命令组成。可以理解为：“雇主”说一句话，“工人”做一件事，并做出反馈，这就强调了交互性。脱机命令接口又称批处理命令接口，适用于批处理系统，它由一组作业控制命令组成。脱机用户不能直接干预作业的运行，而应事先用相应的作业控制命令写成一份作业操作说明书，连同作业一起提交给系统。可以理解为：“雇主”把要“工人”做的事写在清单上，“工人”按照清单命令逐条完成这些事，这就是批处理。</p>
+<p>（2）<strong>程序接口</strong>：<font color="red">程序接口由一组系统调用（也称广义指令）组成</font>。用户通过在程序中使用这些系统调用来请求操作系统为其提供服务，如使用各种外部设备、申请分配和回收内存及其他各种要求。严格来说，图形接口并不是操作系统的一部分，但图形接口所调用的系统调用命令是操作系统的一部分。</p>
+</li>
+<li><p><strong>操作系统实现了对计算机资源的扩充</strong></p>
+<p><font color="red">没有任何软件支持的计算机称为裸机</font>。它仅构成计算机系统的物质基础，而实际呈现在用户面前的计算机系统是经过若干层软件改造的计算机。裸机在里面，其外面是操作系统。操作系统所提供的资源管理功能和方便用户的各种服务功能，将裸机改造成功能更强、使用更方便的机器；因此，我们通常把覆盖了软件的机器称为扩充机器或虚拟机。</p>
+<p>“工人”操作机器，机器就有了更大的作用，于是“工人”便成了“扩充机器”。</p>
+</li>
+</ol>
+<h2 id="1-4-综合应用题"><a href="#1-4-综合应用题" class="headerlink" title="1.4 综合应用题"></a>1.4 综合应用题</h2><ol>
+<li><p>说明库函数与系统调用的区别和联系。</p>
+<blockquote>
+<p>库函数是语言或应用程序的一部分，可以运行在用户空间中。而系统调用是操作系统的一部分，是内核为用户提供的程序接口，运行在内核空间中，而且许多库函数都会使用系统调用来实现功能。未使用系统调用的库函数，其执行效率通常要比系统调用的高。因为使用系统调用时，需要上下文的切换及状态的转换（由用户态转向和心态）。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220314195616742.png" alt="系统调用和库函数的区别">**</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="2-操作系统发展历程"><a href="#2-操作系统发展历程" class="headerlink" title="2 操作系统发展历程"></a>2 操作系统发展历程</h1><h2 id="2-1-手工操作阶段（此阶段无操作系统）"><a href="#2-1-手工操作阶段（此阶段无操作系统）" class="headerlink" title="2.1 手工操作阶段（此阶段无操作系统）"></a>2.1 手工操作阶段（此阶段无操作系统）</h2><p>用户在计算机上算题的所有操作都需要人工干预。<font color="red">突出的两个缺点为：用户独占全机，虽然不会出现因资源已被其他用户占用而等待的现象，但资源利用率低；CPU等待手工操作，CPU的利用不充分。</font></p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220310211927191.png"></p>
+<p>唯一解决办法：用高速的机器代替相对较慢的手工操作来对作业进行控制。</p>
+<h2 id="2-2-批处理阶段（操作系统开始出现）"><a href="#2-2-批处理阶段（操作系统开始出现）" class="headerlink" title="2.2 批处理阶段（操作系统开始出现）"></a>2.2 批处理阶段（操作系统开始出现）</h2><p>为了解决人机矛盾及CPU和I/O设备之间速度不匹配的矛盾，出现了批处理系统。按发展历程又分为单道批处理系统、多道批处理系统（多道程序设计技术出现以后）。</p>
+<ol>
+<li><p><strong>单道批处理系统</strong></p>
+<p>系统对作业的处理是成批进行的，但内存中始终保持一道作业。主要特征有：</p>
+<ul>
+<li>自动性。在顺利的情况下，磁带上的一批作业能自动地逐个运行，而无须人工干预。</li>
+<li>顺序性。<font color="red">各道作业完成顺序与它们进入内存的顺序在正常情况下应该完全相同。</font></li>
+<li>单道性。内存中仅有一道程序运行，即监督程序每次从磁带上只调入程序进入内存运行。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220310212131764.png"></p>
+<p>面临的主要问题：每次主机内存只能放入一道作业，每当它在运行期间发出I/O请求后，高速的CPU便处于等待低速的I/O完成的状态。为了进一步提高资源的利用率和系统的吞吐量，引入了多道程序技术。</p>
+</li>
+<li><p><strong>多道批处理系统</strong></p>
+<p>多道程序设计技术允许多个程序同时进入内存并允许它们在CPU中交替地运行，这些程序共享系统中的各种硬/软件资源。例如当一道程序因I/O请求而暂定运行时，CPU便立即转去运行另一道程序。</p>
+<p>当然，多道批处理系统的设计与实现要比单道系统复杂很多，因为要充分利用各种资源，就涉及到各种资源的调度问题。主要特征有：</p>
+<ul>
+<li><strong>多道</strong>。计算机中同时存放多道相互独立的程序。</li>
+<li><strong>宏观上并行</strong>。同时进入系统的多道程序都处于运行过程中，即它们先后开始各自的运行，但都未运行完毕。</li>
+<li><strong>微观上串行</strong>。内存中的多道程序轮流占有CPU，交替执行。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220313194845432.png"></p>
+<p>在批处理系统中采用多道程序设计技术就形成了多道批处理操作系统。该系统把用户提交的作业成批地    送入计算机内存，然后由作业调度程序自由地选择作业运行。</p>
+</li>
+<li><p><strong>分时操作系统</strong></p>
+<p>所谓分时技术，是指把处理器的运行时间分成很短的时间片，按时间片轮流把处理器分给各联机作业使用。若某个作业在分配给它的时间片内不能完成计算，则该作业暂时停止运行，把处理器让给其他作业使用，等待下一轮再继续运行。</p>
+<p>分时操作系统是指多个用户通过终端同时共享一台主机，这些终端连接在主机上，用户可以同时与主机进行交互操作而互不干扰。分时系统也是支持多道程序设计的系统，但它不同于多道批处理系统。多道批处理是实现作业自动控制而无须人工干预的系统，而分时系统是实现人机交互的系统，这使得分时系统具有与批处理系统不同的特征。主要特征有：</p>
+<ul>
+<li>同时性。也称多路性。指允许多个终端用户同时使用一台计算机。</li>
+<li>交互性。用户能够方便地与系统进行人机对话。</li>
+<li>独立性。系统中多个用户可以彼此独立地进行操作，互不干扰，单个用户感受不到别人也在使用这台计算机，好像只有自己单独使用这台计算机一样。</li>
+<li>及时性。用户请求能在很短时间内获得相应（时间片轮转方式）。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220313200623019.png"></p>
+</li>
+<li><p><strong>实时操作系统</strong></p>
+<p>为了能在某个时间限制内完成一些紧急任务而不需要时间片排队，诞生了实时操作系统。在实时操作系统的控制下，计算机系统接收到外部信号后及时进行处理，并在严格的时限内处理完接收的事件。<font color="red">其主要特点是及时性和可靠性，但交互性不如分时系统</font>。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220313200831586.png" alt="实时系统情况分类"></p>
+</li>
+<li><p><strong>网络操作系统和</strong></p>
+<p>网络操作系统：是伴随着计算机网络的发展而诞生的，能把网络中各个计算机有机地结合起来，实现数据传送等功能，<font color="red">实现网络中各种资源的共享（如文件共享）和各台计算机之间的通信。</font>（如：Windows NT 就是一种典型的网络操作系统，网站服务器就可以使用）</p>
+</li>
+<li><p><strong>分布式操作系统</strong></p>
+<p><font color="red">主要特点是分布性和并行性。</font>系统中的各台计算机地位相同，任何工作都可以分布在这些计算机上，由它们并行、协同完成这个任务。</p>
+</li>
+<li><p><strong>个人计算机操作系统</strong></p>
+<p>目前使用最广泛的操作系统。常见的有Windows、Linux和Macintosh等。</p>
+</li>
+</ol>
+<h1 id="3-操作系统运行环境"><a href="#3-操作系统运行环境" class="headerlink" title="3 操作系统运行环境"></a>3 操作系统运行环境</h1><h2 id="3-1-处理器运行模式"><a href="#3-1-处理器运行模式" class="headerlink" title="3.1 处理器运行模式"></a>3.1 处理器运行模式</h2><p>计算机系统中，通常CPU执行两种不同性质的程序：操作系统内核程序（<font color="red">或简称内核，内核是操作系统中最重要最核心的部分，也是最接近硬件的部分。Docker仅需Linux内核</font>）和用户自编程序（即系统外层的应用程序，或简称“应用程序”）。对操作系统而言，这两种程序的作用不同，前者是后者的管理者，因此“管理程序”（即内核程序）要执行一些特权指令，而“被管理程序”（即用户自编程序）处于安全考虑不能执行这些指令。</p>
+<ul>
+<li>特权指令，是指不允许用户直接使用的指令。如I/O指令、置中断指令等。</li>
+<li>非特权指令，是指允许用户直接使用的指令，它不能直接访问系统中的软硬件资源，仅限于访问用户的地址空间，这也是为了防止用户程序对系统造成破坏。</li>
+</ul>
+<p>在具体实现上，将CPU的运行模式划分为用户态（目态）和核心态（又称管态、内核态）。<font color="red">处于用户态时，说明正在运行的是应用程序，此时只能执行非特权指令；处于内核态时，说明此时正在运行的是内核程序，此时可以执行特权指令。</font></p>
+<p>这个区分根据CPU中的一个寄存器：程序状态字寄存器（PSW），其中有一个二进制位，1表示“内核态”，0表示“用户态”。</p>
+<p>内核态 <code>-&gt;</code> 用户态：执行一条特权指令—修改PSW的标志位为“用户态”，这个动作意味着操作系统</p>
+<p>将主动让出CPU使用权。</p>
+<p>用户态<code>-&gt;</code>内核态：由“中断”引发，硬件自动完成变态过程，触发中断信号意味着操作系统将强行夺 </p>
+<p>回CPU的使用权。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220313203614901.png"></p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220313203741717.png"></p>
+<h2 id="3-2-中断和异常的概念"><a href="#3-2-中断和异常的概念" class="headerlink" title="3.2 中断和异常的概念"></a>3.2 中断和异常的概念</h2><p>由于系统不允许用户程序实现核心态的功能，而它们又必须使用这些功能。那么需要在核心态上建立一些“门”，以便用户态进入核心态。“中断”是让操作系统内核夺回CPU使用权的唯一途径，如果没有“中断”机制，那么一旦应用程序上CPU运行，CPU就会一直运行这个应用程序。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220313204615407.png" alt="中断的分类"></p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220313205952629.png" alt="中断机制的基本原理"></p>
+<h2 id="3-3-系统调用"><a href="#3-3-系统调用" class="headerlink" title="3.3 系统调用"></a>3.3 系统调用</h2><p><font color="red">所谓系统调用，是指用户在程序中调用操作系统所提供的一些子功能，系统调用可视为特殊的公共子程序。</font></p>
+<p>系统中的各种共享资源都由操作系统统一掌管，因此在用户程序中，凡是与资源有关的操作（如存储分配、进行I/O传输及管理文件等），都必须通过系统调用方式向操作系统提出服务请求，并由操作系统代为完成。</p>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220314195653167.png" alt="系统调用分类"></p>
+<h1 id="4-操作系统结构"><a href="#4-操作系统结构" class="headerlink" title="4 操作系统结构"></a>4 操作系统结构</h1><h2 id="4-1-分层法"><a href="#4-1-分层法" class="headerlink" title="4.1 分层法"></a>4.1 分层法</h2><p>分层法将操作系统分为若干层，其中最底层（层0）为硬件，最高层（层N）为用户接口，每层只能调用紧邻它的低层的功能和服务（单向依赖）。</p>
+<h2 id="4-2-模块化"><a href="#4-2-模块化" class="headerlink" title="4.2 模块化"></a>4.2 模块化</h2><p>模块化将操作系统按功能划分为若干具有独立性的模块。每个模块具有某方面的管理功能，并规定好各模块间的接口，使各模块之间能够通过接口进行通信。这种设计方法被称为模块—接口法。</p>
+<h2 id="4-3-宏内核和微内核"><a href="#4-3-宏内核和微内核" class="headerlink" title="4.3 宏内核和微内核"></a>4.3 宏内核和微内核</h2><p>从操作系统的内核来划分，可以分为宏内核（也称单内核或大内核）和微内核。</p>
+<p>宏内核是指将系统的主要功能模块都作为一个紧密联系的整体运行在核心态，从而为用户程序提供高性能的系统服务。因为各管理模块之间共享信息，能有效利用相互之间的有效特性，所以具有无可比拟的性能优势。</p>
+<p>而微内核是指将内核中最基本的功能保留在内核，而将那些不需要在核心态执行的功能移到用户态执行，从而降低内核的设计复杂性。那些移出内核的操作系统代码根据分层的原理被划分成若干服务程序，它们的执行相互独立，交互则都借助于微内核进行通信。</p>
+<h2 id="4-4-操作系统引导过程"><a href="#4-4-操作系统引导过程" class="headerlink" title="4.4 操作系统引导过程"></a>4.4 操作系统引导过程</h2><p>操作系统是一种程序，程序以数据的形式存放在硬盘中，通常分为多个区，一台计算机中又有多个或多种外部存储设备。操作系统引导是指计算机利用CPU运行特定程序，通过程序识别硬盘，识别磁盘分区，识别磁盘分区上的操作系统，最后通过程序启动操作系统，一环扣一环地完成上述过程。</p>
+<ol>
+<li>激活CPU。激活的CPU读取ROM的boot程序，将指令寄存器置为BIOS的第一条指令，即开始执行BIOS的指令。</li>
+<li>硬件自检。启动BIOS程序后，先进行硬件自检，检查硬件是否出现故障。如有故障，主板会发出不同含义的蜂鸣，启动终止；如无故障，屏幕会显示CPU、内存、硬盘等信息。</li>
+<li>加载带有操作系统的硬盘。硬件自检后，BIOS开始读取Boot Sequence，把控制权交给启动顺序排在第一位的存储设备，然后CPU将该存储设备引导扇区的内容加载到内存中。</li>
+<li>加载主引导记录MBR。注意到记录MBR的作用是告诉CPU去硬盘的哪个主分区去找操作系统。</li>
+<li>扫描硬盘分区表，并加载硬盘活动分区。</li>
+<li>加载分区引导记录PBR。其作用是寻找并激活分区根目录下用于引导操作系统的程序（启动管理器）。</li>
+<li>加载启动管理器。</li>
+<li>加载操作系统。</li>
+</ol>
+<h1 id="5-虚拟机"><a href="#5-虚拟机" class="headerlink" title="5 虚拟机"></a>5 虚拟机</h1><h2 id="5-1-虚拟机的基本概念"><a href="#5-1-虚拟机的基本概念" class="headerlink" title="5.1 虚拟机的基本概念"></a>5.1 虚拟机的基本概念</h2><p>虚拟机是一台逻辑计算机，是指利用特殊的虚拟化技术，通过隐藏特定计算平台的实际物理特性，为用户提供抽象的、统一的、模拟的计算环境。有两类虚拟化方法。</p>
+<ol>
+<li><p><strong>第一类虚拟机管理程序</strong></p>
+<p>从技术上讲，第一类虚拟机管理程序就像一个操作系统，因为它是唯一一个运行在最高特权级的程序。它在裸机上与逆行并具备多道程序功能。虚拟机管理程序向上层提供若干台虚拟机，这些虚拟机是裸机硬件的精确复制品。由于每台虚拟机都与裸机相同，所以可以在不同的虚拟机上运行任何不同的操作系统。</p>
+</li>
+<li><p><strong>第二类虚拟机管理程序</strong></p>
+<p>它是一个依赖于Windows、Linux等操作系统分配和调度资源的程序，很像一个普通的进程。第二类虚拟机管理程序仍然伪装成具有CPU和各种设备的完整计算机。VMware Workstation是首个X86平台上的第二类虚拟机管理程序。</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/unique-pure/PicLibrary/main/img/image-20220314205006950.png"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">pursuit</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://unique-pure.github.io/2022/03/14/zhuan-ye-xue-xi/cao-zuo-xi-tong/di-yi-zhang-cao-zuo-xi-tong-gai-lun/">http://unique-pure.github.io/2022/03/14/zhuan-ye-xue-xi/cao-zuo-xi-tong/di-yi-zhang-cao-zuo-xi-tong-gai-lun/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">pursuit</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '9df5ccb0d1f027d3397a',
+        clientSecret: 'c60a421119897ee3bccdbcb962f327f798fa1b70',
+        repo: 'commentRes',
+        owner: 'unique-pure',
+        admin: "unique-pure",
+        id: '2022-03-14T00-00-00',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/03/14/suan-fa-xue-xi-ji-hua/mei-ri-yi-ti/20220315/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="力扣每日一题——统计按位或能得到最大值的子集数目">
+                        
+                        <span class="card-title">力扣每日一题——统计按位或能得到最大值的子集数目</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%A2%98%E8%A7%A3/" class="post-category">
+                                    题解
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+                        <span class="chip bg-color">位运算</span>
+                    </a>
+                    
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A8%A1%E6%8B%9F/">
+                        <span class="chip bg-color">模拟</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/03/14/zhuan-ye-xue-xi/cao-zuo-xi-tong/di-er-zhang-jin-cheng-yu-xian-cheng/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="第一章 操作系统概论">
+                        
+                        <span class="card-title">第一章 操作系统概论</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: pursuit&#39;s blog<br />'
+            + '文章作者: pursuit<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="162077153"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='list'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">pursuit</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">71.5k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        window.setTimeout("calcSiteTime()",1000); // 每秒运行一次函数
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = 2020;
+                        var startMonth = 6;
+                        var startDate = 3;
+                        var startHour = 17;
+                        var startMinute = 20;
+                        var startSecond = 0;
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+                        var diffHours = Math.floor((diff / hours) - diffYears * 365 * 24 - diffDays * 24);
+                        var diffMinutes = Math.floor((diff / minutes) - diffYears * 365 * 24 * 60 - diffDays * 24 * 60 - diffHours * 60);
+                        var diffSeconds = Math.floor((diff / seconds) - diffYears * 365 * 24 * 60 * 60 - diffDays * 24 * 60 * 60 
+                        - diffHours * 60 * 60 - diffMinutes * 60);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) { // 是否为当前年份
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已安全运行 ' + diffYears + ' 年 ' + diffDays + ' 天 ' + diffHours + ' 时 '
+                                + diffMinutes + ' 分 ' + diffSeconds + ' 秒';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已安全運行 ' + diffYears + ' 年 ' + diffDays + ' 天 ' + diffDays + ' 天 ' + diffHours + ' 时'
+                                + diffMinutes + ' 分 ' + diffSeconds + ' 秒';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/unique-pure" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:unique.hzf@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+    <a href="https://twitter.com/UPursut" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/UPursut" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2825841950" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2825841950" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+    <a href="https://weibo.com/u/2087487905" class="tooltipped" target="_blank" data-tooltip="关注我的微博: https://weibo.com/u/2087487905" data-position="top" data-delay="50">
+        <i class="fab fa-weibo"></i>
+    </a>
+
+
+
+    <a href="https://www.zhihu.com/people/lang-dang-cheng-xing-jian-shang" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/lang-dang-cheng-xing-jian-shang" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura-half.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "d5c853b3"
+        });
+        daovoice('update');
+    </script>
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
